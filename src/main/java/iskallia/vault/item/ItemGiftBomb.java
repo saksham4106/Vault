@@ -48,7 +48,15 @@ public class ItemGiftBomb extends Item {
 
             if (!world.isRemote) {
                 ItemStack randomLoot = ModConfigs.GIFT_BOMB.randomLoot(giftBomb.variant);
-                player.dropItem(randomLoot, false, false);
+
+                while(randomLoot.getCount() > 0) {
+                    int amount = Math.min(randomLoot.getCount(), randomLoot.getMaxStackSize());
+                    ItemStack copy = randomLoot.copy();
+                    copy.setCount(amount);
+                    randomLoot.shrink(amount);
+                    player.dropItem(copy, false, false);
+                }
+
                 heldStack.shrink(1);
 
                 if (variant.ordinal != -1) {

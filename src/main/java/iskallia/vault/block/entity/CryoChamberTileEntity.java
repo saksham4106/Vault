@@ -28,8 +28,8 @@ import java.util.function.Supplier;
 public class CryoChamberTileEntity extends TileEntity implements ITickableTileEntity {
 
 	public static final Supplier<Generator> GENERATOR = Behaviour.register(Vault.id("generator"), Generator::new);
+	public static final Supplier<Miner> MINER = Behaviour.register(Vault.id("miner"), Miner::new);
 	public static final Supplier<Looter> LOOTER = Behaviour.register(Vault.id("looter"), Looter::new);
-	public static final Supplier<Buffer> BUFFER = Behaviour.register(Vault.id("buffer"), Buffer::new);
 
 	private Energy energyStorage = createEnergy();
 	private LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
@@ -184,7 +184,7 @@ public class CryoChamberTileEntity extends TileEntity implements ITickableTileEn
 		}
 	}
 
-	public static class Looter extends Behaviour {
+	public static class Miner extends Behaviour {
 		@Override
 		public void tick(World world, BlockPos pos, CryoChamberTileEntity te) {
 
@@ -202,7 +202,7 @@ public class CryoChamberTileEntity extends TileEntity implements ITickableTileEn
 		}
 	}
 
-	public static class Buffer extends Behaviour {
+	public static class Looter extends Behaviour {
 		@Override
 		public void tick(World world, BlockPos pos, CryoChamberTileEntity te) {
 
