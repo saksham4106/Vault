@@ -10,30 +10,13 @@ import net.minecraft.util.math.BlockPos;
 public class RenamingContainer extends Container {
 
     private RenameType type;
-    private int slot;
+    private String name;
     private BlockPos pos;
 
-    public RenamingContainer(int windowId) {
+    public RenamingContainer(int windowId, RenameType type, String name, BlockPos pos) {
         super(ModContainers.RENAMING_CONTAINER, windowId);
-        System.out.println("++-----------BLANK CONTAINER-----------++");
-    }
-
-    public RenamingContainer(int windowId, RenameType type, int slot) {
-        super(ModContainers.RENAMING_CONTAINER, windowId);
-        System.out.println("++-----------TRADER CORE-----------++");
-        System.out.println("Type: " + type);
-        System.out.println("Slot: " + slot);
         this.type = type;
-        this.slot = slot;
-
-    }
-
-    public RenamingContainer(int windowId, RenameType type, BlockPos pos) {
-        super(ModContainers.RENAMING_CONTAINER, windowId);
-        System.out.println("++-----------PLAYER STATUE-----------++");
-        System.out.println("Type: " + type);
-        System.out.println("Slot: " + pos);
-        this.type = type;
+        this.name = name;
         this.pos = pos;
     }
 
@@ -46,8 +29,8 @@ public class RenamingContainer extends Container {
         return type;
     }
 
-    public int getSlot() {
-        return slot;
+    public String getName() {
+        return name;
     }
 
     public BlockPos getPos() {

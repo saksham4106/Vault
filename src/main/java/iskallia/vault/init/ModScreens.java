@@ -1,10 +1,7 @@
 package iskallia.vault.init;
 
-import iskallia.vault.client.gui.overlay.AbilitiesOverlay;
-import iskallia.vault.client.gui.overlay.ArenaScoreboardOverlay;
-import iskallia.vault.client.gui.overlay.HyperBarOverlay;
-import iskallia.vault.client.gui.screen.SkillTreeScreen;
-import iskallia.vault.client.gui.screen.VaultCrateScreen;
+import iskallia.vault.client.gui.overlay.*;
+import iskallia.vault.client.gui.screen.*;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;

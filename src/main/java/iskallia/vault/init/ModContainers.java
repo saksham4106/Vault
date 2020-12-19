@@ -1,7 +1,6 @@
 package iskallia.vault.init;
 
-import iskallia.vault.container.SkillTreeContainer;
-import iskallia.vault.container.VaultCrateContainer;
+import iskallia.vault.container.*;
 import iskallia.vault.research.ResearchTree;
 import iskallia.vault.skill.ability.AbilityTree;
 import iskallia.vault.skill.talent.TalentTree;
@@ -57,15 +56,15 @@ public class ModContainers {
 
         RENAMING_CONTAINER = createContainerType((windowId, inventory, buffer) -> {
             RenameType type = RenameType.values()[buffer.readInt()];
+            String name = buffer.readString();
             switch (type) {
                 case PLAYER_STATUE:
                     BlockPos pos = buffer.readBlockPos();
-                    return new RenamingContainer(windowId, type, pos);
+                    return new RenamingContainer(windowId, type, name, pos);
                 case TRADER_CORE:
-                    int slot = buffer.readInt();
-                    return new RenamingContainer(windowId, type, slot);
+                    return new RenamingContainer(windowId, type, name, null);
             }
-            return new RenamingContainer(windowId);
+            return null;
         });
 
         event.getRegistry().registerAll(
