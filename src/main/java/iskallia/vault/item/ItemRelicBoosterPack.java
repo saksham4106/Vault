@@ -5,7 +5,6 @@ import iskallia.vault.init.ModItems;
 import iskallia.vault.init.ModSounds;
 import iskallia.vault.util.MathUtilities;
 import iskallia.vault.world.data.PlayerVaultStatsData;
-import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;

@@ -52,7 +52,7 @@ public class VendingMachineBlock extends Block {
 
     public VendingMachineBlock() {
         super(Properties.create(Material.IRON, MaterialColor.IRON)
-                .hardnessAndResistance(2.0F)
+                .hardnessAndResistance(2.0F, 3600000.0F)
                 .sound(SoundType.METAL)
                 .notSolid());
 

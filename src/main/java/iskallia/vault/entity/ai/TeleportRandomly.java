@@ -4,7 +4,6 @@ import iskallia.vault.init.ModSounds;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.util.INBTSerializable;
 
 public class TeleportRandomly<T extends LivingEntity> implements INBTSerializable<CompoundNBT> {

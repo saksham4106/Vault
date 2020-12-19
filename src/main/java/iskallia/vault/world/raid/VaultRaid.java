@@ -151,9 +151,9 @@ public class VaultRaid implements INBTSerializable<CompoundNBT> {
     }
 
     public boolean runIfPresent(MinecraftServer server, Consumer<ServerPlayerEntity> action) {
-        if (server == null) return false;
+        if (server == null)return false;
         ServerPlayerEntity player = server.getPlayerList().getPlayerByUUID(this.playerId);
-        if (player == null) return false;
+        if (player == null)return false;
         action.accept(player);
         return true;
     }

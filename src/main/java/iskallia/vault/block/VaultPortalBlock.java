@@ -4,7 +4,6 @@ import iskallia.vault.Vault;
 import iskallia.vault.block.entity.VaultPortalTileEntity;
 import iskallia.vault.init.ModBlocks;
 import iskallia.vault.init.ModNetwork;
-import iskallia.vault.init.ModSounds;
 import iskallia.vault.network.message.VaultEscapeMessage;
 import iskallia.vault.util.VaultRarity;
 import iskallia.vault.world.data.VaultRaidData;
@@ -20,7 +19,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.RegistryKey;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.shapes.IBooleanFunction;
@@ -51,7 +49,7 @@ public class VaultPortalBlock extends NetherPortalBlock {
 
     public VaultPortalBlock() {
         super(AbstractBlock.Properties.from(Blocks.NETHER_PORTAL));
-        this.setDefaultState(this.stateContainer.getBaseState().with(AXIS, Direction.Axis.X).with(RARITY, VaultRarity.OMEGA.ordinal()));
+        this.setDefaultState(this.stateContainer.getBaseState().with(AXIS, Direction.Axis.X).with(RARITY, VaultRarity.NORMAL.ordinal()));
     }
 
     protected static BlockPos getSpawnPoint(ServerWorld p_241092_0_, int p_241092_1_, int p_241092_2_, boolean p_241092_3_) {

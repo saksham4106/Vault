@@ -32,7 +32,7 @@ public class RelicStatueBlock extends Block {
 
     public RelicStatueBlock() {
         super(Properties.create(Material.ROCK, MaterialColor.STONE)
-                .hardnessAndResistance(1, 1)
+                .hardnessAndResistance(1.0F, 3600000.0F)
                 .notSolid());
 
         this.setDefaultState(this.stateContainer.getBaseState()

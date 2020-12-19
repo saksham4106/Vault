@@ -37,8 +37,7 @@ public class ArenaSpawner implements INBTSerializable<CompoundNBT> {
 			"kimandjax",
 			"Monni_21",
 			"Starmute",
-			"haleighen",
-			"mcrcortex"
+			"haleighen"
 	};
 
 	private final ArenaRaid raid;
