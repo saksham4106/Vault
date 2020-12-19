@@ -46,7 +46,7 @@ public class VaultArtifactBlock extends Block {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
         switch (state.get(FACING)) {
             case EAST:
                 return EAST_SHAPE;

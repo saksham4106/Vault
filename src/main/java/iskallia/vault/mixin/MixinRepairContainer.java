@@ -1,6 +1,5 @@
 package iskallia.vault.mixin;
 
-import net.minecraft.client.gui.screen.inventory.AnvilScreen;
 import net.minecraft.inventory.container.RepairContainer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;

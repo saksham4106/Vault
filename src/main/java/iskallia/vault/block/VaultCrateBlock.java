@@ -37,7 +37,7 @@ public class VaultCrateBlock extends Block {
 
 
     public VaultCrateBlock() {
-        super(Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F).sound(SoundType.METAL));
+        super(Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F, 3600000.0F).sound(SoundType.METAL));
     }
 
     public static ItemStack getCrateWithLoot(VaultCrateBlock crateType, NonNullList<ItemStack> items) {

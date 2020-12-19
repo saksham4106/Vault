@@ -108,7 +108,7 @@ public class ModBlocks {
     public static final LootStatueBlockItem VAULT_PLAYER_LOOT_STATUE_BLOCK_ITEM = new LootStatueBlockItem(VAULT_PLAYER_LOOT_STATUE);
     public static final LootStatueBlockItem ARENA_PLAYER_LOOT_STATUE_BLOCK_ITEM = new LootStatueBlockItem(ARENA_PLAYER_LOOT_STATUE);
 
-    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+	public static void registerBlocks(RegistryEvent.Register<Block> event) {
         registerBlock(event, VAULT_PORTAL, Vault.id("vault_portal"));
         registerBlock(event, VAULT_ALTAR, Vault.id("vault_altar"));
         registerBlock(event, ALEXANDRITE_ORE, Vault.id("ore_alexandrite"));
@@ -177,7 +177,6 @@ public class ModBlocks {
         registerTileEntity(event, ADVANCED_VENDING_MACHINE_TILE_ENTITY, Vault.id("advanced_vending_machine_tile_entity"));
         registerTileEntity(event, RELIC_STATUE_TILE_ENTITY, Vault.id("relic_statue_tile_entity"));
         registerTileEntity(event, LOOT_STATUE_TILE_ENTITY, Vault.id("loot_statue_tile_entity"));
-        registerTileEntity(event, CRYO_CHAMBER_TILE_ENTITY, Vault.id("cryo_chamber_tile_entity"));
     }
 
     public static void registerTileEntityRenderers() {
@@ -246,7 +245,7 @@ public class ModBlocks {
         registerBlockItem(event, STATUE_DRAGON_HEAD, 1);
         registerBlockItem(event, VAULT_PLAYER_LOOT_STATUE, VAULT_PLAYER_LOOT_STATUE_BLOCK_ITEM);
         registerBlockItem(event, ARENA_PLAYER_LOOT_STATUE, ARENA_PLAYER_LOOT_STATUE_BLOCK_ITEM);
-        registerBlockItem(event, CRYO_CHAMBER, 64);
+        registerBlockItem(event, CRYO_CHAMBER);
     }
 
     /* --------------------------------------------- */

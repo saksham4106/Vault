@@ -15,7 +15,7 @@ public class BowHatBlock extends Block {
 
     public BowHatBlock() {
         super(Properties.create(Material.ROCK, MaterialColor.STONE)
-                .hardnessAndResistance(1, 1)
+                .hardnessAndResistance(1.0F, 3600000.0F)
                 .notSolid()
                 .doesNotBlockMovement());
     }

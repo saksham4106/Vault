@@ -37,7 +37,7 @@ public class LootStatueBlock extends Block {
 
     public LootStatueBlock(StatueType type) {
         super(Properties.create(Material.ROCK, MaterialColor.STONE)
-                .hardnessAndResistance(1, 1)
+                .hardnessAndResistance(1.0F, 3600000.0F)
                 .notSolid()
                 .doesNotBlockMovement());
         this.setDefaultState(this.getStateContainer().getBaseState().with(FACING, Direction.SOUTH));

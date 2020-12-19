@@ -1,89 +1,223 @@
 package iskallia.vault.block.entity;
 
-import iskallia.vault.cryochamber.CryoChamberEnergyStorage;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+import iskallia.vault.Vault;
 import iskallia.vault.init.ModBlocks;
 import iskallia.vault.util.SkinProfile;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.ListNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
+import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.Constants;
+import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 
-import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 
-public class CryoChamberTileEntity extends TileEntity {
+public class CryoChamberTileEntity extends TileEntity implements ITickableTileEntity {
 
-    private CryoChamberEnergyStorage energyStorage = createEnergy();
-    private LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
-    protected SkinProfile skin;
+	public static final Supplier<Generator> GENERATOR = Behaviour.register(Vault.id("generator"), Generator::new);
+	public static final Supplier<Looter> LOOTER = Behaviour.register(Vault.id("looter"), Looter::new);
+	public static final Supplier<Buffer> BUFFER = Behaviour.register(Vault.id("buffer"), Buffer::new);
 
-    public CryoChamberTileEntity() {
-        super(ModBlocks.CRYO_CHAMBER_TILE_ENTITY);
-        skin = new SkinProfile();
-    }
+	private Energy energyStorage = createEnergy();
+	private LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
+	private List<Behaviour> behaviours = new ArrayList<>();
+	protected SkinProfile skin;
 
-    public SkinProfile getSkin() {
-        return skin;
-    }
+	public CryoChamberTileEntity() {
+		super(ModBlocks.CRYO_CHAMBER_TILE_ENTITY);
+		this.skin = new SkinProfile();
+	}
 
-    public void sendUpdates() {
-        this.world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), 0b11);
-        this.world.notifyNeighborsOfStateChange(pos, this.getBlockState().getBlock());
-        markDirty();
-    }
+	public SkinProfile getSkin() {
+		return skin;
+	}
 
-    @Override
-    public CompoundNBT write(CompoundNBT compound) {
+	private Energy createEnergy() {
+		return new Energy(0, 0) {
+			@Override
+			protected void onEnergyChanged() {
+				CryoChamberTileEntity.this.markDirty();
+			}
+		};
+	}
 
-        return super.write(compound);
-    }
+	public void sendUpdates() {
+		this.world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), 0b11);
+		this.world.notifyNeighborsOfStateChange(pos, this.getBlockState().getBlock());
+		markDirty();
+	}
 
-    @Override
-    public void read(BlockState state, CompoundNBT nbt) {
+	@Override
+	public void tick() {
+		this.behaviours.forEach(behaviour -> behaviour.tick(this.getWorld(), this.getPos(), this));
+	}
 
-        updateSkin();
-        super.read(state, nbt);
-    }
+	@Override
+	public CompoundNBT write(CompoundNBT nbt) {
+		ListNBT behavioursList = new ListNBT();
 
-    @Override
-    public CompoundNBT getUpdateTag() {
-        CompoundNBT nbt = super.getUpdateTag();
+		this.behaviours.forEach(behaviour -> {
+			CompoundNBT tag = behaviour.serializeNBT();
+			tag.putString("RegistryId", Behaviour.REGISTRY.inverse().get(behaviour).toString());
+			behavioursList.add(tag);
+		});
 
-        return nbt;
-    }
+		nbt.put("Behaviours", behavioursList);
+		return super.write(nbt);
+	}
 
-    @Override
-    public void handleUpdateTag(BlockState state, CompoundNBT tag) {
-        read(state, tag);
-    }
+	@Override
+	public void read(BlockState state, CompoundNBT nbt) {
+		this.behaviours.clear();
+		ListNBT behavioursList = nbt.getList("Behaviours", Constants.NBT.TAG_COMPOUND);
 
-    @Nullable
-    @Override
-    public SUpdateTileEntityPacket getUpdatePacket() {
-        return new SUpdateTileEntityPacket(pos, 1, getUpdateTag());
-    }
+		for(int i = 0; i < behavioursList.size(); i++) {
+			CompoundNBT tag = behavioursList.getCompound(i);
+			Supplier<? extends Behaviour> supplier = Behaviour.REGISTRY.get(new ResourceLocation(tag.getString("RegistryId")));
 
-    @Override
-    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
-        CompoundNBT nbt = pkt.getNbtCompound();
-        handleUpdateTag(getBlockState(), nbt);
-    }
+			if(supplier != null) {
+				Behaviour behaviour = supplier.get();
+				behaviour.deserializeNBT(tag);
+				this.behaviours.add(behaviour);
+			}
+		}
 
-    public void updateSkin() {
-//        TraderCore lastCore = getLastCore();
-//        if (lastCore == null) return;
-//        skin.updateSkin(lastCore.getName());
-    }
+		super.read(state, nbt);
+	}
 
 
-    private CryoChamberEnergyStorage createEnergy() {
-        return new CryoChamberEnergyStorage(0, 0) {
-            @Override
-            protected void onEnergyChanged() {
-                markDirty();
-            }
-        };
-    }
+	@Override
+	public CompoundNBT getUpdateTag() {
+		CompoundNBT nbt = super.getUpdateTag();
+		return nbt;
+	}
+
+	@Override
+	public void handleUpdateTag(BlockState state, CompoundNBT tag) {
+		read(state, tag);
+	}
+
+	@Override
+	public SUpdateTileEntityPacket getUpdatePacket() {
+		return new SUpdateTileEntityPacket(pos, 1, getUpdateTag());
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+		CompoundNBT nbt = pkt.getNbtCompound();
+		handleUpdateTag(getBlockState(), nbt);
+	}
+
+	public static class Energy extends EnergyStorage {
+		public Energy(int capacity, int maxTransfer) {
+			super(capacity, maxTransfer);
+		}
+
+		protected void onEnergyChanged() {
+
+		}
+
+		public void setEnergy(int energy) {
+			this.energy = energy;
+			this.onEnergyChanged();
+		}
+
+		public void addEnergy(int energy) {
+			this.energy += energy;
+
+			if(this.energy > getMaxEnergyStored()) {
+				this.energy = getEnergyStored();
+			}
+
+			this.onEnergyChanged();
+		}
+
+		public void consumeEnergy(int energy) {
+			this.energy -= energy;
+			if (this.energy < 0) {
+				this.energy = 0;
+			}
+
+			this.onEnergyChanged();
+		}
+	}
+
+	public static abstract class Behaviour implements INBTSerializable<CompoundNBT> {
+		public static final BiMap<ResourceLocation, Supplier<? extends Behaviour>> REGISTRY = HashBiMap.create();
+
+		public abstract void tick(World world, BlockPos pos, CryoChamberTileEntity te);
+
+		public static <T extends Behaviour> Supplier<T> register(ResourceLocation id, Supplier<T> behaviour) {
+			REGISTRY.put(id, behaviour);
+			return behaviour;
+		}
+	}
+
+	public static class Generator extends Behaviour {
+		@Override
+		public void tick(World world, BlockPos pos, CryoChamberTileEntity te) {
+
+		}
+
+		@Override
+		public CompoundNBT serializeNBT() {
+			CompoundNBT nbt = new CompoundNBT();
+			return nbt;
+		}
+
+		@Override
+		public void deserializeNBT(CompoundNBT nbt) {
+
+		}
+	}
+
+	public static class Looter extends Behaviour {
+		@Override
+		public void tick(World world, BlockPos pos, CryoChamberTileEntity te) {
+
+		}
+
+		@Override
+		public CompoundNBT serializeNBT() {
+			CompoundNBT nbt = new CompoundNBT();
+			return nbt;
+		}
+
+		@Override
+		public void deserializeNBT(CompoundNBT nbt) {
+
+		}
+	}
+
+	public static class Buffer extends Behaviour {
+		@Override
+		public void tick(World world, BlockPos pos, CryoChamberTileEntity te) {
+
+		}
+
+		@Override
+		public CompoundNBT serializeNBT() {
+			CompoundNBT nbt = new CompoundNBT();
+			return nbt;
+		}
+
+		@Override
+		public void deserializeNBT(CompoundNBT nbt) {
+
+		}
+	}
+
 }

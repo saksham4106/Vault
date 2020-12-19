@@ -1,6 +1,7 @@
 package iskallia.vault.init;
 
-import iskallia.vault.container.*;
+import iskallia.vault.container.SkillTreeContainer;
+import iskallia.vault.container.VaultCrateContainer;
 import iskallia.vault.research.ResearchTree;
 import iskallia.vault.skill.ability.AbilityTree;
 import iskallia.vault.skill.talent.TalentTree;

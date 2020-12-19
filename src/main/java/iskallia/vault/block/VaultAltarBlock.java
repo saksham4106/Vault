@@ -38,14 +38,14 @@ public class VaultAltarBlock extends Block {
 
     public VaultAltarBlock() {
         super(Properties.create(Material.ROCK, MaterialColor.DIAMOND).setRequiresTool().hardnessAndResistance(3f, 3f).notSolid());
-        this.setDefaultState(this.stateContainer.getBaseState().with(POWERED, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(POWERED, Boolean.FALSE));
 
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(POWERED, Boolean.valueOf(false));
+        return this.getDefaultState().with(POWERED, Boolean.FALSE);
     }
 
     @Override
@@ -127,7 +127,7 @@ public class VaultAltarBlock extends Block {
                 }
             }
         }
-        worldIn.setBlockState(pos, state.with(POWERED, Boolean.valueOf(powered)), 3);
+        worldIn.setBlockState(pos, state.with(POWERED, powered), 3);
     }
 
 
@@ -145,19 +145,19 @@ public class VaultAltarBlock extends Block {
     }
 
     @Override
-    public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-        VaultAltarTileEntity altar = getAltarTileEntity(worldIn, pos);
+    public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+        VaultAltarTileEntity altar = getAltarTileEntity(world, pos);
         if (altar == null) return;
 
         if (newState.getBlock() != Blocks.AIR) return;
 
         if (altar.containsVaultRock()) {
-            ItemEntity entity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.VAULT_ROCK));
-            worldIn.addEntity(entity);
+            ItemEntity entity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.VAULT_ROCK));
+            world.addEntity(entity);
         }
-        ItemEntity entity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.VAULT_ALTAR));
-        worldIn.addEntity(entity);
+        ItemEntity entity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.VAULT_ALTAR));
+        world.addEntity(entity);
 
-        super.onReplaced(state, worldIn, pos, newState, isMoving);
+        super.onReplaced(state, world, pos, newState, isMoving);
     }
 }
