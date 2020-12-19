@@ -1,5 +1,6 @@
 package iskallia.vault.block.entity;
 
+import iskallia.vault.cryochamber.CryoChamberEnergyStorage;
 import iskallia.vault.init.ModBlocks;
 import iskallia.vault.util.SkinProfile;
 import net.minecraft.block.BlockState;
@@ -7,11 +8,15 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.IEnergyStorage;
 
 import javax.annotation.Nullable;
 
 public class CryoChamberTileEntity extends TileEntity {
 
+    private CryoChamberEnergyStorage energyStorage = createEnergy();
+    private LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
     protected SkinProfile skin;
 
     public CryoChamberTileEntity() {
@@ -70,5 +75,15 @@ public class CryoChamberTileEntity extends TileEntity {
 //        TraderCore lastCore = getLastCore();
 //        if (lastCore == null) return;
 //        skin.updateSkin(lastCore.getName());
+    }
+
+
+    private CryoChamberEnergyStorage createEnergy() {
+        return new CryoChamberEnergyStorage(0, 0) {
+            @Override
+            protected void onEnergyChanged() {
+                markDirty();
+            }
+        };
     }
 }
