@@ -55,7 +55,7 @@ public class ArenaFighterEntity extends FighterEntity {
             return false;
         }
 
-        return  super.attackEntityFrom(source, amount);
+        return super.attackEntityFrom(source, amount);
     }
 
 }

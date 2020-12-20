@@ -26,7 +26,7 @@ import org.spongepowered.asm.mixin.Mixins;
 import org.spongepowered.asm.mixin.connect.IMixinConnector;
 
 @Mod(Vault.MOD_ID)
-public class Vault implements IMixinConnector {
+public class Vault {
 
     public static final String MOD_ID = "the_vault";
     public static final Logger LOGGER = LogManager.getLogger();
@@ -38,12 +38,6 @@ public class Vault implements IMixinConnector {
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::onCommandRegister);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::onBiomeLoad);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, this::onPlayerLoggedIn);
-    }
-
-    @Override
-    public void connect() {
-        LOGGER.warn("Mixins started.");
-        Mixins.addConfigurations("assets/" + MOD_ID + "/" + MOD_ID + ".mixins.json");
     }
     
     public void onCommandRegister(RegisterCommandsEvent event) {
