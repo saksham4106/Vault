@@ -19,6 +19,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Matrix4f;
 import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.util.registry.Registry;
@@ -113,7 +116,14 @@ public class LootStatueRenderer extends TileEntityRenderer<LootStatueTileEntity>
         }
 
         StringTextComponent text = new StringTextComponent(tileEntity.getSkin().getLatestNickname());
-        renderLabel(matrixStack, buffer, combinedLight, text, 0xFF_FFFFFF);
+
+        if(mc.objectMouseOver != null && mc.objectMouseOver.getType() == RayTraceResult.Type.BLOCK) {
+            BlockRayTraceResult result = (BlockRayTraceResult)mc.objectMouseOver;
+
+            if(tileEntity.getPos().equals(result.getPos())) {
+                renderLabel(matrixStack, buffer, combinedLight, text, 0xFF_FFFFFF);
+            }
+        }
     }
 
     private void renderLabel(MatrixStack matrixStack, IRenderTypeBuffer buffer, int lightLevel,

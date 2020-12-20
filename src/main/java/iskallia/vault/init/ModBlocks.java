@@ -177,6 +177,7 @@ public class ModBlocks {
         registerTileEntity(event, ADVANCED_VENDING_MACHINE_TILE_ENTITY, Vault.id("advanced_vending_machine_tile_entity"));
         registerTileEntity(event, RELIC_STATUE_TILE_ENTITY, Vault.id("relic_statue_tile_entity"));
         registerTileEntity(event, LOOT_STATUE_TILE_ENTITY, Vault.id("loot_statue_tile_entity"));
+        registerTileEntity(event, CRYO_CHAMBER_TILE_ENTITY, Vault.id("cryo_chamber_tile_entity"));
     }
 
     public static void registerTileEntityRenderers() {
