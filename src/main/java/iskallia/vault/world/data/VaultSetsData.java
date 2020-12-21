@@ -2,7 +2,9 @@ package iskallia.vault.world.data;
 
 import iskallia.vault.Vault;
 import iskallia.vault.init.ModBlocks;
-import iskallia.vault.item.ItemVaultRelicPart;
+import iskallia.vault.init.ModConfigs;
+import iskallia.vault.item.RelicPartItem;
+import iskallia.vault.util.RelicSet;
 import iskallia.vault.util.nbt.NBTHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;
@@ -37,18 +39,17 @@ public class VaultSetsData extends WorldSavedData {
     }
 
     public Set<String> getCraftedSets(UUID playerId) {
-        return this.playerData.getOrDefault(playerId, Collections.emptySet());
+        return this.playerData.computeIfAbsent(playerId, uuid -> new HashSet<>());
     }
 
     public int getExtraTime(UUID playerId) {
-        return getCraftedSets(playerId).size();
+        return getCraftedSets(playerId).size() * ModConfigs.VAULT_RELICS.getExtraTickPerSet();
     }
 
-    public boolean markSetAsCrafted(UUID playerId, String relicSet) {
+    public boolean markSetAsCrafted(UUID playerId, RelicSet relicSet) {
         Set<String> craftedSets = getCraftedSets(playerId);
-        if (craftedSets.contains(relicSet)) return false;
         markDirty();
-        return craftedSets.add(relicSet);
+        return craftedSets.add(relicSet.getId().toString());
     }
 
     @SubscribeEvent
@@ -67,10 +68,10 @@ public class VaultSetsData extends WorldSavedData {
             ItemStack stackInSlot = craftingMatrix.getStackInSlot(i);
             if (stackInSlot == ItemStack.EMPTY) continue;
             Item item = stackInSlot.getItem();
-            if (item instanceof ItemVaultRelicPart) {
-                ItemVaultRelicPart relicPart = (ItemVaultRelicPart) item;
+            if (item instanceof RelicPartItem) {
+                RelicPartItem relicPart = (RelicPartItem) item;
                 VaultSetsData vaultSetsData = VaultSetsData.get((ServerWorld) player.world);
-                vaultSetsData.markSetAsCrafted(player.getUniqueID(), relicPart.getRelicSet().getName());
+                vaultSetsData.markSetAsCrafted(player.getUniqueID(), relicPart.getRelicSet());
                 break;
             }
         }
@@ -97,37 +98,6 @@ public class VaultSetsData extends WorldSavedData {
     public static VaultSetsData get(ServerWorld world) {
         return world.getServer().func_241755_D_()
                 .getSavedData().getOrCreate(VaultSetsData::new, DATA_NAME);
-    }
-
-    public enum RelicSet {
-        DRAGON("Dragon Set"),
-        MINER("Miner's Set"),
-        WARRIOR("Warrior's Set"),
-        RICHITY("Richity Set"),
-        TWITCH("Twitch Set");
-
-        String name;
-
-        RelicSet(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        @Override
-        public String toString() {
-            return name;
-        }
-
-        public static RelicSet withName(String name) {
-            for (RelicSet relicSet : values()) {
-                if (relicSet.name.equals(name))
-                    return relicSet;
-            }
-            return null;
-        }
     }
 
 }

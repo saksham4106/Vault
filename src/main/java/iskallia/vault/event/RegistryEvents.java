@@ -1,10 +1,12 @@
 package iskallia.vault.event;
 
 import iskallia.vault.init.*;
+import iskallia.vault.util.RelicSet;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.gen.feature.Feature;
@@ -26,6 +28,7 @@ public class RegistryEvents {
     public static void onItemRegister(RegistryEvent.Register<Item> event) {
         ModItems.registerItems(event);
         ModBlocks.registerBlockItems(event);
+        RelicSet.register();
     }
 
     @SubscribeEvent
@@ -60,10 +63,14 @@ public class RegistryEvents {
         ModEntities.register(event);
     }
 
-
     @SubscribeEvent
     public static void onTileEntityRegister(RegistryEvent.Register<TileEntityType<?>> event) {
         ModBlocks.registerTileEntities(event);
+    }
+
+    @SubscribeEvent
+    public static void onRecipeRegister(RegistryEvent.Register<IRecipeSerializer<?>> event) {
+        ModRecipes.Serializer.register(event);
     }
 
 }

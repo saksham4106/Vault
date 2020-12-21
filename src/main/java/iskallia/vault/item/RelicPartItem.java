@@ -1,5 +1,6 @@
 package iskallia.vault.item;
 
+import iskallia.vault.util.RelicSet;
 import iskallia.vault.world.data.VaultSetsData;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
@@ -15,27 +16,29 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemVaultRelicPart extends Item {
+public class RelicPartItem extends Item {
 
-    protected VaultSetsData.RelicSet relicSet;
+    protected RelicSet relicSet;
 
-    public ItemVaultRelicPart(ItemGroup group, ResourceLocation id, VaultSetsData.RelicSet relicSet) {
+    public RelicPartItem(ItemGroup group, ResourceLocation id) {
         super(new Properties()
                 .group(group)
                 .maxStackSize(64));
 
-        this.relicSet = relicSet;
-
         this.setRegistryName(id);
     }
 
-    public VaultSetsData.RelicSet getRelicSet() {
-        return relicSet;
+    public RelicSet getRelicSet() {
+        return this.relicSet;
+    }
+
+    public void setRelicSet(RelicSet relicSet) {
+        this.relicSet = relicSet;
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-        StringTextComponent line = new StringTextComponent("Vault Relic - " + relicSet);
+        StringTextComponent line = new StringTextComponent("Vault Relic - " + this.relicSet.getName());
         line.setStyle(Style.EMPTY.setColor(Color.fromInt(0xFF_c6b11e)));
         tooltip.add(new StringTextComponent(""));
         tooltip.add(line);

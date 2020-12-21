@@ -42,7 +42,7 @@ public class ItemRelicBoosterPack extends Item {
             ItemStack stackToDrop = null;
 
             if (rand >= 99) {
-                ItemVaultRelicPart randomPart = ModConfigs.VAULT_RELICS.getRandomPart();
+                RelicPartItem randomPart = ModConfigs.VAULT_RELICS.getRandomPart();
                 stackToDrop = new ItemStack(randomPart);
                 successEffects(world, player.getPositionVec());
 

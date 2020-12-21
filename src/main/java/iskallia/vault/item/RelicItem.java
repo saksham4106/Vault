@@ -7,9 +7,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
 
-public class ItemVaultRelic extends Item {
+public class RelicItem extends Item {
 
-    public ItemVaultRelic(ItemGroup group, ResourceLocation id) {
+    public RelicItem(ItemGroup group, ResourceLocation id) {
         super(new Item.Properties()
                 .group(group)
                 .maxStackSize(64));

@@ -4,8 +4,8 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import iskallia.vault.Vault;
 import iskallia.vault.block.RelicStatueBlock;
 import iskallia.vault.block.entity.RelicStatueTileEntity;
-import iskallia.vault.item.ItemVaultRelic;
-import iskallia.vault.world.data.VaultSetsData;
+import iskallia.vault.item.RelicItem;
+import iskallia.vault.util.RelicSet;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -26,7 +26,7 @@ public class RelicStatueRenderer extends TileEntityRenderer<RelicStatueTileEntit
 
     @Override
     public void render(RelicStatueTileEntity statue, float partialTicks, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
-        VaultSetsData.RelicSet relicSet = VaultSetsData.RelicSet.withName(statue.getRelicSet());
+        RelicSet relicSet = RelicSet.REGISTRY.get(statue.getRelicSet());
         BlockState state = statue.getBlockState();
 
         matrixStack.push();
@@ -34,18 +34,18 @@ public class RelicStatueRenderer extends TileEntityRenderer<RelicStatueTileEntit
         float horizontalAngle = state.get(RelicStatueBlock.FACING).getHorizontalAngle();
         matrixStack.rotate(Vector3f.YN.rotationDegrees(180 + horizontalAngle));
 
-        if (relicSet == VaultSetsData.RelicSet.DRAGON) {
+        if(relicSet == RelicSet.DRAGON) {
             matrixStack.translate(0, 0, 0.15);
             matrixStack.rotate(Vector3f.YP.rotationDegrees(90));
             renderItem(matrixStack, buffer, combinedLight, combinedOverlay, 0.7f, 7f, Registry.ITEM.getOrDefault(Vault.id("statue_dragon")));
-        } else if (relicSet == VaultSetsData.RelicSet.MINER) {
-            renderItem(matrixStack, buffer, combinedLight, combinedOverlay, 1.2f, 2f, ItemVaultRelic.withCustomModelData(0));
-        } else if (relicSet == VaultSetsData.RelicSet.WARRIOR) {
-            renderItem(matrixStack, buffer, combinedLight, combinedOverlay, 1.2f, 2f, ItemVaultRelic.withCustomModelData(1));
-        } else if (relicSet == VaultSetsData.RelicSet.RICHITY) {
-            renderItem(matrixStack, buffer, combinedLight, combinedOverlay, 1.2f, 2f, ItemVaultRelic.withCustomModelData(2));
-        } else if (relicSet == VaultSetsData.RelicSet.TWITCH) {
-            renderItem(matrixStack, buffer, combinedLight, combinedOverlay, 1.2f, 2f, ItemVaultRelic.withCustomModelData(3));
+        } else if(relicSet == RelicSet.MINER) {
+            renderItem(matrixStack, buffer, combinedLight, combinedOverlay, 1.2f, 2f, RelicItem.withCustomModelData(0));
+        } else if(relicSet == RelicSet.WARRIOR) {
+            renderItem(matrixStack, buffer, combinedLight, combinedOverlay, 1.2f, 2f, RelicItem.withCustomModelData(1));
+        } else if(relicSet == RelicSet.RICHITY) {
+            renderItem(matrixStack, buffer, combinedLight, combinedOverlay, 1.2f, 2f, RelicItem.withCustomModelData(2));
+        } else if(relicSet == RelicSet.TWITCH) {
+            renderItem(matrixStack, buffer, combinedLight, combinedOverlay, 1.2f, 2f, RelicItem.withCustomModelData(3));
         }
 
         matrixStack.pop();

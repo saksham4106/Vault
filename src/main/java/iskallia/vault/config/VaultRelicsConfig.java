@@ -2,7 +2,7 @@ package iskallia.vault.config;
 
 import com.google.gson.annotations.Expose;
 import iskallia.vault.init.ModItems;
-import iskallia.vault.item.ItemVaultRelicPart;
+import iskallia.vault.item.RelicPartItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 
@@ -25,7 +25,7 @@ public class VaultRelicsConfig extends Config {
         return extraTickPerSet;
     }
 
-    public ItemVaultRelicPart getRandomPart() {
+    public RelicPartItem getRandomPart() {
         relicDrops.sort(Comparator.comparingInt(a -> a.WEIGHT));
 
         int totalWeight = relicDrops.stream().mapToInt(relic -> relic.WEIGHT).sum();
@@ -33,11 +33,11 @@ public class VaultRelicsConfig extends Config {
 
         for (Relic relicDrop : relicDrops) {
             if (random < relicDrop.WEIGHT)
-                return (ItemVaultRelicPart) Registry.ITEM.getOrDefault(new ResourceLocation(relicDrop.NAME));
+                return (RelicPartItem) Registry.ITEM.getOrDefault(new ResourceLocation(relicDrop.NAME));
             random -= relicDrop.WEIGHT;
         }
 
-        return (ItemVaultRelicPart) Registry.ITEM.getOrDefault(new ResourceLocation(relicDrops.get(relicDrops.size() - 1).NAME));
+        return (RelicPartItem) Registry.ITEM.getOrDefault(new ResourceLocation(relicDrops.get(relicDrops.size() - 1).NAME));
     }
 
     @Override

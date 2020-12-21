@@ -1,5 +1,6 @@
 package iskallia.vault.block.entity;
 
+import iskallia.vault.Vault;
 import iskallia.vault.init.ModBlocks;
 import iskallia.vault.world.data.VaultSetsData;
 import net.minecraft.block.BlockState;
@@ -7,23 +8,23 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nullable;
 
 public class RelicStatueTileEntity extends TileEntity {
 
-    protected String relicSet;
+    protected ResourceLocation relicSet = Vault.id("none");
 
     public RelicStatueTileEntity() {
         super(ModBlocks.RELIC_STATUE_TILE_ENTITY);
-        relicSet = VaultSetsData.RelicSet.DRAGON.getName();
     }
 
-    public String getRelicSet() {
+    public ResourceLocation getRelicSet() {
         return relicSet;
     }
 
-    public void setRelicSet(String relicSet) {
+    public void setRelicSet(ResourceLocation relicSet) {
         this.relicSet = relicSet;
     }
 
@@ -35,20 +36,20 @@ public class RelicStatueTileEntity extends TileEntity {
 
     @Override
     public CompoundNBT write(CompoundNBT nbt) {
-        nbt.putString("RelicSet", relicSet);
+        nbt.putString("RelicSet", this.relicSet.toString());
         return super.write(nbt);
     }
 
     @Override
     public void read(BlockState state, CompoundNBT nbt) {
-        this.relicSet = nbt.getString("RelicSet");
+        this.relicSet = new ResourceLocation(nbt.getString("RelicSet"));
         super.read(state, nbt);
     }
 
     @Override
     public CompoundNBT getUpdateTag() {
         CompoundNBT nbt = super.getUpdateTag();
-        nbt.putString("RelicSet", relicSet);
+        nbt.putString("RelicSet", this.relicSet.toString());
         return nbt;
     }
 
