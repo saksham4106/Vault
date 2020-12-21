@@ -106,12 +106,15 @@ public class PlayerStatueBlock extends Block {
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if(world.isRemote) return ActionResultType.SUCCESS;
+        if (world.isRemote) return ActionResultType.SUCCESS;
 
         TileEntity te = world.getTileEntity(pos);
-        if(!(te instanceof PlayerStatueTileEntity)) return ActionResultType.SUCCESS;
+        if (!(te instanceof PlayerStatueTileEntity)) return ActionResultType.SUCCESS;
 
-        String name = ((PlayerStatueTileEntity)te).getSkin().getLatestNickname();
+        PlayerStatueTileEntity statue = (PlayerStatueTileEntity) te;
+        CompoundNBT nbt = new CompoundNBT();
+        nbt.putInt("RenameType", RenameType.PLAYER_STATUE.ordinal());
+        nbt.put("Data", statue.serializeNBT());
 
         NetworkHooks.openGui(
                 (ServerPlayerEntity) player,
@@ -124,13 +127,11 @@ public class PlayerStatueBlock extends Block {
                     @Nullable
                     @Override
                     public Container createMenu(int windowId, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-                        return new RenamingContainer(windowId, RenameType.PLAYER_STATUE, name,  pos);
+                        return new RenamingContainer(windowId, nbt);
                     }
                 },
                 (buffer) -> {
-                    buffer.writeInt(RenameType.PLAYER_STATUE.ordinal());
-                    buffer.writeString(name);
-                    buffer.writeBlockPos(pos);
+                    buffer.writeCompoundTag(nbt);
                 }
         );
 

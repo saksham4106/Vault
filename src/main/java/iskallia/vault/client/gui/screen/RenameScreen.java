@@ -1,24 +1,144 @@
 package iskallia.vault.client.gui.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import iskallia.vault.Vault;
 import iskallia.vault.container.RenamingContainer;
+import iskallia.vault.util.RenameType;
+import iskallia.vault.util.nbt.NBTSerializer;
+import iskallia.vault.vending.TraderCore;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.SimpleSound;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
+import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 
 public class RenameScreen extends ContainerScreen<RenamingContainer> {
 
+    public static final ResourceLocation TEXTURE = new ResourceLocation(Vault.MOD_ID, "textures/gui/rename_screen.png");
+    private String name;
+    private CompoundNBT data;
+    private RenameType renameType;
+    private Button renameButton;
+
+    private TextFieldWidget nameField;
+
+
     public RenameScreen(RenamingContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
-        super(screenContainer, inv, titleIn);
+        super(screenContainer, inv, new StringTextComponent("Rename Player"));
+
+        font = Minecraft.getInstance().fontRenderer;
+        xSize = 118;
+        ySize = 61;
+
+        titleX = 59;
+        titleY = 7;
+
+        renameType = screenContainer.getRenameType();
+        data = screenContainer.getNbt();
+
+        if (renameType == RenameType.PLAYER_STATUE) {
+            name = data.getString("PlayerNickname");
+        } else if (renameType == RenameType.TRADER_CORE) {
+            ItemStack stack = ItemStack.read(data);
+            CompoundNBT stackNbt = stack.getOrCreateTag();
+            try {
+                TraderCore core = NBTSerializer.deserialize(TraderCore.class, stackNbt.getCompound("core"));
+                name = core.getName();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+        initFields();
+    }
+
+    protected void initFields() {
+        this.minecraft.keyboardListener.enableRepeatEvents(true);
+        int i = (this.width - this.xSize) / 2;
+        int j = (this.height - this.ySize) / 2;
+        this.nameField = new TextFieldWidget(this.font, i + 7, j + 26, 103, 12, new StringTextComponent(name));
+        this.nameField.setCanLoseFocus(false);
+        this.nameField.setTextColor(-1);
+        this.nameField.setDisabledTextColour(-1);
+        this.nameField.setEnableBackgroundDrawing(false);
+        this.nameField.setMaxStringLength(16);
+        this.nameField.setResponder(this::rename);
+        this.children.add(this.nameField);
+        this.setFocusedDefault(this.nameField);
+        this.nameField.setText(name);
+
+        this.renameButton = new Button(i + 4, j + 41, 110, 16, new StringTextComponent("Confirm"), this::confirmPressed);
+        this.addButton(renameButton);
+    }
+
+    private void confirmPressed(Button button) {
+        //TODO: Send Packet.
+        this.closeScreen();
+    }
+
+    private void rename(String name) {
+        if (!name.isEmpty()) {
+            this.name = name;
+        }
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        System.out.println(keyCode);
+        if (keyCode == 256) {
+            this.minecraft.player.closeScreen();
+        } else if (keyCode == 257) {
+            Minecraft.getInstance().getSoundHandler()
+                    .play(SimpleSound.master(SoundEvents.UI_BUTTON_CLICK, 1f));
+            this.confirmPressed(this.renameButton);
+        } else if (keyCode == 69) {
+            return true;
+        }
+
+        return !this.nameField.keyPressed(keyCode, scanCode, modifiers) && !this.nameField.canWrite() ? super.keyPressed(keyCode, scanCode, modifiers) : true;
+    }
+
+    @Override
+    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+        renderBackground(matrixStack);
+
+        float midX = width / 2f;
+        float midY = height / 2f;
+        minecraft.getTextureManager().bindTexture(TEXTURE);
+        blit(matrixStack, (int) (midX - xSize / 2), (int) (midY - ySize / 2),
+                0, 0, xSize, ySize,
+                256, 256);
+
+        renderTitle(matrixStack);
+        renderNameField(matrixStack, mouseX, mouseY, partialTicks);
+        this.renameButton.render(matrixStack, mouseX, mouseY, partialTicks);
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(MatrixStack matrixStack, float partialTicks, int x, int y) {
+    }
+
+    private void renderTitle(MatrixStack matrixStack) {
+        int i = (this.width - this.xSize) / 2;
+        int j = (this.height - this.ySize) / 2;
+        float startX = (i + this.titleX) - (this.font.getStringWidth("Rename Player") / 2);
+        float startY = j + (float) this.titleY;
+        this.font.func_243248_b(matrixStack, this.title, startX, startY, 4210752);
 
     }
 
-    @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        return super.mouseClicked(mouseX, mouseY, button);
+    public void renderNameField(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+        this.nameField.render(matrixStack, mouseX, mouseY, partialTicks);
     }
 }

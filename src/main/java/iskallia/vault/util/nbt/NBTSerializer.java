@@ -139,7 +139,13 @@ public class NBTSerializer {
                     if (interpretMissingFieldValuesAsNull) {
 
                         f.setAccessible(true);
-                        f.set(instance, null);
+                        if(f.getType().equals(boolean.class)) {
+                            f.set(instance, false);
+                        } else if(f.getType().equals(int.class)) {
+                            f.set(instance, 0);
+                        } else {
+                            f.set(instance, null);
+                        }
                     }
 
                     continue;
