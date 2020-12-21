@@ -157,24 +157,25 @@ public class ItemTraderCore extends Item {
         if (worldIn.isRemote) return super.onItemRightClick(worldIn, player, handIn);
 
         ItemStack stack = player.getHeldItemMainhand();
-        String name = ItemTraderCore.getTraderName(stack);
+        CompoundNBT nbt = new CompoundNBT();
+        nbt.putInt("RenameType", RenameType.TRADER_CORE.ordinal());
+        nbt.put("Data", stack.serializeNBT());
         NetworkHooks.openGui(
                 (ServerPlayerEntity) player,
                 new INamedContainerProvider() {
                     @Override
                     public ITextComponent getDisplayName() {
-                        return new StringTextComponent("Player Statue");
+                        return new StringTextComponent("Trader Core");
                     }
 
                     @Nullable
                     @Override
                     public Container createMenu(int windowId, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-                        return new RenamingContainer(windowId, RenameType.TRADER_CORE, ItemTraderCore.getTraderName(stack), null);
+                        return new RenamingContainer(windowId, nbt);
                     }
                 },
                 (buffer) -> {
-                    buffer.writeInt(RenameType.TRADER_CORE.ordinal());
-                    buffer.writeString(name);
+                    buffer.writeCompoundTag(nbt);
                 }
         );
         return super.onItemRightClick(worldIn, player, handIn);

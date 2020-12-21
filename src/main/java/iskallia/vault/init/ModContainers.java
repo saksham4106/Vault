@@ -4,7 +4,6 @@ import iskallia.vault.container.*;
 import iskallia.vault.research.ResearchTree;
 import iskallia.vault.skill.ability.AbilityTree;
 import iskallia.vault.skill.talent.TalentTree;
-import iskallia.vault.util.RenameType;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.nbt.CompoundNBT;
@@ -55,16 +54,8 @@ public class ModContainers {
         });
 
         RENAMING_CONTAINER = createContainerType((windowId, inventory, buffer) -> {
-            RenameType type = RenameType.values()[buffer.readInt()];
-            String name = buffer.readString();
-            switch (type) {
-                case PLAYER_STATUE:
-                    BlockPos pos = buffer.readBlockPos();
-                    return new RenamingContainer(windowId, type, name, pos);
-                case TRADER_CORE:
-                    return new RenamingContainer(windowId, type, name, null);
-            }
-            return null;
+            CompoundNBT nbt = buffer.readCompoundTag();
+            return new RenamingContainer(windowId, nbt);
         });
 
         event.getRegistry().registerAll(
