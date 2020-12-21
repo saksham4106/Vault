@@ -3,6 +3,8 @@ package iskallia.vault.client.gui.screen;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import iskallia.vault.Vault;
 import iskallia.vault.container.RenamingContainer;
+import iskallia.vault.init.ModNetwork;
+import iskallia.vault.network.message.RenameUIMessage;
 import iskallia.vault.util.RenameType;
 import iskallia.vault.util.nbt.NBTSerializer;
 import iskallia.vault.vending.TraderCore;
@@ -26,6 +28,8 @@ public class RenameScreen extends ContainerScreen<RenamingContainer> {
     private CompoundNBT data;
     private RenameType renameType;
     private Button renameButton;
+    private ItemStack traderCircuit;
+    private TraderCore core;
 
     private TextFieldWidget nameField;
 
@@ -46,10 +50,11 @@ public class RenameScreen extends ContainerScreen<RenamingContainer> {
         if (renameType == RenameType.PLAYER_STATUE) {
             name = data.getString("PlayerNickname");
         } else if (renameType == RenameType.TRADER_CORE) {
-            ItemStack stack = ItemStack.read(data);
-            CompoundNBT stackNbt = stack.getOrCreateTag();
+            traderCircuit = ItemStack.read(data);
+            CompoundNBT stackNbt = traderCircuit.getOrCreateTag();
             try {
-                TraderCore core = NBTSerializer.deserialize(TraderCore.class, stackNbt.getCompound("core"));
+
+                core = NBTSerializer.deserialize(TraderCore.class, stackNbt.getCompound("core"));
                 name = core.getName();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -83,6 +88,25 @@ public class RenameScreen extends ContainerScreen<RenamingContainer> {
     }
 
     private void confirmPressed(Button button) {
+        CompoundNBT nbt = new CompoundNBT();
+        nbt.putInt("RenameType", renameType.ordinal());
+        if (renameType == RenameType.PLAYER_STATUE) {
+            data.putString("PlayerNickname", name);
+            nbt.put("Data", data);
+        } else if (renameType == RenameType.TRADER_CORE) {
+            try {
+                CompoundNBT stackNbt = traderCircuit.getOrCreateTag();
+                core.setName(name);
+                CompoundNBT coreNbt = NBTSerializer.serialize(core);
+                stackNbt.put("core", coreNbt);
+                traderCircuit.setTag(stackNbt);
+                nbt.put("Data", traderCircuit.serializeNBT());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        ModNetwork.CHANNEL.sendToServer(RenameUIMessage.updateName(this.renameType, nbt));
         //TODO: Send Packet.
         this.closeScreen();
     }
@@ -95,7 +119,6 @@ public class RenameScreen extends ContainerScreen<RenamingContainer> {
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        System.out.println(keyCode);
         if (keyCode == 256) {
             this.minecraft.player.closeScreen();
         } else if (keyCode == 257) {

@@ -71,5 +71,10 @@ public class PlayerStatueTileEntity extends TileEntity {
         CompoundNBT nbt = pkt.getNbtCompound();
         handleUpdateTag(getBlockState(), nbt);
     }
+    public void sendUpdates() {
+        this.world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), 0b11);
+        this.world.notifyNeighborsOfStateChange(pos, this.getBlockState().getBlock());
+        markDirty();
+    }
 
 }

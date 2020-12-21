@@ -156,28 +156,30 @@ public class ItemTraderCore extends Item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity player, Hand handIn) {
         if (worldIn.isRemote) return super.onItemRightClick(worldIn, player, handIn);
 
-        ItemStack stack = player.getHeldItemMainhand();
-        CompoundNBT nbt = new CompoundNBT();
-        nbt.putInt("RenameType", RenameType.TRADER_CORE.ordinal());
-        nbt.put("Data", stack.serializeNBT());
-        NetworkHooks.openGui(
-                (ServerPlayerEntity) player,
-                new INamedContainerProvider() {
-                    @Override
-                    public ITextComponent getDisplayName() {
-                        return new StringTextComponent("Trader Core");
-                    }
+        if (player.isSneaking()) {
+            ItemStack stack = player.getHeldItemMainhand();
+            CompoundNBT nbt = new CompoundNBT();
+            nbt.putInt("RenameType", RenameType.TRADER_CORE.ordinal());
+            nbt.put("Data", stack.serializeNBT());
+            NetworkHooks.openGui(
+                    (ServerPlayerEntity) player,
+                    new INamedContainerProvider() {
+                        @Override
+                        public ITextComponent getDisplayName() {
+                            return new StringTextComponent("Trader Core");
+                        }
 
-                    @Nullable
-                    @Override
-                    public Container createMenu(int windowId, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-                        return new RenamingContainer(windowId, nbt);
+                        @Nullable
+                        @Override
+                        public Container createMenu(int windowId, PlayerInventory playerInventory, PlayerEntity playerEntity) {
+                            return new RenamingContainer(windowId, nbt);
+                        }
+                    },
+                    (buffer) -> {
+                        buffer.writeCompoundTag(nbt);
                     }
-                },
-                (buffer) -> {
-                    buffer.writeCompoundTag(nbt);
-                }
-        );
+            );
+        }
         return super.onItemRightClick(worldIn, player, handIn);
     }
 
