@@ -120,7 +120,8 @@ public class RenameScreen extends ContainerScreen<RenamingContainer> {
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (keyCode == 256) {
-            this.minecraft.player.closeScreen();
+            if (this.minecraft != null && this.minecraft.player != null)
+                this.minecraft.player.closeScreen();
         } else if (keyCode == 257) {
             Minecraft.getInstance().getSoundHandler()
                     .play(SimpleSound.master(SoundEvents.UI_BUTTON_CLICK, 1f));
@@ -129,7 +130,9 @@ public class RenameScreen extends ContainerScreen<RenamingContainer> {
             return true;
         }
 
-        return !this.nameField.keyPressed(keyCode, scanCode, modifiers) && !this.nameField.canWrite() ? super.keyPressed(keyCode, scanCode, modifiers) : true;
+        return this.nameField.keyPressed(keyCode, scanCode, modifiers)
+                || this.nameField.canWrite()
+                || super.keyPressed(keyCode, scanCode, modifiers);
     }
 
     @Override

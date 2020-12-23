@@ -13,12 +13,14 @@ public class ModRecipes {
 		public static SpecialRecipeSerializer<RelicSetRecipe> CRAFTING_SPECIAL_RELIC_SET;
 
 		public static void register(RegistryEvent.Register<IRecipeSerializer<?>> event) {
-			register(event, "crafting_special_relic_set", new SpecialRecipeSerializer<>(RelicSetRecipe::new));
+			CRAFTING_SPECIAL_RELIC_SET = register(event, "crafting_special_relic_set", new SpecialRecipeSerializer<>(RelicSetRecipe::new));
 		}
 
-		private static <T extends IRecipe<?>> void register(RegistryEvent.Register<IRecipeSerializer<?>> event, String name, SpecialRecipeSerializer<T> serializer) {
+		private static <T extends IRecipe<?>> SpecialRecipeSerializer<T>
+        register(RegistryEvent.Register<IRecipeSerializer<?>> event, String name, SpecialRecipeSerializer<T> serializer) {
 			serializer.setRegistryName(Vault.id(name));
 			event.getRegistry().register(serializer);
+			return serializer;
 		}
 	}
 

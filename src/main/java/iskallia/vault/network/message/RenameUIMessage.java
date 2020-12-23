@@ -14,11 +14,11 @@ import net.minecraftforge.fml.network.NetworkEvent;
 import java.util.function.Supplier;
 
 public class RenameUIMessage {
+
     public RenameType renameType;
     public CompoundNBT payload;
 
-    public RenameUIMessage() {
-    }
+    public RenameUIMessage() { }
 
     public static void encode(RenameUIMessage message, PacketBuffer buffer) {
         buffer.writeInt(message.renameType.ordinal());
