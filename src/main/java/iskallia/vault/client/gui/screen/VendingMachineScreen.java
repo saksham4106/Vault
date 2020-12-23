@@ -91,6 +91,8 @@ public class VendingMachineScreen extends ContainerScreen<VendingMachineContaine
         for (TradeWidget tradeWidget : tradeWidgets) {
             tradeWidget.mouseMoved(tradeContainerX, tradeContainerY);
         }
+
+        tradesContainer.mouseMoved(mouseX, mouseY);
     }
 
     @Override
@@ -113,7 +115,15 @@ public class VendingMachineScreen extends ContainerScreen<VendingMachineContaine
             }
         }
 
+        tradesContainer.mouseClicked(mouseX, mouseY, button);
+
         return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        tradesContainer.mouseReleased(mouseX, mouseY, button);
+        return super.mouseReleased(mouseX, mouseY, button);
     }
 
     @Override

@@ -122,7 +122,7 @@ public class ModNetwork {
                 VaultEscapeMessage::encode,
                 VaultEscapeMessage::decode,
                 VaultEscapeMessage::handle);
-        
+
         CHANNEL.registerMessage(21, RenameUIMessage.class,
                 RenameUIMessage::encode,
                 RenameUIMessage::decode,
