@@ -202,7 +202,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.01
+              "chance": 0.1
             }
           ]
         },
@@ -222,7 +222,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.05
+              "chance": 0.1
             }
           ]
         },
@@ -249,7 +249,7 @@
         {
           "type": "minecraft:item",
           "weight": 2,
-          "name": "botania:black_lotus",
+          "name": "minecraft:gunpowder",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -262,27 +262,27 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.5
+              "chance": 0.7
             }
           ]
         },
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "botania:blacker_lotus",
+          "name": "minecraft:netherite_scrap",
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 1,
-                "max": 3
+                "max": 1
               }
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.4
+              "chance": 0.2
             }
           ]
         },
@@ -308,21 +308,21 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "comforts:sleeping_bag_pink",
+          "weight": 2,
+          "name": "minecraft:blaze_rod",
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1,
-                "max": 1
+                "min": 2,
+                "max": 6
               }
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.1
+              "chance": 0.5
             }
           ]
         },
@@ -389,7 +389,7 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "rsgauges:industrial_small_lever",
+          "name": "minecraft:nether_star",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -428,8 +428,28 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 2,
+          "name": "darkutils:dark_glass",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
           "weight": 1,
-          "name": "ironfurnaces:iron_furnace",
+          "name": "easy_villagers:trader",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -449,27 +469,7 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "ironchest:iron_chest",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.3
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "mekanism:basic_control_circuit",
+          "name": "mekanism:basic_logistical_transporter",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -489,7 +489,7 @@
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "mekanism:advanced_control_circuit",
+          "name": "mekanism:basic_mechanical_pipe",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -542,11 +542,512 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
+              "chance": 0.6
+            }
+          ]
+        },
+        
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "the_vault:obelisk_inscription",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "the_vault:skill_shard",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:ender_pearl",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.6
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:name_tag",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
               "chance": 0.4
             }
           ]
         },
         {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "minecraft:quartz",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3,
+                "max": 9
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "thermal:lead_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4,
+                "max": 12
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "mekanism:ingot_bronze",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 10,
+                "max": 15
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "mekanism:ingot_refined_obsidian",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 6,
+                "max": 10
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.2
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "mekanism:ingot_refined_glowstone",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 5,
+                "max": 8
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.2
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "mekanism:ingot_steel",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 8,
+                "max": 16
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "mekanism:ingot_osmium",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 16,
+                "max": 32
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "mekanism:ingot_copper",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 16,
+                "max": 32
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "mekanism:ingot_tin",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 16,
+                "max": 32
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "thermal:signalum_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "appliedenergistics2:1k_storage_cell",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "refinedstorage:1k_storage_disk",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "minecraft:string",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4,
+                "max": 16
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.9
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "minecraft:redstone",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 8,
+                "max": 14
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:conduit",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.2
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "compressium:cobblestone_2",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "compressium:stone_2",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "compressium:netherrack_2",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "compressium:soulsand_2",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "compressium:gravel_2",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "compressium:clay_2",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
           "type": "minecraft:item",
           "weight": 1,
           "name": "minecraft:cave_spider_spawn_egg",
@@ -1023,506 +1524,6 @@
             {
               "condition": "minecraft:random_chance",
               "chance": 0.1
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "the_vault:obelisk_inscription",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "the_vault:skill_shard",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.65
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:ender_pearl",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 4
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:name_tag",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.4
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "mekanism:alloy_infused",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 4
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "botania:manasteel_ingot",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 8,
-                "max": 16
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "mekanism:ingot_bronze",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 10,
-                "max": 15
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "mekanism:ingot_refined_obsidian",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 6,
-                "max": 10
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.2
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "mekanism:ingot_refined_glowstone",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 5,
-                "max": 8
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.2
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "mekanism:ingot_steel",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 8,
-                "max": 16
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "mekanism:ingot_osmium",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 16,
-                "max": 32
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "mekanism:ingot_copper",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 16,
-                "max": 32
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "mekanism:ingot_tin",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 16,
-                "max": 32
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "mekanism:ingot_tin",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 16,
-                "max": 32
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "appliedenergistics2:1k_storage_cell",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.3
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "refinedstorage:1k_storage_disk",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.3
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "appliedenergistics2:silicon",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 4,
-                "max": 16
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.9
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "botania:rune_water",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "botania:rune_fire",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "botania:rune_earth",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "botania:rune_air",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "botania:rune_spring",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "botania:rune_summer",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "botania:rune_autumn",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "botania:rune_winter",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
             }
           ]
         }
