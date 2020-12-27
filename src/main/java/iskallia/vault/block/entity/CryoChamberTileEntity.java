@@ -2,27 +2,40 @@ package iskallia.vault.block.entity;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import iskallia.vault.Vault;
 import iskallia.vault.init.ModBlocks;
+import iskallia.vault.init.ModConfigs;
 import iskallia.vault.util.SkinProfile;
+import iskallia.vault.util.WeightedList;
+import iskallia.vault.vending.Product;
 import net.minecraft.block.BlockState;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.ListNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Supplier;
 
 public class CryoChamberTileEntity extends TileEntity implements ITickableTileEntity {
@@ -184,39 +197,77 @@ public class CryoChamberTileEntity extends TileEntity implements ITickableTileEn
 		}
 	}
 
-	public static class Miner extends Behaviour {
-		@Override
-		public void tick(World world, BlockPos pos, CryoChamberTileEntity te) {
-
-		}
-
-		@Override
-		public CompoundNBT serializeNBT() {
-			CompoundNBT nbt = new CompoundNBT();
-			return nbt;
-		}
-
-		@Override
-		public void deserializeNBT(CompoundNBT nbt) {
-
+	public static class Miner extends Poop {
+		public Miner() {
+			super(ModConfigs.CRYO_CHAMBER.MINER_DROPS, ModConfigs.CRYO_CHAMBER.MINER_TICKS_DELAY);
 		}
 	}
 
-	public static class Looter extends Behaviour {
+	public static class Looter extends Poop {
+		public Looter() {
+			super(ModConfigs.CRYO_CHAMBER.LOOTER_DROPS, ModConfigs.CRYO_CHAMBER.LOOTER_TICKS_DELAY);
+		}
+	}
+
+	public static class Poop extends Behaviour {
+		private Product product;
+		private int delay;
+
+		public Poop(WeightedList<Product> pool, int delay) {
+			this.product = pool.getRandom(new Random());
+			this.delay = delay;
+		}
+
 		@Override
 		public void tick(World world, BlockPos pos, CryoChamberTileEntity te) {
-
+			if(world.getGameTime() % this.delay == 0) {
+				this.poop(te, this.product.toStack(), false);
+			}
 		}
+
+		public ItemStack poop(CryoChamberTileEntity te, ItemStack stack, boolean simulate) {
+			TileEntity tileEntity = te.getWorld().getTileEntity(te.getPos().down());
+			if(tileEntity == null)return stack;
+
+			LazyOptional<IItemHandler> handler = tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, Direction.UP);
+
+			if(handler.isPresent()) {
+				IItemHandler targetHandler = handler.orElse(null);
+				return ItemHandlerHelper.insertItemStacked(targetHandler, stack, simulate);
+			}
+
+			return stack;
+		}
+
 
 		@Override
 		public CompoundNBT serializeNBT() {
 			CompoundNBT nbt = new CompoundNBT();
+
+			CompoundNBT productNBT = new CompoundNBT();
+			productNBT.putString("Id", this.product.getId());
+			productNBT.putInt("Amount", this.product.getAmount());
+			productNBT.putString("Nbt", this.product.getNBT().toString());
+			nbt.put("Product", productNBT);
+
 			return nbt;
 		}
 
 		@Override
 		public void deserializeNBT(CompoundNBT nbt) {
+			CompoundNBT productNBT = nbt.getCompound("Product");
+			String id = productNBT.getString("Id");
+			int amount = productNBT.getInt("Amount");
+			String itemNbt = productNBT.getString("Nbt");
 
+			try {
+				this.product = new Product(
+						Registry.ITEM.getOptional(new ResourceLocation(id)).orElse(Items.AIR),
+						amount, JsonToNBT.getTagFromJson(itemNbt)
+				);
+			} catch(CommandSyntaxException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
