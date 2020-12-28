@@ -75,8 +75,6 @@ public class VendingMachineContainer extends Container {
         if (index < 0 || index >= cores.size()) return;
 
         TraderCore traderCore = cores.get(index);
-        int tradesLeft = traderCore.getTrade().getTradesLeft();
-        if (tradesLeft == 0) return; // Cannot select
 
         vendingInventory.updateSelectedCore(tileEntity, traderCore);
         vendingInventory.updateRecipe();
@@ -85,6 +83,8 @@ public class VendingMachineContainer extends Container {
             ItemStack buyStack = vendingInventory.removeStackFromSlot(VendingInventory.BUY_SLOT);
             playerInventory.addItemStackToInventory(buyStack);
         }
+
+        if (traderCore.getTrade().getTradesLeft() <= 0) return;
 
         int slot = slotForItem(traderCore.getTrade().getBuy().getItem());
         if (slot != -1) {
