@@ -26,6 +26,7 @@ public class TalentsConfig extends Config {
     @Expose public TalentGroup<TwerkerTalent> TWERKER;
     @Expose public TalentGroup<ElvishTalent> ELVISH;
     @Expose public TalentGroup<AngelTalent> ANGEL;
+    @Expose public TalentGroup<ExperiencedTalent> EXPERIENCED;
 
     @Override
     public String getName() {
@@ -34,7 +35,7 @@ public class TalentsConfig extends Config {
 
     public List<TalentGroup<?>> getAll() {
         return Arrays.asList(HASTE, REGENERATION, VAMPIRISM, RESISTANCE, STRENGTH, FIRE_RESISTANCE, SPEED,
-                WATER_BREATHING, WELL_FIT, TWERKER, ELVISH, ANGEL, REACH);
+                WATER_BREATHING, WELL_FIT, TWERKER, ELVISH, ANGEL, REACH, EXPERIENCED);
     }
 
     public TalentGroup<?> getByName(String name) {
@@ -57,6 +58,7 @@ public class TalentsConfig extends Config {
         this.TWERKER = new TalentGroup<>("Twerker", new TwerkerTalent(4));
         this.ELVISH = new TalentGroup<>("Elvish", new ElvishTalent(5));
         this.ANGEL = new TalentGroup<>("Angel", new AngelTalent(15));
+        this.EXPERIENCED = new TalentGroup<>("Experienced", new ExperiencedTalent(2, 0.20f), new ExperiencedTalent(2, 0.40f), new ExperiencedTalent(2, 0.60f), new ExperiencedTalent(2, 0.80f), new ExperiencedTalent(2, 1.00f), new ExperiencedTalent(2, 1.20f), new ExperiencedTalent(2, 1.40f), new ExperiencedTalent(2, 1.60f), new ExperiencedTalent(2, 1.80f), new ExperiencedTalent(2, 2.00f));
     }
 
 }

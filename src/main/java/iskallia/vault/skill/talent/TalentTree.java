@@ -11,6 +11,7 @@ import net.minecraftforge.common.util.INBTSerializable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public class TalentTree implements INBTSerializable<CompoundNBT> {
@@ -34,8 +35,13 @@ public class TalentTree implements INBTSerializable<CompoundNBT> {
     }
 
     public TalentNode<?> getNodeByName(String name) {
-        return this.nodes.stream().filter(node -> node.getGroup().getParentName().equals(name))
-                .findFirst().orElseThrow(() -> new IllegalArgumentException("Unknown talent name -> " + name));
+        Optional<TalentNode<?>> talentWrapped = this.nodes.stream().filter(node -> node.getGroup().getParentName().equals(name)).findFirst();
+        if (!talentWrapped.isPresent()) {
+            TalentNode<?> talentNode = new TalentNode<>(ModConfigs.TALENTS.getByName(name), 0);
+            this.nodes.add(talentNode);
+            return talentNode;
+        }
+        return talentWrapped.get();
     }
 
     /* ------------------------------------ */
