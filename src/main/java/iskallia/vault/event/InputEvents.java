@@ -41,7 +41,7 @@ public class InputEvents {
         } else if (minecraft.currentScreen == null && ModKeybinds.openAbilityTree.isPressed()) {
             ModNetwork.CHANNEL.sendToServer(new OpenSkillTreeMessage());
 
-        } else if (AbilitiesOverlay.cooldownTicks == 0 && ModKeybinds.abilityKey.getKey().getKeyCode() == key) {
+        } else if (minecraft.currentScreen == null && ModKeybinds.abilityKey.getKey().getKeyCode() == key) {
             if (action == GLFW.GLFW_RELEASE) {
                 ModNetwork.CHANNEL.sendToServer(new AbilityKeyMessage(true, false, false, false));
 
@@ -60,7 +60,7 @@ public class InputEvents {
         double scrollDelta = event.getScrollDelta();
 
         if (ModKeybinds.abilityKey.isKeyDown()) {
-            if (AbilitiesOverlay.cooldownTicks == 0) {
+            if (minecraft.currentScreen == null) {
                 if (scrollDelta < 0) {
                     ModNetwork.CHANNEL.sendToServer(new AbilityKeyMessage(false, false, false, true));
 

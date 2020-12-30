@@ -13,9 +13,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @OnlyIn(Dist.CLIENT)
 public class AbilitiesOverlay {
@@ -24,8 +27,8 @@ public class AbilitiesOverlay {
     private static final ResourceLocation ABILITIES_RESOURCE = new ResourceLocation(Vault.MOD_ID, "textures/gui/abilities.png");
 
     public static List<AbilityNode<?>> learnedAbilities;
+    public static Map<Integer, Integer> cooldowns = new HashMap<>();
     public static int focusedIndex;
-    public static int cooldownTicks;
     public static boolean active;
 
     @SubscribeEvent
@@ -65,14 +68,14 @@ public class AbilitiesOverlay {
         minecraft.getTextureManager().bindTexture(ABILITIES_RESOURCE);
         AbilityNode<?> focusedAbility = learnedAbilities.get(focusedIndex);
         SkillStyle focusedStyle = ModConfigs.ABILITIES_GUI.getStyles().get(focusedAbility.getGroup().getParentName());
-        GlStateManager.color4f(1, 1, 1, cooldownTicks > 0 ? 0.4f : 1);
+        GlStateManager.color4f(1, 1, 1, cooldowns.getOrDefault(focusedIndex, 0) > 0 ? 0.4f : 1);
         minecraft.ingameGUI.blit(matrixStack,
                 23, 3,
                 focusedStyle.u, focusedStyle.v,
                 16, 16);
 
-        if (cooldownTicks > 0) {
-            float cooldownPercent = (float) cooldownTicks / ModConfigs.ABILITIES.cooldownTicks;
+        if (cooldowns.getOrDefault(focusedIndex, 0) > 0) {
+            float cooldownPercent = (float) cooldowns.get(focusedIndex) / ModConfigs.ABILITIES.cooldownTicks;
             int cooldownHeight = (int) (16 * cooldownPercent);
             AbstractGui.fill(matrixStack,
                     23, 3 + (16 - cooldownHeight),
@@ -83,13 +86,31 @@ public class AbilitiesOverlay {
 
         GlStateManager.color4f(0.7f, 0.7f, 0.7f, 0.5f);
         AbilityNode<?> previousAbility = learnedAbilities.get(previousIndex);
+        if (cooldowns.getOrDefault(previousIndex, 0) > 0) {
+            float cooldownPercent = (float) cooldowns.get(previousIndex) / ModConfigs.ABILITIES.cooldownTicks;
+            int cooldownHeight = (int) (16 * cooldownPercent);
+            AbstractGui.fill(matrixStack,
+                    43, 3 + (16 - cooldownHeight),
+                    43 + 16, 3 + 16,
+                    0x99_FFFFFF);
+            RenderSystem.enableBlend();
+        }
         SkillStyle previousStyle = ModConfigs.ABILITIES_GUI.getStyles().get(previousAbility.getGroup().getParentName());
         minecraft.ingameGUI.blit(matrixStack,
-                42, 3,
+                43, 3,
                 previousStyle.u, previousStyle.v,
                 16, 16);
 
         AbilityNode<?> nextAbility = learnedAbilities.get(nextIndex);
+        if (cooldowns.getOrDefault(nextIndex, 0) > 0) {
+            float cooldownPercent = (float) cooldowns.get(nextIndex) / ModConfigs.ABILITIES.cooldownTicks;
+            int cooldownHeight = (int) (16 * cooldownPercent);
+            AbstractGui.fill(matrixStack,
+                    3, 3 + (16 - cooldownHeight),
+                    3 + 16, 3 + 16,
+                    0x99_FFFFFF);
+            RenderSystem.enableBlend();
+        }
         SkillStyle nextStyle = ModConfigs.ABILITIES_GUI.getStyles().get(nextAbility.getGroup().getParentName());
         minecraft.ingameGUI.blit(matrixStack,
                 3, 3,
@@ -100,7 +121,7 @@ public class AbilitiesOverlay {
         GlStateManager.color4f(1, 1, 1, 1);
         minecraft.ingameGUI.blit(matrixStack,
                 19, -1,
-                64 + (cooldownTicks > 0 ? 50 : active ? 25 : 0),
+                64 + (cooldowns.getOrDefault(focusedIndex, 0) > 0 ? 50 : active ? 25 : 0),
                 13,
                 24, 24);
 
