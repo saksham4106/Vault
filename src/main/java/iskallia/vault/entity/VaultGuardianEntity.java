@@ -54,6 +54,4 @@ public class VaultGuardianEntity extends PiglinBruteEntity {
         return 0.75f;
     }
 
-    range
-
 }

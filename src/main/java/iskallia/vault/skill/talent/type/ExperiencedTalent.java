@@ -4,8 +4,9 @@ import com.google.gson.annotations.Expose;
 import iskallia.vault.skill.talent.TalentNode;
 import iskallia.vault.skill.talent.TalentTree;
 import iskallia.vault.world.data.PlayerTalentsData;
+import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
+import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -24,16 +25,16 @@ public class ExperiencedTalent extends PlayerTalent {
     }
 
     @SubscribeEvent
-    public static void onOrbDropped(LivingExperienceDropEvent event) {
-        if (!(event.getAttackingPlayer() instanceof ServerPlayerEntity)) return;
-        ServerPlayerEntity player = (ServerPlayerEntity) event.getAttackingPlayer();
+    public static void onOrbPickup(PlayerXpEvent.PickupXp event) {
+        if (!(event.getPlayer() instanceof ServerPlayerEntity)) return;
+        ServerPlayerEntity player = (ServerPlayerEntity) event.getPlayer();
         TalentTree abilities = PlayerTalentsData.get(player.getServerWorld()).getTalents(player);
 
         for (TalentNode<?> node : abilities.getNodes()) {
             if (!(node.getTalent() instanceof ExperiencedTalent)) continue;
             ExperiencedTalent experienced = ((ExperiencedTalent) node.getTalent());
-            int droppedExperience = event.getDroppedExperience();
-            event.setDroppedExperience((int) (droppedExperience * (1 + experienced.getIncreasedExpPercentage())));
+            ExperienceOrbEntity orb = event.getOrb();
+            orb.xpValue *= (1 + experienced.getIncreasedExpPercentage());
         }
     }
 
