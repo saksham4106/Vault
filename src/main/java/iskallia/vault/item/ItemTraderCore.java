@@ -127,6 +127,13 @@ public class ItemTraderCore extends Item {
                 tooltip.add(comp);
             }
 
+            if (core.isMegahead()) {
+                tooltip.add(new StringTextComponent(""));
+                StringTextComponent comp = new StringTextComponent("MEGAHEAD!");
+                comp.setStyle(Style.EMPTY.setColor(Color.fromInt(0x00_00FF00)));
+                tooltip.add(comp);
+            }
+
             tooltip.add(new StringTextComponent(""));
             if (trade.getTradesLeft() == 0) {
                 StringTextComponent comp = new StringTextComponent("[0] Sold out, sorry!");
