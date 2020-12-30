@@ -11,6 +11,10 @@ public class MathUtilities {
         return new Random().nextFloat() * (max - min) + min;
     }
 
+    public static int getRandomInt(int min, int max) {
+        return (int) (Math.random() * (max - min) + min);
+    }
+
     public static double map(double value, double x0, double y0, double x1, double y1) {
         return x1 + (y1 - x1) * ((value - x0) / (y0 - x0));
     }
