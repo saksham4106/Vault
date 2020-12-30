@@ -56,7 +56,7 @@ public class ArenaBossEntity extends FighterEntity {
 
 	public ArenaBossEntity(EntityType<? extends ZombieEntity> type, World world) {
 		super(type, world);
-		this.setCustomName(new StringTextComponent("Boss"));
+//		this.setCustomName(new StringTextComponent("Boss"));
 
 		if(!this.world.isRemote) {
 			this.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(1000000.0D);

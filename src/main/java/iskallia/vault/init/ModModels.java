@@ -2,6 +2,8 @@ package iskallia.vault.init;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.vertex.VertexFormat;
 
 public class ModModels {
 
@@ -37,7 +39,26 @@ public class ModModels {
         RenderTypeLookup.setRenderLayer(ModBlocks.MVP_CROWN, RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(ModBlocks.VENDING_MACHINE, RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(ModBlocks.ADVANCED_VENDING_MACHINE, RenderType.getCutout());
+//        RenderTypeLookup.setRenderLayer(ModBlocks.CRYO_CHAMBER, CustomRenderType.INSTANCE);
         RenderTypeLookup.setRenderLayer(ModBlocks.CRYO_CHAMBER, RenderType.getCutout());
+    }
+
+    private static class CustomRenderType extends RenderType {
+        // TODO: Do dis, so Cryo Chamber renders correctly :c
+        private static final RenderType INSTANCE = makeType("cutout_ignoring_normals",
+                DefaultVertexFormats.BLOCK, 7, 131072,
+                true, false,
+                RenderType.State.getBuilder()
+                        .shadeModel(SHADE_ENABLED)
+                        .lightmap(LIGHTMAP_ENABLED)
+                        .texture(BLOCK_SHEET)
+                        .alpha(HALF_ALPHA)
+                        .build(true)
+        );
+
+        public CustomRenderType(String nameIn, VertexFormat formatIn, int drawModeIn, int bufferSizeIn, boolean useDelegateIn, boolean needsSortingIn, Runnable setupTaskIn, Runnable clearTaskIn) {
+            super(nameIn, formatIn, drawModeIn, bufferSizeIn, useDelegateIn, needsSortingIn, setupTaskIn, clearTaskIn);
+        }
     }
 
 }

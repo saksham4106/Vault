@@ -26,6 +26,7 @@ public class ModEntities {
     public static EntityType<BlueBlazeEntity> BLUE_BLAZE;
     public static EntityType<BoogiemanEntity> BOOGIEMAN;
     public static EntityType<ArenaTrackerEntity> ARENA_TRACKER;
+    public static EntityType<VaultGuardianEntity> VAULT_GUARDIAN;
 
     public static void register(RegistryEvent.Register<EntityType<?>> event) {
         FIGHTER = register("fighter", EntityType.Builder.create(FighterEntity::new, EntityClassification.MONSTER)
@@ -44,6 +45,8 @@ public class ModEntities {
                 .size(0.6F * 2, 1.95F * 2), ZombieEntity::func_234342_eQ_, event);
         ARENA_TRACKER = register("arena_tracker", EntityType.Builder.create(ArenaTrackerEntity::new, EntityClassification.MISC)
                 .size(0.0F, 0.0F), ZombieEntity::func_234342_eQ_, event);
+        VAULT_GUARDIAN = register("vault_guardian", EntityType.Builder.create(VaultGuardianEntity::new, EntityClassification.MONSTER)
+                .size(1.3F, 1.95F), ZombieEntity::func_234342_eQ_, event);
     }
 
     public static <T extends LivingEntity> EntityType<T> register(String name, EntityType.Builder<T> builder, Supplier<AttributeModifierMap.MutableAttribute> attributes, RegistryEvent.Register<EntityType<?>> event) {
@@ -63,6 +66,7 @@ public class ModEntities {
             RenderingRegistry.registerEntityRenderingHandler(BLUE_BLAZE, BlueBlazeRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(BOOGIEMAN, BoogiemanRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(ARENA_TRACKER, ArenaTrackerRenderer::new);
+            RenderingRegistry.registerEntityRenderingHandler(VAULT_GUARDIAN, VaultGuardianRenderer::new);
         }
     }
 

@@ -139,6 +139,7 @@
   "entity.the_vault.boogieman": "Boogie Man",
   "entity.the_vault.robot": "Vault Robot",
   "entity.the_vault.blue_blaze": "Soul Blaze",
+  "entity.the_vault.vault_guardian": "Vault Guardian",
   "death.attack.vaultFailed": "%1$s ran out of time, F",
   "block.minecraft.andesite": "Andersite",
   "block.minecraft.polished_andesite": "Polished Andersite",
