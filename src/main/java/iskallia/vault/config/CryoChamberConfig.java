@@ -1,5 +1,6 @@
 package iskallia.vault.config;
 
+import com.google.gson.annotations.Expose;
 import iskallia.vault.util.WeightedList;
 import iskallia.vault.vending.Product;
 import net.minecraft.item.Items;
@@ -8,13 +9,13 @@ import net.minecraft.nbt.CompoundNBT;
 public class CryoChamberConfig extends Config {
 
 
-	public int GENERATOR_FE_PER_TICK_MIN;
-	public int GENERATOR_FE_PER_TICK_MAX;
-	public int GENERATOR_FE_CAPACITY;
-	public WeightedList<Product> MINER_DROPS;
-	public int MINER_TICKS_DELAY;
-	public WeightedList<Product> LOOTER_DROPS;
-	public int LOOTER_TICKS_DELAY;
+	@Expose public int GENERATOR_FE_PER_TICK_MIN;
+	@Expose public int GENERATOR_FE_PER_TICK_MAX;
+	@Expose public int GENERATOR_FE_CAPACITY;
+	@Expose public WeightedList<Product> MINER_DROPS;
+	@Expose public int MINER_TICKS_DELAY;
+	@Expose public WeightedList<Product> LOOTER_DROPS;
+	@Expose public int LOOTER_TICKS_DELAY;
 
 	@Override
 	public String getName() {
