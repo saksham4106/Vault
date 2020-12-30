@@ -46,7 +46,7 @@ public class ModEntities {
         ARENA_TRACKER = register("arena_tracker", EntityType.Builder.create(ArenaTrackerEntity::new, EntityClassification.MISC)
                 .size(0.0F, 0.0F), ZombieEntity::func_234342_eQ_, event);
         VAULT_GUARDIAN = register("vault_guardian", EntityType.Builder.create(VaultGuardianEntity::new, EntityClassification.MONSTER)
-                .size(1.3F, 1.95F), ZombieEntity::func_234342_eQ_, event);
+                .size(1.3F, 2.95F), ZombieEntity::func_234342_eQ_, event);
     }
 
     public static <T extends LivingEntity> EntityType<T> register(String name, EntityType.Builder<T> builder, Supplier<AttributeModifierMap.MutableAttribute> attributes, RegistryEvent.Register<EntityType<?>> event) {

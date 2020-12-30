@@ -97,6 +97,9 @@ public class ModItems {
     public static RelicItem VAULT_RELIC = new RelicItem(VAULT_MOD_GROUP, Vault.id("vault_relic"));
     public static ItemSkillOrbFrame SKILL_ORB_FRAME = new ItemSkillOrbFrame(VAULT_MOD_GROUP, Vault.id("orb_frame"));
     public static ItemSkillShard SKILL_SHARD = new ItemSkillShard(VAULT_MOD_GROUP, Vault.id("skill_shard"));
+    public static ItemVaultFruit.BitterLemon BITTER_LEMON = new ItemVaultFruit.BitterLemon(VAULT_MOD_GROUP, Vault.id("bitter_lemon"), 30 * 20);
+    public static ItemVaultFruit.SourOrange SOUR_ORANGE = new ItemVaultFruit.SourOrange(VAULT_MOD_GROUP, Vault.id("sour_orange"), 60 * 20);
+    public static ItemVaultFruit.MysticPear MYSTIC_PEAR = new ItemVaultFruit.MysticPear(VAULT_MOD_GROUP, Vault.id("mystic_pear"), 5 * 60 * 20);
 
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
@@ -174,6 +177,9 @@ public class ModItems {
         registry.register(TWITCH_EMOTE5_RELIC);
         registry.register(SKILL_ORB_FRAME);
         registry.register(SKILL_SHARD);
+        registry.register(BITTER_LEMON);
+        registry.register(SOUR_ORANGE);
+        registry.register(MYSTIC_PEAR);
     }
 
 }
