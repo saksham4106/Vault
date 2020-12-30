@@ -8,7 +8,9 @@ import net.minecraft.nbt.CompoundNBT;
 public class CryoChamberConfig extends Config {
 
 
-	public int GENERATOR_FE_PER_TICK;
+	public int GENERATOR_FE_PER_TICK_MIN;
+	public int GENERATOR_FE_PER_TICK_MAX;
+	public int GENERATOR_FE_CAPACITY;
 	public WeightedList<Product> MINER_DROPS;
 	public int MINER_TICKS_DELAY;
 	public WeightedList<Product> LOOTER_DROPS;
@@ -21,7 +23,9 @@ public class CryoChamberConfig extends Config {
 
 	@Override
 	protected void reset() {
-		this.GENERATOR_FE_PER_TICK = 100;
+		this.GENERATOR_FE_PER_TICK_MIN = 100;
+		this.GENERATOR_FE_PER_TICK_MAX = 1000;
+		this.GENERATOR_FE_CAPACITY = 100000;
 
 		this.MINER_DROPS = new WeightedList<Product>()
 				.add(new Product(Items.IRON_ORE, 2, new CompoundNBT()), 1)
