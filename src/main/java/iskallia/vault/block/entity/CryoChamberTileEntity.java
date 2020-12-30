@@ -62,7 +62,6 @@ public class CryoChamberTileEntity extends TileEntity implements ITickableTileEn
         return skin;
     }
 
-
     public void sendUpdates() {
         BlockState newState = this.getBlockState();
         if (!this.behaviours.isEmpty()) {
@@ -97,8 +96,7 @@ public class CryoChamberTileEntity extends TileEntity implements ITickableTileEn
 
         this.behaviours.forEach(behaviour -> {
             CompoundNBT tag = behaviour.serializeNBT();
-            //tag.putString("RegistryId", Behaviour.REGISTRY.inverse().get(behaviour).toString()); // this no work
-            tag.putString("RegistryId", behaviour.resourceLocation.toString());
+            tag.putString("RegistryId", behaviour.id.toString());
             behavioursList.add(tag);
         });
 
@@ -208,28 +206,30 @@ public class CryoChamberTileEntity extends TileEntity implements ITickableTileEn
     public static abstract class Behaviour implements INBTSerializable<CompoundNBT> {
         public static final BiMap<ResourceLocation, Supplier<? extends Behaviour>> REGISTRY = HashBiMap.create();
 
-        public ResourceLocation resourceLocation;
+        public ResourceLocation id;
 
-        public Behaviour(ResourceLocation resourceLocation) {
-            this.resourceLocation = resourceLocation;
+        public Behaviour() {
         }
 
         public abstract void tick(World world, BlockPos pos, CryoChamberTileEntity te);
 
         public static <T extends Behaviour> Supplier<T> register(ResourceLocation id, Supplier<T> behaviour) {
-            REGISTRY.put(id, behaviour);
+            REGISTRY.put(id, () -> {
+                T value = behaviour.get();
+                value.id = id;
+                return value;
+            });
+
             return behaviour;
         }
     }
 
     public static class Generator extends Behaviour {
-
-
         private Energy energyStorage = createEnergyStorage();
         private LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
         public Generator() {
-            super(Vault.id("generator"));
+
         }
 
         private Energy createEnergyStorage() {
@@ -312,7 +312,6 @@ public class CryoChamberTileEntity extends TileEntity implements ITickableTileEn
         private int delay;
 
         public Poop(WeightedList<Product> pool, int delay, ResourceLocation resourceLocation) {
-            super(resourceLocation);
             this.product = pool.getRandom(new Random());
             this.delay = delay;
         }
