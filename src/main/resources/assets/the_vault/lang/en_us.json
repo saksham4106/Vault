@@ -121,6 +121,8 @@
   "block.the_vault.gift_mega_statue": "Gifter Statue",
   "block.the_vault.arena_player_loot_statue": "Arena Champion Statue",
   "block.the_vault.vault_player_loot_statue": "Vault Boss Statue",
+  "block.the_vault.cryo_chamber": "Cryo Chamber",
+  "block.the_vault.capacitor": "Capacitor",
   "key.category.the_vault": "The Vault",
   "key.the_vault.open_ability_tree": "Open Skill Tree",
   "key.the_vault.open_raffle_screen": "Open Raffle Screen",
