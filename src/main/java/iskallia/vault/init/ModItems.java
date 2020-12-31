@@ -100,6 +100,9 @@ public class ModItems {
     public static ItemVaultFruit.BitterLemon BITTER_LEMON = new ItemVaultFruit.BitterLemon(VAULT_MOD_GROUP, Vault.id("bitter_lemon"), 30 * 20);
     public static ItemVaultFruit.SourOrange SOUR_ORANGE = new ItemVaultFruit.SourOrange(VAULT_MOD_GROUP, Vault.id("sour_orange"), 60 * 20);
     public static ItemVaultFruit.MysticPear MYSTIC_PEAR = new ItemVaultFruit.MysticPear(VAULT_MOD_GROUP, Vault.id("mystic_pear"), 5 * 60 * 20);
+    public static BasicItem KEY_PIECE = new BasicItem(Vault.id("key_piece"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem KEY_MOULD = new BasicItem(Vault.id("key_mould"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem BLANK_KEY = new BasicItem(Vault.id("blank_key"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
 
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
@@ -180,6 +183,9 @@ public class ModItems {
         registry.register(BITTER_LEMON);
         registry.register(SOUR_ORANGE);
         registry.register(MYSTIC_PEAR);
+        registry.register(KEY_PIECE);
+        registry.register(KEY_MOULD);
+        registry.register(BLANK_KEY);
     }
 
 }
