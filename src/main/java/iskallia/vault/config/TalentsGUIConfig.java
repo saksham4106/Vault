@@ -29,57 +29,61 @@ public class TalentsGUIConfig extends Config {
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.HASTE.getParentName(), style);
 
-        style = new SkillStyle(50, 0, 16 * 3, 0);
+        style = new SkillStyle(70, 0, 16 * 3, 0);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.REGENERATION.getParentName(), style);
 
-        style = new SkillStyle(50 * 2, 0, 16 * 1, 0);
+        style = new SkillStyle(70 * 2, 0, 16 * 1, 0);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.VAMPIRISM.getParentName(), style);
 
-        style = new SkillStyle(50 * 3, 0, 16 * 7, 0);
+        style = new SkillStyle(70 * 3, 0, 16 * 7, 0);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.RESISTANCE.getParentName(), style);
 
-        style = new SkillStyle(50 * 4, 0, 16 * 8, 0);
+        style = new SkillStyle(70 * 4, 0, 16 * 8, 0);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.STRENGTH.getParentName(), style);
 
-        style = new SkillStyle(50 * 5, 0, 16 * 4, 0);
+        style = new SkillStyle(70 * 5, 0, 16 * 4, 0);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.FIRE_RESISTANCE.getParentName(), style);
 
-        style = new SkillStyle(0, 50, 16 * 9, 0);
+        style = new SkillStyle(0, 70, 16 * 9, 0);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.SPEED.getParentName(), style);
 
-        style = new SkillStyle(50, 50, 0, 0);
+        style = new SkillStyle(70, 70, 0, 0);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.WATER_BREATHING.getParentName(), style);
 
-        style = new SkillStyle(50 * 2, 50, 16 * 2, 0);
+        style = new SkillStyle(70 * 2, 70, 16 * 2, 0);
         style.frameType = SkillFrame.STAR;
         styles.put(ModConfigs.TALENTS.WELL_FIT.getParentName(), style);
 
-        style = new SkillStyle(50 * 3, 50, 16 * 13, 0);
+        style = new SkillStyle(70 * 3, 70, 16 * 13, 0);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.TWERKER.getParentName(), style);
 
-        style = new SkillStyle(50 * 4, 50, 16 * 11, 0);
+        style = new SkillStyle(70 * 4, 70, 16 * 11, 0);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.ELVISH.getParentName(), style);
 
-        style = new SkillStyle(50 * 5, 50, 16 * 14, 0);
+        style = new SkillStyle(70 * 5, 70, 16 * 14, 0);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.ANGEL.getParentName(), style);
 
-        style = new SkillStyle(0, 50 * 2, 16 * 10, 0);
+        style = new SkillStyle(0, 70 * 2, 16 * 10, 0);
         style.frameType = SkillFrame.STAR;
         styles.put(ModConfigs.TALENTS.REACH.getParentName(), style);
 
-        style = new SkillStyle(50, 50 * 2, 16 * 10, 0);
+        style = new SkillStyle(70, 70 * 2, 16 * 10, 0);
         style.frameType = SkillFrame.STAR;
         styles.put(ModConfigs.TALENTS.EXPERIENCED.getParentName(), style);
+
+        style = new SkillStyle(70 * 2, 70 * 2, 16 * 10, 0);
+        style.frameType = SkillFrame.STAR;
+        styles.put(ModConfigs.TALENTS.PARRY.getParentName(), style);
     }
 
 }
