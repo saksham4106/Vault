@@ -5,10 +5,12 @@ import iskallia.vault.block.entity.AdvancedVendingTileEntity;
 import iskallia.vault.container.inventory.AdvancedVendingInventory;
 import iskallia.vault.container.slot.VendingSellSlot;
 import iskallia.vault.init.ModContainers;
+import iskallia.vault.util.EntityHelper;
 import iskallia.vault.vending.TraderCore;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.Item;
@@ -114,12 +116,15 @@ public class AdvancedVendingContainer extends Container {
     }
 
     @Override
-    public void onContainerClosed(PlayerEntity playerIn) {
-        super.onContainerClosed(playerIn);
+    public void onContainerClosed(PlayerEntity player) {
+        super.onContainerClosed(player);
+
+        if (player.world.isRemote) return;
+
         ItemStack buy = vendingInventory.getStackInSlot(0);
 
         if (!buy.isEmpty()) {
-            playerIn.dropItem(buy, false, false);
+            EntityHelper.giveItem((ServerPlayerEntity) player, buy);
         }
     }
 
