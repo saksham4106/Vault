@@ -61,6 +61,7 @@ public class VaultRaid implements INBTSerializable<CompoundNBT> {
     public BlockPos start;
     public Direction facing;
     public boolean won;
+    public boolean cannotExit;
 
     public VaultSpawner spawner = new VaultSpawner(this);
     public boolean finished = false;
@@ -179,6 +180,7 @@ public class VaultRaid implements INBTSerializable<CompoundNBT> {
         nbt.putInt("TicksLeft", this.ticksLeft);
         nbt.putString("PlayerBossName", this.playerBossName);
         nbt.putBoolean("Won", this.won);
+        nbt.putBoolean("CannotExit", this.cannotExit);
 
         if (this.start != null) {
             CompoundNBT startNBT = new CompoundNBT();
@@ -201,6 +203,7 @@ public class VaultRaid implements INBTSerializable<CompoundNBT> {
         this.ticksLeft = nbt.getInt("TicksLeft");
         this.playerBossName = nbt.getString("PlayerBossName");
         this.won = nbt.getBoolean("Won");
+        this.cannotExit = nbt.getBoolean("CannotExit");
 
         if (nbt.contains("Start", Constants.NBT.TAG_COMPOUND)) {
             CompoundNBT startNBT = nbt.getCompound("Start");
@@ -262,17 +265,17 @@ public class VaultRaid implements INBTSerializable<CompoundNBT> {
         Scoreboard scoreboard = player.getWorldScoreboard();
         ScoreObjective objective = getOrCreateObjective(scoreboard, "VaultRarity", ScoreCriteria.DUMMY, ScoreCriteria.RenderType.INTEGER);
         scoreboard.getOrCreateScore(player.getName().getString(), objective).setScorePoints(this.rarity);
+        this.cannotExit = (playerBossName != null && !playerBossName.isEmpty()) || (world.getRandom().nextInt(ModConfigs.VAULT_GENERAL.getNoExitChance()) == 0);
 
         this.runIfPresent(world.getServer(), playerEntity -> {
             long seconds = (this.ticksLeft / 20) % 60;
             long minutes = ((this.ticksLeft / 20) / 60) % 60;
             String duration = String.format("%02d:%02d", minutes, seconds);
-            boolean cannotExit = playerBossName != null && !playerBossName.isEmpty();
 
             StringTextComponent title = new StringTextComponent("The Vault");
             title.setStyle(Style.EMPTY.setColor(Color.fromInt(0x00_ddd01e)));
 
-            IFormattableTextComponent subtitle = cannotExit
+            IFormattableTextComponent subtitle = this.cannotExit
                     ? new StringTextComponent("No exit this time, ").append(player.getName()).append(new StringTextComponent("!"))
                     : new StringTextComponent("Good luck, ").append(player.getName()).append(new StringTextComponent("!"));
             subtitle.setStyle(Style.EMPTY.setColor(Color.fromInt(0x00_ddd01e)));
@@ -288,7 +291,7 @@ public class VaultRaid implements INBTSerializable<CompoundNBT> {
             playerEntity.sendStatusMessage(actionBar, true);
 
             ModNetwork.CHANNEL.sendTo(
-                    new VaultBeginMessage(cannotExit),
+                    new VaultBeginMessage(this.cannotExit),
                     playerEntity.connection.netManager,
                     NetworkDirection.PLAY_TO_CLIENT
             );
@@ -296,7 +299,7 @@ public class VaultRaid implements INBTSerializable<CompoundNBT> {
             IFormattableTextComponent playerName = player.getDisplayName().deepCopy();
             playerName.setStyle(Style.EMPTY.setColor(Color.fromInt(0x00_983198)));
 
-            StringTextComponent text = cannotExit
+            StringTextComponent text = this.cannotExit
                     ? new StringTextComponent(" entered a Raffle Vault!")
                     : new StringTextComponent(" entered a Vault!");
             text.setStyle(Style.EMPTY.setColor(Color.fromInt(0x00_ffffff)));

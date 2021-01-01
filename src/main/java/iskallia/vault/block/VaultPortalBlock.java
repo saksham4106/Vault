@@ -3,6 +3,7 @@ package iskallia.vault.block;
 import iskallia.vault.Vault;
 import iskallia.vault.block.entity.VaultPortalTileEntity;
 import iskallia.vault.init.ModBlocks;
+import iskallia.vault.init.ModConfigs;
 import iskallia.vault.init.ModNetwork;
 import iskallia.vault.network.message.VaultEscapeMessage;
 import iskallia.vault.util.VaultRarity;
@@ -154,8 +155,8 @@ public class VaultPortalBlock extends NetherPortalBlock {
 
                     VaultRaid raid = VaultRaidData.get(destination).getActiveFor(playerEntity);
 
-                    if(raid != null && raid.playerBossName != null && !raid.playerBossName.isEmpty()) {
-                        StringTextComponent text = new StringTextComponent("You cannot exit from this Vault instance!");
+                    if(raid != null && raid.cannotExit) {
+                        StringTextComponent text = new StringTextComponent("You cannot exit this Vault!");
                         text.setStyle(Style.EMPTY.setColor(Color.fromInt(0x00_FF0000)));
                         playerEntity.sendStatusMessage(text, true);
                         return;

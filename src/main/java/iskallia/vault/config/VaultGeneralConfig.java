@@ -17,7 +17,7 @@ import java.util.List;
 public class VaultGeneralConfig extends Config {
 
 	@Expose private int TICK_COUNTER;
-	@Expose private int EXTRA_TICKS_PER_SET;
+	@Expose private int NO_EXIT_CHANCE;
 	@Expose private List<String> ITEM_BLACKLIST;
 	@Expose private List<String> BLOCK_BLACKLIST;
 
@@ -30,9 +30,14 @@ public class VaultGeneralConfig extends Config {
 		return this.TICK_COUNTER;
 	}
 
+	public int getNoExitChance() {
+		return this.NO_EXIT_CHANCE;
+	}
+
 	@Override
 	protected void reset() {
 		this.TICK_COUNTER = 20 * 60 * 25;
+		this.NO_EXIT_CHANCE = 10;
 
 		this.ITEM_BLACKLIST = new ArrayList<>();
 		this.ITEM_BLACKLIST.add(Items.ENDER_CHEST.getRegistryName().toString());
