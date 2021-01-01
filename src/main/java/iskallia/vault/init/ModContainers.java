@@ -4,6 +4,7 @@ import iskallia.vault.container.*;
 import iskallia.vault.research.ResearchTree;
 import iskallia.vault.skill.ability.AbilityTree;
 import iskallia.vault.skill.talent.TalentTree;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.nbt.CompoundNBT;
@@ -22,6 +23,7 @@ public class ModContainers {
     public static ContainerType<VendingMachineContainer> VENDING_MACHINE_CONTAINER;
     public static ContainerType<AdvancedVendingContainer> ADVANCED_VENDING_MACHINE_CONTAINER;
     public static ContainerType<RenamingContainer> RENAMING_CONTAINER;
+    public static ContainerType<KeyPressContainer> KEY_PRESS_CONTAINER;
 
     public static void register(RegistryEvent.Register<ContainerType<?>> event) {
         SKILL_TREE_CONTAINER = createContainerType((windowId, inventory, buffer) -> {
@@ -55,7 +57,12 @@ public class ModContainers {
 
         RENAMING_CONTAINER = createContainerType((windowId, inventory, buffer) -> {
             CompoundNBT nbt = buffer.readCompoundTag();
-            return new RenamingContainer(windowId, nbt);
+            return new RenamingContainer(windowId, nbt == null ? new CompoundNBT() : nbt);
+        });
+
+        KEY_PRESS_CONTAINER = createContainerType((windowId, inventory, buffer) -> {
+            PlayerEntity player = inventory.player;
+            return new KeyPressContainer(windowId, player);
         });
 
         event.getRegistry().registerAll(
@@ -63,7 +70,8 @@ public class ModContainers {
                 VAULT_CRATE_CONTAINER.setRegistryName("vault_crate"),
                 VENDING_MACHINE_CONTAINER.setRegistryName("vending_machine"),
                 ADVANCED_VENDING_MACHINE_CONTAINER.setRegistryName("advanced_vending_machine"),
-                RENAMING_CONTAINER.setRegistryName("renaming_container")
+                RENAMING_CONTAINER.setRegistryName("renaming_container"),
+                KEY_PRESS_CONTAINER.setRegistryName("key_press_container")
         );
     }
 

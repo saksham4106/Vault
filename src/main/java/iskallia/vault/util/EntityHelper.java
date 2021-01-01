@@ -2,6 +2,7 @@ package iskallia.vault.util;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.Pose;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 
@@ -30,7 +31,7 @@ public class EntityHelper {
         return entity;
     }
 
-    public static void giveItem(ServerPlayerEntity player, ItemStack itemStack) {
+    public static void giveItem(PlayerEntity player, ItemStack itemStack) {
         boolean added = player.inventory.addItemStackToInventory(itemStack);
         if (!added) player.dropItem(itemStack, false, false);
     }

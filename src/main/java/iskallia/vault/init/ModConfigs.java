@@ -33,6 +33,7 @@ public class ModConfigs {
     public static GiftBombConfig GIFT_BOMB;
     public static StatueLootConfig STATUE_LOOT;
     public static CryoChamberConfig CRYO_CHAMBER;
+    public static KeyPressRecipesConfig KEY_PRESS;
 
     public static void register() {
         STREAMER_MULTIPLIERS = (StreamerMultipliersConfig) new StreamerMultipliersConfig().readConfig();
@@ -64,6 +65,7 @@ public class ModConfigs {
         GIFT_BOMB = (GiftBombConfig) new GiftBombConfig().readConfig();
         STATUE_LOOT = (StatueLootConfig) new StatueLootConfig().readConfig();
         CRYO_CHAMBER = (CryoChamberConfig) new CryoChamberConfig().readConfig();
+        KEY_PRESS = (KeyPressRecipesConfig) new KeyPressRecipesConfig().readConfig();
     }
 
 }

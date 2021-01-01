@@ -14,6 +14,7 @@ public class ModScreens {
         ScreenManager.registerFactory(ModContainers.VENDING_MACHINE_CONTAINER, VendingMachineScreen::new);
         ScreenManager.registerFactory(ModContainers.ADVANCED_VENDING_MACHINE_CONTAINER, AdvancedVendingMachineScreen::new);
         ScreenManager.registerFactory(ModContainers.RENAMING_CONTAINER, RenameScreen::new);
+        ScreenManager.registerFactory(ModContainers.KEY_PRESS_CONTAINER, KeyPressScreen::new);
     }
 
     public static void registerOverlays() {

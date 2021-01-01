@@ -80,6 +80,7 @@ public class ModBlocks {
     public static final LootStatueBlock ARENA_PLAYER_LOOT_STATUE = new LootStatueBlock(StatueType.VAULT_BOSS);
     public static final CryoChamberBlock CRYO_CHAMBER = new CryoChamberBlock();
     public static final CapacitorBlock CAPACITOR = new CapacitorBlock();
+    public static final KeyPressBlock KEY_PRESS = new KeyPressBlock();
 
     public static final TileEntityType<VaultAltarTileEntity> VAULT_ALTAR_TILE_ENTITY =
             TileEntityType.Builder.create(VaultAltarTileEntity::new, VAULT_ALTAR).build(null);
@@ -169,6 +170,7 @@ public class ModBlocks {
         registerBlock(event, ARENA_PLAYER_LOOT_STATUE, Vault.id("arena_player_loot_statue"));
         registerBlock(event, CRYO_CHAMBER, Vault.id("cryo_chamber"));
         registerBlock(event, CAPACITOR, Vault.id("capacitor"));
+        registerBlock(event, KEY_PRESS, Vault.id("key_press"));
     }
 
     public static void registerTileEntities(RegistryEvent.Register<TileEntityType<?>> event) {
@@ -253,6 +255,7 @@ public class ModBlocks {
         registerBlockItem(event, ARENA_PLAYER_LOOT_STATUE, ARENA_PLAYER_LOOT_STATUE_BLOCK_ITEM);
         registerBlockItem(event, CRYO_CHAMBER);
         registerBlockItem(event, CAPACITOR);
+        registerBlockItem(event, KEY_PRESS);
     }
 
     /* --------------------------------------------- */
