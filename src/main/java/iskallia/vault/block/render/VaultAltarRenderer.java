@@ -52,29 +52,27 @@ public class VaultAltarRenderer extends TileEntityRenderer<VaultAltarTileEntity>
 
         // render recipe for specific player if they have one
         HashMap<UUID, AltarInfusionRecipe> recipes = altar.getNearbyPlayerRecipes();
-        for (UUID id : recipes.keySet()) {
-            if (!id.equals(player.getUniqueID())) {
-                continue;
-            }
-            AltarInfusionRecipe recipe = recipes.get(id);
-            List<RequiredItem> items = recipe.getRequiredItems();
-            for (int i = 0; i < items.size(); i++) {
-                double[] translation = getTranslation(i);
-                RequiredItem requiredItem = items.get(i);
-                ItemStack stack = requiredItem.getItem();
-                StringTextComponent text = new StringTextComponent(String.valueOf(requiredItem.getAmountRequired() - requiredItem.getCurrentAmount()));
-                int textColor = 0xffffff;
-                if (requiredItem.reachedAmountRequired()) {
-                    text = new StringTextComponent("Complete");
-                    textColor = 0x00ff00;
-                }
+        if (!recipes.containsKey(player.getUniqueID())) return;
 
-                renderItem(stack, translation,
-                        Vector3f.YP.rotationDegrees(getAngle(player, partialTicks) * 5f),
-                        matrixStack, buffer, partialTicks, combinedOverlay, lightLevel);
-                renderLabel(requiredItem, matrixStack, buffer, lightLevel, translation, text, textColor);
+        AltarInfusionRecipe recipe = recipes.get(player.getUniqueID());
+        List<RequiredItem> items = recipe.getRequiredItems();
+        for (int i = 0; i < items.size(); i++) {
+            double[] translation = getTranslation(i);
+            RequiredItem requiredItem = items.get(i);
+            ItemStack stack = requiredItem.getItem();
+            StringTextComponent text = new StringTextComponent(String.valueOf(requiredItem.getAmountRequired() - requiredItem.getCurrentAmount()));
+            int textColor = 0xffffff;
+            if (requiredItem.reachedAmountRequired()) {
+                text = new StringTextComponent("Complete");
+                textColor = 0x00ff00;
             }
+
+            renderItem(stack, translation,
+                    Vector3f.YP.rotationDegrees(getAngle(player, partialTicks) * 5f),
+                    matrixStack, buffer, partialTicks, combinedOverlay, lightLevel);
+            renderLabel(requiredItem, matrixStack, buffer, lightLevel, translation, text, textColor);
         }
+
 
     }
 
