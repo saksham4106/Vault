@@ -50,6 +50,11 @@ public class VaultGuardianEntity extends PiglinBruteEntity {
     }
 
     @Override
+    public void applyKnockback(float strength, double ratioX, double ratioZ) {
+        // Nope! No knockback allowed bruhhhh
+    }
+
+    @Override
     protected float getSpeedFactor() {
         return 0.75f;
     }
