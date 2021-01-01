@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.potion.Effect;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.gen.feature.Feature;
@@ -71,6 +72,11 @@ public class RegistryEvents {
     @SubscribeEvent
     public static void onRecipeRegister(RegistryEvent.Register<IRecipeSerializer<?>> event) {
         ModRecipes.Serializer.register(event);
+    }
+
+    @SubscribeEvent
+    public static void onEffectRegister(RegistryEvent.Register<Effect> event) {
+        ModEffects.register(event);
     }
 
 }
