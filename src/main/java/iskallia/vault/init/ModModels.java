@@ -41,6 +41,7 @@ public class ModModels {
         RenderTypeLookup.setRenderLayer(ModBlocks.ADVANCED_VENDING_MACHINE, RenderType.getCutout());
 //        RenderTypeLookup.setRenderLayer(ModBlocks.CRYO_CHAMBER, CustomRenderType.INSTANCE);
         RenderTypeLookup.setRenderLayer(ModBlocks.CRYO_CHAMBER, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.KEY_PRESS, RenderType.getCutout());
     }
 
     private static class CustomRenderType extends RenderType {

@@ -118,8 +118,6 @@ public class VendingMachineContainer extends Container {
     public void onContainerClosed(PlayerEntity player) {
         super.onContainerClosed(player);
 
-        if (player.world.isRemote) return;
-
         ItemStack buy = vendingInventory.getStackInSlot(0);
 
         if (!buy.isEmpty()) {
