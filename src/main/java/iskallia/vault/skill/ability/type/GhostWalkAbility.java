@@ -8,6 +8,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -17,20 +19,13 @@ public class GhostWalkAbility extends EffectAbility {
 
     @Expose
     private int durationTicks;
-    @Expose
-    private int speedAmplifier;
 
     public int getDurationTicks() {
         return durationTicks;
     }
 
-    public int getSpeedAmplifier() {
-        return speedAmplifier;
-    }
-
-    public GhostWalkAbility(int cost, Effect effect, int level, int speedAmplifier, int durationTicks, Type type, Behavior behavior) {
+    public GhostWalkAbility(int cost, Effect effect, int level, int durationTicks, Type type, Behavior behavior) {
         super(cost, effect, level, type, behavior);
-        this.speedAmplifier = speedAmplifier;
         this.durationTicks = durationTicks;
     }
 
@@ -50,7 +45,18 @@ public class GhostWalkAbility extends EffectAbility {
             player.addPotionEffect(newEffect);
         }
 
+        player.world.playSound(player, // TODO: Play that sound on client for player
+                player.getPosX(),
+                player.getPosY(),
+                player.getPosZ(),
+                SoundEvents.PARTICLE_SOUL_ESCAPE,
+                SoundCategory.PLAYERS,
+                1F, 1F
+        );
     }
+
+    @Override
+    public void onBlur(PlayerEntity player) {} // Do not remove effect on blur
 
     @SubscribeEvent
     public static void onDamage(LivingDamageEvent event) {
@@ -58,13 +64,10 @@ public class GhostWalkAbility extends EffectAbility {
         if (e instanceof LivingEntity) {
             LivingEntity living = (LivingEntity) e;
             EffectInstance ghostWalk = living.getActivePotionEffect(ModEffects.GHOST_WALK);
-            EffectInstance speed = living.getActivePotionEffect(Effects.SPEED);
             if (ghostWalk != null) {
                 living.removePotionEffect(ModEffects.GHOST_WALK);
-                if (speed != null) {
-                    living.removePotionEffect(Effects.SPEED);
-                }
             }
         }
     }
+
 }

@@ -81,9 +81,9 @@ public class AbilityGroup<T extends PlayerAbility> {
     }
 
     public static AbilityGroup<GhostWalkAbility> ofGhostWalkEffect(String name, Effect effect, EffectAbility.Type type, int maxLevel,
-                                                          IntUnaryOperator cost) {
+                                                                   IntUnaryOperator cost) {
         GhostWalkAbility[] abilities = IntStream.range(0, maxLevel)
-                .mapToObj(i -> new GhostWalkAbility(cost.applyAsInt(i + 1), effect, i, i, i, type, PlayerAbility.Behavior.RELEASE_TO_PERFORM))
+                .mapToObj(i -> new GhostWalkAbility(cost.applyAsInt(i + 1), effect, i, i * (5 * 20), type, PlayerAbility.Behavior.RELEASE_TO_PERFORM))
                 .toArray(GhostWalkAbility[]::new);
         return new AbilityGroup<>(name, abilities);
     }

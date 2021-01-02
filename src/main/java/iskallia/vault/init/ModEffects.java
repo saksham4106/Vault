@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class ModEffects {
 
-    public static final Effect GHOST_WALK = new GhostWalkEffect(EffectType.BENEFICIAL, Color.GRAY.getRGB()).setRegistryName(Vault.id("ghost_walk"));
+    public static final Effect GHOST_WALK = new GhostWalkEffect(EffectType.BENEFICIAL, Color.GRAY.getRGB(), Vault.id("ghost_walk"));
 
     public static void register(RegistryEvent.Register<Effect> event) {
         register(GHOST_WALK, event);
@@ -21,4 +21,5 @@ public class ModEffects {
     private static <T extends Effect> void register(T effect, RegistryEvent.Register<Effect> event) {
         event.getRegistry().register(effect);
     }
+
 }
