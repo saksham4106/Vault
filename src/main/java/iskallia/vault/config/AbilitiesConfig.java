@@ -43,9 +43,9 @@ public class AbilitiesConfig extends Config {
         this.NIGHT_VISION = AbilityGroup.ofEffect("Night Vision", Effects.NIGHT_VISION, EffectAbility.Type.ICON_ONLY, 1, i -> 1);
         this.INVISIBILITY = AbilityGroup.ofEffect("Invisibility", Effects.INVISIBILITY, EffectAbility.Type.ICON_ONLY, 1, i -> 1);
         this.GHOST_WALK = AbilityGroup.ofGhostWalkEffect("Ghost Walk", ModEffects.GHOST_WALK, EffectAbility.Type.ICON_ONLY, 6, i -> 1);
-        this.VEIN_MINER = new AbilityGroup<>("Vein Miner", new VeinMinerAbility(1, 4), new VeinMinerAbility(1, 8), new VeinMinerAbility(1, 16), new VeinMinerAbility(1, 32), new VeinMinerAbility(1, 64));
-        this.SELF_SUSTAIN = new AbilityGroup<>("Self Sustain", new SelfSustainAbility(3, 1), new SelfSustainAbility(3, 2), new SelfSustainAbility(3, 4));
-        this.DASH = new AbilityGroup<>("Dash", new DashAbility(3, 1), new DashAbility(3, 2), new DashAbility(3, 3), new DashAbility(3, 4), new DashAbility(3, 5), new DashAbility(3, 6), new DashAbility(3, 7), new DashAbility(3, 8), new DashAbility(3, 9), new DashAbility(3, 10));
+        this.VEIN_MINER = new AbilityGroup<>("Vein Miner", new VeinMinerAbility(1, 4), new VeinMinerAbility(1, 8), new VeinMinerAbility(1, 16), new VeinMinerAbility(2, 32), new VeinMinerAbility(2, 64));
+        this.SELF_SUSTAIN = new AbilityGroup<>("Self Sustain", new SelfSustainAbility(1, 1), new SelfSustainAbility(1, 2), new SelfSustainAbility(1, 4));
+        this.DASH = new AbilityGroup<>("Dash", new DashAbility(2, 1), new DashAbility(2, 2), new DashAbility(2, 3), new DashAbility(2, 4), new DashAbility(2, 5), new DashAbility(2, 6), new DashAbility(2, 7), new DashAbility(2, 8), new DashAbility(2, 9), new DashAbility(2, 10));
         this.MEGA_JUMP = new AbilityGroup<>("Mega Jump", new MegaJumpAbility(1, 0), new MegaJumpAbility(1, 2), new MegaJumpAbility(1, 3));
     }
 

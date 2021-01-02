@@ -54,7 +54,7 @@ public class ResearchConfig extends Config {
         this.MOD_RESEARCHES.add(new ModResearch("Super Engineer", 3, "movingelevators", "immersiveengineering").withRestrictions(false, false, false, false, true));
         this.MOD_RESEARCHES.add(new ModResearch("One with Ender", 1, "endermail", "elevatorid").withRestrictions(false, false, false, false, true));
         this.MOD_RESEARCHES.add(new ModResearch("The Chef", 1, "cookingforblockheads").withRestrictions(false, false, false, false, true));
-        this.MOD_RESEARCHES.add(new ModResearch("Traveller", 1, "comforts").withRestrictions(false, false, false, false, true));
+        this.MOD_RESEARCHES.add(new ModResearch("World Eater", 10, "comforts").withRestrictions(false, false, false, false, true));
         this.MOD_RESEARCHES.add(new ModResearch("Adventurer", 3, "dimstorage").withRestrictions(false, false, false, false, true));
         this.MOD_RESEARCHES.add(new ModResearch("Hacker", 6, "xnet").withRestrictions(false, false, false, false, true));
         this.MOD_RESEARCHES.add(new ModResearch("Redstoner", 1, "rsgauges", "rftoolsutility").withRestrictions(false, false, false, false, true));
@@ -69,12 +69,12 @@ public class ResearchConfig extends Config {
         this.MOD_RESEARCHES.add(new ModResearch("Energetic", 2, ""));
         this.MOD_RESEARCHES.add(new ModResearch("Thermal Technician", 10, ""));
         this.MOD_RESEARCHES.add(new ModResearch("Plastic Technician", 8, ""));
-//        this.MOD_RESEARCHES.add(new ModResearch("Extended Possibilities", 3, "")); // Disabled by the Iskallman
+        this.MOD_RESEARCHES.add(new ModResearch("Extended Possibilities", 8, ""));
         this.MOD_RESEARCHES.add(new ModResearch("Power Overwhelming", 6, ""));
         this.MOD_RESEARCHES.add(new ModResearch("Nuclear Power", 6, ""));
 
         this.CUSTOM_RESEARCHES = new LinkedList<>();
-        CustomResearch customResearch = new CustomResearch("Automatic Genius", 20);
+        CustomResearch customResearch = new CustomResearch("Automatic Genius", 100);
         customResearch.getItemRestrictions().put("refinedstorage:crafter", Restrictions.forItems(true));
         customResearch.getItemRestrictions().put("rftoolsutility:crafter1", Restrictions.forItems(true));
         customResearch.getItemRestrictions().put("appliedenergistics2:molecular_assembler", Restrictions.forItems(true));

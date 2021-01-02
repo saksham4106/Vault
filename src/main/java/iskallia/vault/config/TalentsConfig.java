@@ -46,19 +46,24 @@ public class TalentsConfig extends Config {
 
     @Override
     protected void reset() {
-        this.HASTE = TalentGroup.ofEffect("Haste", Effects.HASTE, EffectTalent.Type.ICON_ONLY, 3, i -> 2);
-        this.REGENERATION = TalentGroup.ofEffect("Regeneration", Effects.REGENERATION, EffectTalent.Type.ICON_ONLY, 1, i -> 3);
-        this.VAMPIRISM = new TalentGroup<>("Vampirism", new VampirismTalent(2, 0.2F), new VampirismTalent(2, 0.4F), new VampirismTalent(2, 0.6F));
+        this.HASTE = TalentGroup.ofEffect("Haste", Effects.HASTE, EffectTalent.Type.ICON_ONLY, 6, i -> {
+            if(i < 3)return 2;
+            if(i == 3)return 3;
+            return 4;
+        });
+
+        this.REGENERATION = TalentGroup.ofEffect("Regeneration", Effects.REGENERATION, EffectTalent.Type.ICON_ONLY, 3, i -> i == 0 ? 10 : 5);
+        this.VAMPIRISM = new TalentGroup<>("Vampirism", new VampirismTalent(2, 0.1F), new VampirismTalent(2, 0.2F), new VampirismTalent(2, 0.3F), new VampirismTalent(2, 0.4F), new VampirismTalent(2, 0.5F), new VampirismTalent(2, 0.6F));
         this.RESISTANCE = TalentGroup.ofEffect("Resistance", Effects.RESISTANCE, EffectTalent.Type.ICON_ONLY, 2, i -> 3);
-        this.STRENGTH = TalentGroup.ofEffect("Strength", Effects.STRENGTH, EffectTalent.Type.ICON_ONLY, 3, i -> 3);
+        this.STRENGTH = TalentGroup.ofEffect("Strength", Effects.STRENGTH, EffectTalent.Type.ICON_ONLY, 10, i -> 3);
         this.FIRE_RESISTANCE = TalentGroup.ofEffect("Fire Resistance", Effects.FIRE_RESISTANCE, EffectTalent.Type.ICON_ONLY, 1, i -> 5);
-        this.SPEED = TalentGroup.ofEffect("Speed", Effects.SPEED, EffectTalent.Type.ICON_ONLY, 2, i -> 3);
+        this.SPEED = TalentGroup.ofEffect("Speed", Effects.SPEED, EffectTalent.Type.ICON_ONLY, 5, i -> 2);
         this.WATER_BREATHING = TalentGroup.ofEffect("Water Breathing", Effects.WATER_BREATHING, EffectTalent.Type.ICON_ONLY, 1, i -> 5);
         this.WELL_FIT = TalentGroup.ofAttribute("Well Fit", Attributes.MAX_HEALTH, "Extra Health", 10, i -> 1, i -> i * 2.0D, i -> AttributeModifier.Operation.ADDITION);
         this.REACH = TalentGroup.ofAttribute("Reach", ForgeMod.REACH_DISTANCE.get(), "Maximum Reach", 10, i -> 1, i -> i * 1.0D, i -> AttributeModifier.Operation.ADDITION);
         this.TWERKER = new TalentGroup<>("Twerker", new TwerkerTalent(4));
-        this.ELVISH = new TalentGroup<>("Elvish", new ElvishTalent(5));
-        this.ANGEL = new TalentGroup<>("Angel", new AngelTalent(15));
+        this.ELVISH = new TalentGroup<>("Elvish", new ElvishTalent(10));
+        this.ANGEL = new TalentGroup<>("Angel", new AngelTalent(200));
         this.EXPERIENCED = new TalentGroup<>("Experienced", new ExperiencedTalent(2, 0.20f), new ExperiencedTalent(2, 0.40f), new ExperiencedTalent(2, 0.60f), new ExperiencedTalent(2, 0.80f), new ExperiencedTalent(2, 1.00f), new ExperiencedTalent(2, 1.20f), new ExperiencedTalent(2, 1.40f), new ExperiencedTalent(2, 1.60f), new ExperiencedTalent(2, 1.80f), new ExperiencedTalent(2, 2.00f));
         this.PARRY = new TalentGroup<>("Parry", new ParryTalent(2, 0.02f), new ParryTalent(2, 0.04f), new ParryTalent(2, 0.06f), new ParryTalent(2, 0.08f), new ParryTalent(2, 0.10f), new ParryTalent(2, 0.12f), new ParryTalent(2, 0.14f), new ParryTalent(2, 0.16f), new ParryTalent(2, 0.18f), new ParryTalent(2, 0.20f));
     }
