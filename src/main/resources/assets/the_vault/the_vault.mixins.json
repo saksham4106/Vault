@@ -6,6 +6,8 @@
   "refmap": "the_vault.refmap.json",
   "mixins": [
     "MixinAnvilScreen",
+    "MixinEnchantedBookItem",
+    "MixinItem",
     "MixinPlayerInventory",
     "MixinRepairContainer"
   ],
