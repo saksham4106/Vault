@@ -12,11 +12,14 @@ import java.util.function.Supplier;
 // From Client to Server
 // "Hey dude, I pressed/unpressed the ability key, could you handle it pls?"
 public class AbilityKeyMessage {
+    // XXX: Turn into OpcodeMessage<OPC> extension someday
 
     public boolean keyUp;
     public boolean keyDown;
     public boolean scrollUp;
     public boolean scrollDown;
+    public boolean shouldCancelDown;
+    public int abilityIndex = -1;
 
     public AbilityKeyMessage() { }
 
@@ -27,11 +30,21 @@ public class AbilityKeyMessage {
         this.scrollDown = scrollDown;
     }
 
+    public AbilityKeyMessage(boolean shouldCancelDown) {
+        this.shouldCancelDown = shouldCancelDown;
+    }
+
+    public AbilityKeyMessage(int selectAbilityIndex) {
+        this.abilityIndex = selectAbilityIndex;
+    }
+
     public static void encode(AbilityKeyMessage message, PacketBuffer buffer) {
         buffer.writeBoolean(message.keyUp);
         buffer.writeBoolean(message.keyDown);
         buffer.writeBoolean(message.scrollUp);
         buffer.writeBoolean(message.scrollDown);
+        buffer.writeBoolean(message.shouldCancelDown);
+        buffer.writeInt(message.abilityIndex);
     }
 
     public static AbilityKeyMessage decode(PacketBuffer buffer) {
@@ -40,6 +53,8 @@ public class AbilityKeyMessage {
         message.keyDown = buffer.readBoolean();
         message.scrollUp = buffer.readBoolean();
         message.scrollDown = buffer.readBoolean();
+        message.shouldCancelDown = buffer.readBoolean();
+        message.abilityIndex = buffer.readInt();
         return message;
     }
 
@@ -61,6 +76,10 @@ public class AbilityKeyMessage {
                 abilityTree.keyUp(sender.server);
             } else if (message.keyDown) {
                 abilityTree.keyDown(sender.server);
+            } else if (message.shouldCancelDown) {
+                abilityTree.cancelKeyDown(sender.server);
+            } else if (message.abilityIndex != -1) {
+                abilityTree.quickSelectAbility(sender.server, message.abilityIndex);
             }
         });
         context.setPacketHandled(true);

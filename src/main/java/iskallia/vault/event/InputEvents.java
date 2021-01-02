@@ -1,6 +1,7 @@
 package iskallia.vault.event;
 
 import iskallia.vault.client.gui.overlay.AbilitiesOverlay;
+import iskallia.vault.client.gui.screen.AbilitySelectionScreen;
 import iskallia.vault.init.ModKeybinds;
 import iskallia.vault.init.ModNetwork;
 import iskallia.vault.network.message.AbilityKeyMessage;
@@ -17,6 +18,8 @@ import org.lwjgl.glfw.GLFW;
 @OnlyIn(Dist.CLIENT)
 public class InputEvents {
 
+    public static boolean ignoreNextAbilityUp; // Need to re-implement ability casting system later.. :C
+
     @SubscribeEvent
     public static void onKey(InputEvent.KeyInputEvent event) {
         Minecraft minecraft = Minecraft.getInstance();
@@ -32,7 +35,12 @@ public class InputEvents {
     }
 
     private static void onInput(Minecraft minecraft, int key, int action) {
-        if (minecraft.currentScreen == null && ModKeybinds.globalTimerKey.isPressed()) {
+        if (minecraft.currentScreen == null && ModKeybinds.abilityKey.isKeyDown() && key == GLFW.GLFW_MOUSE_BUTTON_RIGHT) {
+            if (AbilitiesOverlay.learnedAbilities.size() <= 2) return;
+            minecraft.displayGuiScreen(new AbilitySelectionScreen());
+            ModNetwork.CHANNEL.sendToServer(new AbilityKeyMessage(true));
+
+        } else if (minecraft.currentScreen == null && ModKeybinds.globalTimerKey.isPressed()) {
             ModNetwork.CHANNEL.sendToServer(GlobalTimerMessage.requestUnix());
 
         } else if (minecraft.currentScreen == null && ModKeybinds.openRaffleScreen.isPressed()) {
@@ -43,6 +51,10 @@ public class InputEvents {
 
         } else if (minecraft.currentScreen == null && ModKeybinds.abilityKey.getKey().getKeyCode() == key) {
             if (action == GLFW.GLFW_RELEASE) {
+                if (ignoreNextAbilityUp) {
+                    ignoreNextAbilityUp = false;
+                    return;
+                }
                 ModNetwork.CHANNEL.sendToServer(new AbilityKeyMessage(true, false, false, false));
 
             } else if (action == GLFW.GLFW_PRESS) {

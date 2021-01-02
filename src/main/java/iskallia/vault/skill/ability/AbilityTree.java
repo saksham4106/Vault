@@ -199,6 +199,50 @@ public class AbilityTree implements INBTSerializable<CompoundNBT> {
         }
     }
 
+    public void quickSelectAbility(MinecraftServer server, int abilityIndex) {
+        List<AbilityNode<?>> learnedNodes = learnedNodes();
+
+        if (learnedNodes.size() != 0) {
+            boolean prevActive = this.active;
+            this.active = false;
+
+            AbilityNode<?> previouslyFocused = getFocusedAbility();
+            NetcodeUtils.runIfPresent(server, this.uuid, player -> {
+                previouslyFocused.getAbility().onBlur(player);
+                if (prevActive && previouslyFocused.getAbility().getBehavior() == PlayerAbility.Behavior.PRESS_TO_TOGGLE)
+                    previouslyFocused.getAbility().onAction(player, this.active);
+            });
+
+            if (prevActive && getFocusedAbility().getAbility().getBehavior() != PlayerAbility.Behavior.HOLD_TO_ACTIVATE)
+                putOnCooldown(server, focusedAbilityIndex, ModConfigs.ABILITIES.cooldownTicks);
+
+            this.focusedAbilityIndex = abilityIndex;
+
+            AbilityNode<?> newFocused = getFocusedAbility();
+            NetcodeUtils.runIfPresent(server, this.uuid, player -> {
+                newFocused.getAbility().onFocus(player);
+            });
+
+            syncFocusedIndex(server);
+        }
+    }
+
+    public void cancelKeyDown(MinecraftServer server) {
+        AbilityNode<?> focusedAbility = getFocusedAbility();
+
+        if (focusedAbility == null) return;
+
+        PlayerAbility.Behavior behavior = focusedAbility.getAbility().getBehavior();
+
+        if (behavior == PlayerAbility.Behavior.HOLD_TO_ACTIVATE) {
+            active = false;
+            swappingLocked = false;
+            swappingPerformed = false;
+        }
+
+        notifyActivity(server);
+    }
+
     public void putOnCooldown(MinecraftServer server, int abilityIndex, int cooldownTicks) {
         this.cooldowns.put(abilityIndex, cooldownTicks);
         notifyActivity(server, abilityIndex, cooldownTicks, 0);
