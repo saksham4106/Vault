@@ -52,9 +52,9 @@ public class KeyPressScreen extends ContainerScreen<KeyPressContainer> {
 
         FontRenderer fontRenderer = minecraft.fontRenderer;
 
-        String title = "Forge Vault Keys";
+        String title = "Mold Vault Keys";
         fontRenderer.drawString(matrixStack, title,
-                midX - 30,
+                midX - 35,
                 midY - 63,
                 0x00_3f3f3f);
 
