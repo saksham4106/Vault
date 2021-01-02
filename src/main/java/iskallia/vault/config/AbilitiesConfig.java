@@ -45,7 +45,7 @@ public class AbilitiesConfig extends Config {
         this.GHOST_WALK = AbilityGroup.ofGhostWalkEffect("Ghost Walk", ModEffects.GHOST_WALK, EffectAbility.Type.ICON_ONLY, 6, i -> 1);
         this.VEIN_MINER = new AbilityGroup<>("Vein Miner", new VeinMinerAbility(1, 4), new VeinMinerAbility(1, 8), new VeinMinerAbility(1, 16), new VeinMinerAbility(2, 32), new VeinMinerAbility(2, 64));
         this.SELF_SUSTAIN = new AbilityGroup<>("Self Sustain", new SelfSustainAbility(1, 1), new SelfSustainAbility(1, 2), new SelfSustainAbility(1, 4));
-        this.DASH = new AbilityGroup<>("Dash", new DashAbility(2, 1), new DashAbility(2, 2), new DashAbility(2, 3), new DashAbility(2, 4), new DashAbility(2, 5), new DashAbility(2, 6), new DashAbility(2, 7), new DashAbility(2, 8), new DashAbility(2, 9), new DashAbility(2, 10));
+        this.DASH = new AbilityGroup<>("Dash", new DashAbility(2, 1), new DashAbility(1, 2), new DashAbility(1, 3), new DashAbility(1, 4), new DashAbility(1, 5), new DashAbility(1, 6), new DashAbility(1, 7), new DashAbility(1, 8), new DashAbility(1, 9), new DashAbility(1, 10));
         this.MEGA_JUMP = new AbilityGroup<>("Mega Jump", new MegaJumpAbility(1, 0), new MegaJumpAbility(1, 2), new MegaJumpAbility(1, 3));
     }
 
