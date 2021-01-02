@@ -103,8 +103,17 @@ public class ModItems {
     public static BasicItem KEY_PIECE = new BasicItem(Vault.id("key_piece"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
     public static BasicItem KEY_MOULD = new BasicItem(Vault.id("key_mould"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
     public static BasicItem BLANK_KEY = new BasicItem(Vault.id("blank_key"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
-    public static BasicItem SPARKLETINE_CLUSTER = new BasicItem(Vault.id("cluster_sparkletine"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
     public static BasicItem NETHERITE_CLUSTER = new BasicItem(Vault.id("cluster_netherite"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem ALEXANDRITE_CLUSTER = new BasicItem(Vault.id("cluster_alexandrite"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem BENITOITE_CLUSTER = new BasicItem(Vault.id("cluster_benitoite"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem LARIMAR_CLUSTER = new BasicItem(Vault.id("cluster_larimar"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem BLACK_OPAL_CLUSTER = new BasicItem(Vault.id("cluster_black_opal"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem PAINITE_CLUSTER = new BasicItem(Vault.id("cluster_painite"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem ISKALLIUM_CLUSTER = new BasicItem(Vault.id("cluster_iskallium"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem RENIUM_CLUSTER = new BasicItem(Vault.id("cluster_renium"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem GORGINITE_CLUSTER = new BasicItem(Vault.id("cluster_gorginite"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem SPARKLETINE_CLUSTER = new BasicItem(Vault.id("cluster_sparkletine"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+    public static BasicItem WUTODIE_CLUSTER = new BasicItem(Vault.id("cluster_wutodie"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
 
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
@@ -188,8 +197,17 @@ public class ModItems {
         registry.register(KEY_PIECE);
         registry.register(KEY_MOULD);
         registry.register(BLANK_KEY);
-        registry.register(SPARKLETINE_CLUSTER);
         registry.register(NETHERITE_CLUSTER);
+        registry.register(ALEXANDRITE_CLUSTER);
+        registry.register(BENITOITE_CLUSTER);
+        registry.register(LARIMAR_CLUSTER);
+        registry.register(BLACK_OPAL_CLUSTER);
+        registry.register(PAINITE_CLUSTER);
+        registry.register(ISKALLIUM_CLUSTER);
+        registry.register(RENIUM_CLUSTER);
+        registry.register(GORGINITE_CLUSTER);
+        registry.register(SPARKLETINE_CLUSTER);
+        registry.register(WUTODIE_CLUSTER);
     }
 
 }
