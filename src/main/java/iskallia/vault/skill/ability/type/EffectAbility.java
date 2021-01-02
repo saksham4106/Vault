@@ -22,6 +22,10 @@ public class EffectAbility extends PlayerAbility {
         this(cost, Registry.EFFECTS.getKey(effect).toString(), amplifier, type.toString());
     }
 
+    public EffectAbility(int cost, Effect effect, int amplifier, Type type, Behavior behavior) {
+        this(cost, Registry.EFFECTS.getKey(effect).toString(), amplifier, type.toString(), behavior);
+    }
+
     public Effect getEffect() {
         return Registry.EFFECTS.getOrDefault(new ResourceLocation(this.effect));
     }
@@ -36,6 +40,13 @@ public class EffectAbility extends PlayerAbility {
 
     public EffectAbility(int cost, String effect, int amplifier, String type) {
         super(cost, Behavior.PRESS_TO_TOGGLE);
+        this.effect = effect;
+        this.amplifier = amplifier;
+        this.type = type;
+    }
+
+    public EffectAbility(int cost, String effect, int amplifier, String type, Behavior behavior) {
+        super(cost, behavior);
         this.effect = effect;
         this.amplifier = amplifier;
         this.type = type;

@@ -4,6 +4,7 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.gson.annotations.Expose;
 import iskallia.vault.skill.ability.type.EffectAbility;
+import iskallia.vault.skill.ability.type.GhostWalkAbility;
 import iskallia.vault.skill.ability.type.PlayerAbility;
 import iskallia.vault.util.RomanNumber;
 import net.minecraft.potion.Effect;
@@ -76,6 +77,14 @@ public class AbilityGroup<T extends PlayerAbility> {
         EffectAbility[] abilities = IntStream.range(0, maxLevel)
                 .mapToObj(i -> new EffectAbility(cost.applyAsInt(i + 1), effect, i, type))
                 .toArray(EffectAbility[]::new);
+        return new AbilityGroup<>(name, abilities);
+    }
+
+    public static AbilityGroup<GhostWalkAbility> ofGhostWalkEffect(String name, Effect effect, EffectAbility.Type type, int maxLevel,
+                                                          IntUnaryOperator cost) {
+        GhostWalkAbility[] abilities = IntStream.range(0, maxLevel)
+                .mapToObj(i -> new GhostWalkAbility(cost.applyAsInt(i + 1), effect, i, i, i, type, PlayerAbility.Behavior.RELEASE_TO_PERFORM))
+                .toArray(GhostWalkAbility[]::new);
         return new AbilityGroup<>(name, abilities);
     }
 

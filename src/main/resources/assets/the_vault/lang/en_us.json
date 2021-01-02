@@ -157,5 +157,6 @@
   "block.minecraft.polished_andesite_stairs": "Polished Andersite Stairs",
   "block.minecraft.andesite_slab": "Andersite Slab",
   "block.minecraft.polished_andesite_slab": "Polished Andersite Slab",
-  "block.minecraft.andesite_wall": "Andersite Wall"
+  "block.minecraft.andesite_wall": "Andersite Wall",
+  "effect.the_vault.ghost_walk": "Ghost Walk"
 }
