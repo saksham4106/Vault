@@ -36,7 +36,7 @@ public class GhostWalkEffect extends Effect {
         ModifiableAttributeInstance movementSpeed = entityLivingBaseIn.getAttribute(Attributes.MOVEMENT_SPEED);
 
         if (movementSpeed != null) {
-            AttributeModifier attributeModifier = this.attributeModifiers[MathHelper.clamp(amplifier, 0, this.attributeModifiers.length - 1)];
+            AttributeModifier attributeModifier = this.attributeModifiers[MathHelper.clamp(amplifier + 1, 0, this.attributeModifiers.length - 1)];
             movementSpeed.applyPersistentModifier(attributeModifier);
         }
 
@@ -50,7 +50,7 @@ public class GhostWalkEffect extends Effect {
         ModifiableAttributeInstance movementSpeed = entityLivingBaseIn.getAttribute(Attributes.MOVEMENT_SPEED);
 
         if (movementSpeed != null) {
-            AttributeModifier attributeModifier = this.attributeModifiers[MathHelper.clamp(amplifier, 0, this.attributeModifiers.length - 1)];
+            AttributeModifier attributeModifier = this.attributeModifiers[MathHelper.clamp(amplifier + 1, 0, this.attributeModifiers.length - 1)];
             movementSpeed.removePersistentModifier(attributeModifier.getID());
         }
 

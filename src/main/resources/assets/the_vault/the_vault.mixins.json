@@ -5,13 +5,14 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "the_vault.refmap.json",
   "mixins": [
-    "MixinAnvilScreen",
-    "MixinEnchantedBookItem",
-    "MixinItem",
     "MixinPlayerInventory",
     "MixinRepairContainer"
   ],
-  "client": [],
+  "client": [
+    "MixinAnvilScreen",
+    "MixinEnchantedBookItem",
+    "MixinItem"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
