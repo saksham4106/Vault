@@ -124,6 +124,14 @@ public class EntityEvents {
 										if(te instanceof ChestTileEntity) {
 											((ChestTileEntity)te).setLootTable(Vault.id("chest/treasure"), 0L);
 										}
+									} else if(s.getBlock() == Blocks.PURPLE_WOOL) {
+										event.getEntity().world.setBlockState(c, Blocks.CHEST.getDefaultState()
+												.with(ChestBlock.FACING, Direction.byHorizontalIndex(event.getEntity().world.rand.nextInt(4))), 2);
+										TileEntity te = event.getEntity().world.getTileEntity(c);
+
+										if(te instanceof ChestTileEntity) {
+											((ChestTileEntity)te).setLootTable(Vault.id("chest/treasure_extra"), 0L);
+										}
 									} else if(s.getBlock() == Blocks.BEDROCK) {
 										event.getEntity().world.setBlockState(c, ModBlocks.VAULT_BEDROCK.getDefaultState());
 									}
