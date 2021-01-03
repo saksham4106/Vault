@@ -3,10 +3,7 @@ package iskallia.vault.skill.ability;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.gson.annotations.Expose;
-import iskallia.vault.skill.ability.type.EffectAbility;
-import iskallia.vault.skill.ability.type.GhostWalkAbility;
-import iskallia.vault.skill.ability.type.PlayerAbility;
-import iskallia.vault.skill.ability.type.RampageAbility;
+import iskallia.vault.skill.ability.type.*;
 import iskallia.vault.util.RomanNumber;
 import net.minecraft.potion.Effect;
 

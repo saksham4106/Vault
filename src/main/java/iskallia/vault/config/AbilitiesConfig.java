@@ -20,6 +20,7 @@ public class AbilitiesConfig extends Config {
     @Expose public AbilityGroup<SelfSustainAbility> SELF_SUSTAIN;
     @Expose public AbilityGroup<DashAbility> DASH;
     @Expose public AbilityGroup<MegaJumpAbility> MEGA_JUMP;
+    @Expose public AbilityGroup<CleanseAbility> CLEANSE;
 
     @Override
     public String getName() {
@@ -28,7 +29,7 @@ public class AbilitiesConfig extends Config {
 
     public List<AbilityGroup<?>> getAll() {
         return Arrays.asList(NIGHT_VISION, INVISIBILITY, VEIN_MINER,
-                SELF_SUSTAIN, DASH, MEGA_JUMP, GHOST_WALK, RAMPAGE);
+                SELF_SUSTAIN, DASH, MEGA_JUMP, GHOST_WALK, RAMPAGE, CLEANSE);
     }
 
     public AbilityGroup<?> getByName(String name) {
@@ -44,13 +45,58 @@ public class AbilitiesConfig extends Config {
     @Override
     protected void reset() {
         this.NIGHT_VISION = AbilityGroup.ofEffect("Night Vision", Effects.NIGHT_VISION, EffectAbility.Type.ICON_ONLY, 1, i -> 1);
+
         this.INVISIBILITY = AbilityGroup.ofEffect("Invisibility", Effects.INVISIBILITY, EffectAbility.Type.ICON_ONLY, 1, i -> 1);
+
         this.GHOST_WALK = AbilityGroup.ofGhostWalkEffect("Ghost Walk", ModEffects.GHOST_WALK, EffectAbility.Type.ICON_ONLY, 6, i -> 1);
+
         this.RAMPAGE = AbilityGroup.ofRampage("Rampage", ModEffects.RAMPAGE, EffectAbility.Type.ICON_ONLY, 9, i -> 1);
-        this.VEIN_MINER = new AbilityGroup<>("Vein Miner", new VeinMinerAbility(1, 4), new VeinMinerAbility(1, 8), new VeinMinerAbility(1, 16), new VeinMinerAbility(2, 32), new VeinMinerAbility(2, 64));
-        this.SELF_SUSTAIN = new AbilityGroup<>("Self Sustain", new SelfSustainAbility(1, 1), new SelfSustainAbility(1, 2), new SelfSustainAbility(1, 4));
-        this.DASH = new AbilityGroup<>("Dash", new DashAbility(2, 1), new DashAbility(1, 2), new DashAbility(1, 3), new DashAbility(1, 4), new DashAbility(1, 5), new DashAbility(1, 6), new DashAbility(1, 7), new DashAbility(1, 8), new DashAbility(1, 9), new DashAbility(1, 10));
-        this.MEGA_JUMP = new AbilityGroup<>("Mega Jump", new MegaJumpAbility(1, 0), new MegaJumpAbility(1, 2), new MegaJumpAbility(1, 3));
+
+        this.VEIN_MINER = new AbilityGroup<>("Vein Miner",
+                new VeinMinerAbility(1, 4),
+                new VeinMinerAbility(1, 8),
+                new VeinMinerAbility(1, 16),
+                new VeinMinerAbility(2, 32),
+                new VeinMinerAbility(2, 64)
+        );
+
+        this.SELF_SUSTAIN = new AbilityGroup<>("Self Sustain",
+                new SelfSustainAbility(1, 1),
+                new SelfSustainAbility(1, 2),
+                new SelfSustainAbility(1, 4)
+        );
+
+        this.DASH = new AbilityGroup<>("Dash",
+                new DashAbility(2, 1),
+                new DashAbility(1, 2),
+                new DashAbility(1, 3),
+                new DashAbility(1, 4),
+                new DashAbility(1, 5),
+                new DashAbility(1, 6),
+                new DashAbility(1, 7),
+                new DashAbility(1, 8),
+                new DashAbility(1, 9),
+                new DashAbility(1, 10)
+        );
+
+        this.MEGA_JUMP = new AbilityGroup<>("Mega Jump",
+                new MegaJumpAbility(1, 0),
+                new MegaJumpAbility(1, 2),
+                new MegaJumpAbility(1, 3)
+        );
+
+        this.CLEANSE = new AbilityGroup<>("Cleanse",
+                new CleanseAbility(1, 30 * 20),
+                new CleanseAbility(1, 27 * 20),
+                new CleanseAbility(1, 25 * 20),
+                new CleanseAbility(1, 23 * 20),
+                new CleanseAbility(1, 20 * 20),
+                new CleanseAbility(1, 18 * 20),
+                new CleanseAbility(1, 16 * 20),
+                new CleanseAbility(1, 14 * 20),
+                new CleanseAbility(1, 12 * 20),
+                new CleanseAbility(1, 10 * 20)
+        );
     }
 
 }
