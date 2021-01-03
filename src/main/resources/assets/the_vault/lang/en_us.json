@@ -54,6 +54,17 @@
   "item.the_vault.key_gorginite": "Gorginite Key",
   "item.the_vault.key_sparkletine": "Sparkletine Key",
   "item.the_vault.key_wutodie": "Wutodie Key",
+  "item.the_vault.cluster_netherite": "Netherite Cluster",
+  "item.the_vault.cluster_alexandrite": "Alexandrite Cluster",
+  "item.the_vault.cluster_benitoite": "Benitoite Cluster",
+  "item.the_vault.cluster_larimar": "Larimar Cluster",
+  "item.the_vault.cluster_black_opal": "Black Opal Cluster",
+  "item.the_vault.cluster_painite": "Painite Cluster",
+  "item.the_vault.cluster_iskallium": "Iskallium Cluster",
+  "item.the_vault.cluster_renium": "Renium Cluster",
+  "item.the_vault.cluster_gorginite": "Gorginite Cluster",
+  "item.the_vault.cluster_sparkletine": "Sparkletine Cluster",
+  "item.the_vault.cluster_wutodie": "Wutodie Cluster",
   "item.the_vault.vault_rock": "Vault Rock",
   "item.the_vault.vault_rune": "Vault Rune",
   "item.the_vault.legendary_treasure_normal": "Legendary Treasure",
@@ -158,5 +169,6 @@
   "block.minecraft.andesite_slab": "Andersite Slab",
   "block.minecraft.polished_andesite_slab": "Polished Andersite Slab",
   "block.minecraft.andesite_wall": "Andersite Wall",
-  "effect.the_vault.ghost_walk": "Ghost Walk"
+  "effect.the_vault.ghost_walk": "Ghost Walk",
+  "effect.the_vault.rampage": "Rampage"
 }
