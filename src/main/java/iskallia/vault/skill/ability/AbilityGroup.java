@@ -6,6 +6,7 @@ import com.google.gson.annotations.Expose;
 import iskallia.vault.skill.ability.type.EffectAbility;
 import iskallia.vault.skill.ability.type.GhostWalkAbility;
 import iskallia.vault.skill.ability.type.PlayerAbility;
+import iskallia.vault.skill.ability.type.RampageAbility;
 import iskallia.vault.util.RomanNumber;
 import net.minecraft.potion.Effect;
 
@@ -85,6 +86,13 @@ public class AbilityGroup<T extends PlayerAbility> {
         GhostWalkAbility[] abilities = IntStream.range(0, maxLevel)
                 .mapToObj(i -> new GhostWalkAbility(cost.applyAsInt(i + 1), effect, i, (i + 1) * (5 * 20), type, PlayerAbility.Behavior.RELEASE_TO_PERFORM))
                 .toArray(GhostWalkAbility[]::new);
+        return new AbilityGroup<>(name, abilities);
+    }
+
+    public static AbilityGroup<RampageAbility> ofRampage(String name, Effect effect, EffectAbility.Type type, int maxLevel, IntUnaryOperator cost) {
+        RampageAbility[] abilities = IntStream.range(0, maxLevel)
+                .mapToObj(i -> new RampageAbility(cost.applyAsInt(i + 1), effect, i, i, (i + 1) * (5 * 20), (i + 1) * (5 * 20), type, PlayerAbility.Behavior.RELEASE_TO_PERFORM))
+                .toArray(RampageAbility[]::new);
         return new AbilityGroup<>(name, abilities);
     }
 

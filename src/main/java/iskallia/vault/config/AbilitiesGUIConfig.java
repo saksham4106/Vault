@@ -59,6 +59,11 @@ public class AbilitiesGUIConfig extends Config {
                 16 * 7, 0);
         style.frameType = SkillFrame.STAR;
         styles.put(ModConfigs.ABILITIES.GHOST_WALK.getParentName(), style);
+
+        style = new SkillStyle(50 * 3, 50,
+                16 * 8, 0);
+        style.frameType = SkillFrame.STAR;
+        styles.put(ModConfigs.ABILITIES.RAMPAGE.getParentName(), style);
     }
 
 }

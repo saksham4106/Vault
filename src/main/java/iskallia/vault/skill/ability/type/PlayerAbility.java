@@ -6,7 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 public abstract class PlayerAbility {
 
     @Expose private int cost;
-    @Expose private int cooldown;
+    @Expose protected int cooldown;
     @Expose protected Behavior behavior;
 
     public PlayerAbility(int cost, Behavior behavior) {

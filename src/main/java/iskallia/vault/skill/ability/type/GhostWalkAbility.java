@@ -7,7 +7,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -17,8 +16,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class GhostWalkAbility extends EffectAbility {
 
-    @Expose
-    private int durationTicks;
+    @Expose private int durationTicks;
 
     public int getDurationTicks() {
         return durationTicks;
