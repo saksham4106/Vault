@@ -179,23 +179,22 @@ public class ResearchesGUIConfig extends Config {
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put("Plastic Technician", style);
 
-//        Disabled by Iskallman
-//        style = new SkillStyle(50, 50 * 6,
-//                16 * 5, 16 * 2);
-//        style.frameType = SkillFrame.RECTANGULAR;
-//        styles.put("Extended Possibilities", style);
-
         style = new SkillStyle(50, 50 * 6,
+                16 * 5, 16 * 2);
+        style.frameType = SkillFrame.RECTANGULAR;
+        styles.put("Extended Possibilities", style);
+
+        style = new SkillStyle(50 * 2, 50 * 6,
                 16 * 6, 16 * 2);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put("Power Overwhelming", style);
 
-        style = new SkillStyle(50 * 2, 50 * 6,
+        style = new SkillStyle(50 * 3, 50 * 6,
                 16 * 7, 16 * 2);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put("Nuclear Power", style);
 
-        style = new SkillStyle(50 * 3, 50 * 6,
+        style = new SkillStyle(50 * 4, 50 * 6,
                 16 * 9, 16 * 2);
         style.frameType = SkillFrame.STAR;
         styles.put("Automatic Genius", style);
