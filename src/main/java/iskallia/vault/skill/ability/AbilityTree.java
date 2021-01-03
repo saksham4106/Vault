@@ -95,7 +95,7 @@ public class AbilityTree implements INBTSerializable<CompoundNBT> {
             });
 
             if (prevActive && getFocusedAbility().getAbility().getBehavior() != PlayerAbility.Behavior.HOLD_TO_ACTIVATE)
-                putOnCooldown(server, focusedAbilityIndex, getFocusedAbility().getAbility().getCooldown());
+                putOnCooldown(server, focusedAbilityIndex, ModConfigs.ABILITIES.cooldownOf(getFocusedAbility()));
 
             this.focusedAbilityIndex++;
             if (this.focusedAbilityIndex >= learnedNodes.size())
@@ -131,7 +131,7 @@ public class AbilityTree implements INBTSerializable<CompoundNBT> {
             });
 
             if (prevActive && getFocusedAbility().getAbility().getBehavior() != PlayerAbility.Behavior.HOLD_TO_ACTIVATE)
-                putOnCooldown(server, focusedAbilityIndex, getFocusedAbility().getAbility().getCooldown());
+                putOnCooldown(server, focusedAbilityIndex, ModConfigs.ABILITIES.cooldownOf(getFocusedAbility()));
 
             this.focusedAbilityIndex--;
             if (this.focusedAbilityIndex < 0)
@@ -187,7 +187,7 @@ public class AbilityTree implements INBTSerializable<CompoundNBT> {
             NetcodeUtils.runIfPresent(server, this.uuid, player -> {
                 focusedAbility.getAbility().onAction(player, active);
             });
-            putOnCooldown(server, focusedAbilityIndex, getFocusedAbility().getAbility().getCooldown());
+            putOnCooldown(server, focusedAbilityIndex, ModConfigs.ABILITIES.cooldownOf(getFocusedAbility()));
 
         } else if (behavior == PlayerAbility.Behavior.HOLD_TO_ACTIVATE) {
             active = false;
@@ -200,7 +200,7 @@ public class AbilityTree implements INBTSerializable<CompoundNBT> {
             NetcodeUtils.runIfPresent(server, this.uuid, player -> {
                 focusedAbility.getAbility().onAction(player, active);
             });
-            putOnCooldown(server, focusedAbilityIndex, getFocusedAbility().getAbility().getCooldown());
+            putOnCooldown(server, focusedAbilityIndex, ModConfigs.ABILITIES.cooldownOf(getFocusedAbility()));
         }
     }
 
@@ -219,7 +219,7 @@ public class AbilityTree implements INBTSerializable<CompoundNBT> {
             });
 
             if (prevActive && getFocusedAbility().getAbility().getBehavior() != PlayerAbility.Behavior.HOLD_TO_ACTIVATE)
-                putOnCooldown(server, focusedAbilityIndex, getFocusedAbility().getAbility().getCooldown());
+                putOnCooldown(server, focusedAbilityIndex, ModConfigs.ABILITIES.cooldownOf(getFocusedAbility()));
 
             this.focusedAbilityIndex = abilityIndex;
 

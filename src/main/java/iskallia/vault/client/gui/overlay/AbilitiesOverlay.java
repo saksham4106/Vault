@@ -75,7 +75,7 @@ public class AbilitiesOverlay {
                 16, 16);
 
         if (cooldowns.getOrDefault(focusedIndex, 0) > 0) {
-            float cooldownPercent = (float) cooldowns.get(focusedIndex) / focusedAbility.getAbility().getCooldown();
+            float cooldownPercent = (float) cooldowns.get(focusedIndex) / ModConfigs.ABILITIES.cooldownOf(focusedAbility);
             int cooldownHeight = (int) (16 * cooldownPercent);
             AbstractGui.fill(matrixStack,
                     23, 3 + (16 - cooldownHeight),
@@ -87,7 +87,7 @@ public class AbilitiesOverlay {
         GlStateManager.color4f(0.7f, 0.7f, 0.7f, 0.5f);
         AbilityNode<?> previousAbility = learnedAbilities.get(previousIndex);
         if (cooldowns.getOrDefault(previousIndex, 0) > 0) {
-            float cooldownPercent = (float) cooldowns.get(previousIndex) / previousAbility.getAbility().getCooldown();
+            float cooldownPercent = (float) cooldowns.get(previousIndex) / ModConfigs.ABILITIES.cooldownOf(previousAbility);
             int cooldownHeight = (int) (16 * cooldownPercent);
             AbstractGui.fill(matrixStack,
                     43, 3 + (16 - cooldownHeight),
@@ -103,7 +103,7 @@ public class AbilitiesOverlay {
 
         AbilityNode<?> nextAbility = learnedAbilities.get(nextIndex);
         if (cooldowns.getOrDefault(nextIndex, 0) > 0) {
-            float cooldownPercent = (float) cooldowns.get(nextIndex) / nextAbility.getAbility().getCooldown();
+            float cooldownPercent = (float) cooldowns.get(nextIndex) / ModConfigs.ABILITIES.cooldownOf(nextAbility);
             int cooldownHeight = (int) (16 * cooldownPercent);
             AbstractGui.fill(matrixStack,
                     3, 3 + (16 - cooldownHeight),

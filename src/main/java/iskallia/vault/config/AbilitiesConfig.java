@@ -3,6 +3,7 @@ package iskallia.vault.config;
 import com.google.gson.annotations.Expose;
 import iskallia.vault.init.ModEffects;
 import iskallia.vault.skill.ability.AbilityGroup;
+import iskallia.vault.skill.ability.AbilityNode;
 import iskallia.vault.skill.ability.type.*;
 import net.minecraft.potion.Effects;
 
@@ -32,6 +33,11 @@ public class AbilitiesConfig extends Config {
     public AbilityGroup<?> getByName(String name) {
         return this.getAll().stream().filter(group -> group.getParentName().equals(name)).findFirst()
                 .orElseThrow(() -> new IllegalStateException("Unknown ability with name " + name));
+    }
+
+    public int cooldownOf(AbilityNode<?> abilityNode) {
+        AbilityGroup<?> abilityGroup = getByName(abilityNode.getGroup().getParentName());
+        return abilityGroup.getAbility(abilityNode.getLevel()).getCooldown();
     }
 
     @Override

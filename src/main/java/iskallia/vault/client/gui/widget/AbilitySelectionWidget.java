@@ -74,7 +74,7 @@ public class AbilitySelectionWidget extends Widget {
 
         if (cooldown > 0) {
             GlStateManager.color4f(0.7f, 0.7f, 0.7f, 0.5f);
-            float cooldownPercent = (float) cooldown / abilityNode.getAbility().getCooldown();
+            float cooldownPercent = (float) cooldown / ModConfigs.ABILITIES.cooldownOf(abilityNode);
             int cooldownHeight = (int) (16 * cooldownPercent);
             AbstractGui.fill(matrixStack,
                     bounds.x0 + 4, bounds.y0 + 4 + (16 - cooldownHeight),
