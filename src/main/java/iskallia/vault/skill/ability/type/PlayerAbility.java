@@ -6,11 +6,13 @@ import net.minecraft.entity.player.PlayerEntity;
 public abstract class PlayerAbility {
 
     @Expose private int cost;
+    @Expose private int cooldown;
     @Expose protected Behavior behavior;
 
     public PlayerAbility(int cost, Behavior behavior) {
         this.cost = cost;
         this.behavior = behavior;
+        this.cooldown = 10 * 20;
     }
 
     public int getCost() {
@@ -19,6 +21,10 @@ public abstract class PlayerAbility {
 
     public Behavior getBehavior() {
         return behavior;
+    }
+
+    public int getCooldown() {
+        return cooldown;
     }
 
     public void onAdded(PlayerEntity player) { }

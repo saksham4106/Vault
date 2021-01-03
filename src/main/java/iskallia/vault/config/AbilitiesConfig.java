@@ -11,8 +11,6 @@ import java.util.List;
 
 public class AbilitiesConfig extends Config {
 
-    @Expose public int cooldownTicks;
-
     @Expose public AbilityGroup<EffectAbility> NIGHT_VISION;
     @Expose public AbilityGroup<EffectAbility> INVISIBILITY;
     @Expose public AbilityGroup<GhostWalkAbility> GHOST_WALK;
@@ -38,8 +36,6 @@ public class AbilitiesConfig extends Config {
 
     @Override
     protected void reset() {
-        this.cooldownTicks = 20 * 10;
-
         this.NIGHT_VISION = AbilityGroup.ofEffect("Night Vision", Effects.NIGHT_VISION, EffectAbility.Type.ICON_ONLY, 1, i -> 1);
         this.INVISIBILITY = AbilityGroup.ofEffect("Invisibility", Effects.INVISIBILITY, EffectAbility.Type.ICON_ONLY, 1, i -> 1);
         this.GHOST_WALK = AbilityGroup.ofGhostWalkEffect("Ghost Walk", ModEffects.GHOST_WALK, EffectAbility.Type.ICON_ONLY, 6, i -> 1);
