@@ -265,7 +265,7 @@ public class VaultRaid implements INBTSerializable<CompoundNBT> {
         Scoreboard scoreboard = player.getWorldScoreboard();
         ScoreObjective objective = getOrCreateObjective(scoreboard, "VaultRarity", ScoreCriteria.DUMMY, ScoreCriteria.RenderType.INTEGER);
         scoreboard.getOrCreateScore(player.getName().getString(), objective).setScorePoints(this.rarity);
-        this.cannotExit = (playerBossName != null && !playerBossName.isEmpty()) || (world.getRandom().nextInt(ModConfigs.VAULT_GENERAL.getNoExitChance()) == 0);
+        this.cannotExit = (this.playerBossName != null && !this.playerBossName.isEmpty()) || (world.getRandom().nextInt(ModConfigs.VAULT_GENERAL.getNoExitChance()) == 0);
 
         this.runIfPresent(world.getServer(), playerEntity -> {
             long seconds = (this.ticksLeft / 20) % 60;
@@ -299,9 +299,16 @@ public class VaultRaid implements INBTSerializable<CompoundNBT> {
             IFormattableTextComponent playerName = player.getDisplayName().deepCopy();
             playerName.setStyle(Style.EMPTY.setColor(Color.fromInt(0x00_983198)));
 
-            StringTextComponent text = this.cannotExit
-                    ? new StringTextComponent(" entered a Raffle Vault!")
-                    : new StringTextComponent(" entered a Vault!");
+            StringTextComponent text;
+
+            if(!this.cannotExit) {
+                text = new StringTextComponent(" entered a Vault!");
+            } else if(this.playerBossName != null && !this.playerBossName.isEmpty()) {
+                text = new StringTextComponent(" entered a Raffle Vault!");
+            } else {
+                text = new StringTextComponent(" entered a no exit Vault!");
+            }
+
             text.setStyle(Style.EMPTY.setColor(Color.fromInt(0x00_ffffff)));
 
             world.getServer().getPlayerList().func_232641_a_(

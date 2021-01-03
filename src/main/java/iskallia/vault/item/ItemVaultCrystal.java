@@ -49,10 +49,8 @@ public class ItemVaultCrystal extends Item {
     }
 
     public static ItemStack getCrystalWithBoss(String playerBossName) {
-        ItemStack stack = new ItemStack(ModItems.VAULT_CRYSTAL_NORMAL);
-        CompoundNBT nbt = stack.getOrCreateTag();
-        nbt.putString("playerBossName", playerBossName);
-        stack.setTag(nbt);
+        ItemStack stack = ItemVaultCrystal.getRandomCrystal();
+        stack.getOrCreateTag().putString("playerBossName", playerBossName);
         return stack;
     }
 
