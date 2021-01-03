@@ -6,6 +6,7 @@ import iskallia.vault.block.VaultDoorBlock;
 import iskallia.vault.block.item.LootStatueBlockItem;
 import iskallia.vault.entity.EntityScaler;
 import iskallia.vault.entity.FighterEntity;
+import iskallia.vault.entity.VaultGuardianEntity;
 import iskallia.vault.init.ModBlocks;
 import iskallia.vault.init.ModEntities;
 import iskallia.vault.init.ModSounds;
@@ -264,8 +265,9 @@ public class EntityEvents {
 
 	@SubscribeEvent
 	public static void onEntityDrops(LivingDropsEvent event) {
-		if(event.getEntity().world.isRemote
-				|| event.getEntity().world.getDimensionKey() != Vault.VAULT_KEY)return;
+		if(event.getEntity().world.isRemote) return;
+		if(event.getEntity().world.getDimensionKey() != Vault.VAULT_KEY) return;
+		if(event.getEntity() instanceof VaultGuardianEntity) return;
 		event.setCanceled(true);
 	}
 
