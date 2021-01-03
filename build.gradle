@@ -28,7 +28,7 @@ def mc_version = "1.16.3"
 version = "${mc_version}-1"
 
 
-version = '1.2.0-alpha.3'
+version = '1.2.0-alpha.4'
 group = 'iskallia.vault' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
 archivesBaseName = 'the_vault'
