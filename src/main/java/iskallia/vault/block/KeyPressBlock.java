@@ -48,8 +48,8 @@ public class KeyPressBlock extends FallingBlock {
     private static final VoxelShape Z_AXIS_AABB = VoxelShapes.or(PART_BASE, PART_LOWER_Z, PART_MID_Z, PART_UPPER_Z);
 
     public KeyPressBlock() {
-        super(Properties.create(Material.IRON, MaterialColor.IRON)
-                .sound(SoundType.METAL));
+        super(Properties.create(Material.ANVIL, MaterialColor.IRON)
+                .sound(SoundType.ANVIL));
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {

@@ -77,11 +77,13 @@ public class TalentsGUIConfig extends Config {
         style.frameType = SkillFrame.STAR;
         styles.put(ModConfigs.TALENTS.REACH.getParentName(), style);
 
-        style = new SkillStyle(70, 70 * 2, 16 * 10, 0);
+        // ---- 1.2
+
+        style = new SkillStyle(70, 70 * 2, 0, 16);
         style.frameType = SkillFrame.STAR;
         styles.put(ModConfigs.TALENTS.EXPERIENCED.getParentName(), style);
 
-        style = new SkillStyle(70 * 2, 70 * 2, 16 * 10, 0);
+        style = new SkillStyle(70 * 2, 70 * 2, 16 * 15, 0);
         style.frameType = SkillFrame.STAR;
         styles.put(ModConfigs.TALENTS.PARRY.getParentName(), style);
     }

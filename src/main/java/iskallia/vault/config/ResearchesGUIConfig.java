@@ -198,6 +198,28 @@ public class ResearchesGUIConfig extends Config {
                 16 * 9, 16 * 2);
         style.frameType = SkillFrame.STAR;
         styles.put("Automatic Genius", style);
+
+        // ---- 1.2
+
+        style = new SkillStyle(0, 50 * 7,
+                16 * 11, 16 * 2);
+        style.frameType = SkillFrame.RECTANGULAR;
+        styles.put("Creator", style);
+
+        style = new SkillStyle(50, 50 * 7,
+                16 * 12, 16 * 2);
+        style.frameType = SkillFrame.RECTANGULAR;
+        styles.put("Piper", style);
+
+        style = new SkillStyle(50 * 2, 50 * 7,
+                16 * 13, 16 * 2);
+        style.frameType = SkillFrame.RECTANGULAR;
+        styles.put("Uber Sand", style);
+
+        style = new SkillStyle(50 * 3, 50 * 7,
+                16 * 10, 16 * 2);
+        style.frameType = SkillFrame.STAR;
+        styles.put("Power Manager", style);
     }
 
 }

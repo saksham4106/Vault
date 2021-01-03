@@ -65,6 +65,11 @@ public class ResearchConfig extends Config {
         this.MOD_RESEARCHES.add(new ModResearch("Spaceman", 4, "ironjetpacks").withRestrictions(false, false, false, false, true));
         this.MOD_RESEARCHES.add(new ModResearch("Total Control", 3, "darkutils").withRestrictions(false, false, false, false, true));
 
+        this.MOD_RESEARCHES.add(new ModResearch("Creator", 2, "create").withRestrictions(false, false, false, false, true));
+        this.MOD_RESEARCHES.add(new ModResearch("Piper", 1, "prettypipes").withRestrictions(false, false, false, false, true));
+        this.MOD_RESEARCHES.add(new ModResearch("Uber Sand", 1, "snad").withRestrictions(false, false, false, false, true));
+        this.MOD_RESEARCHES.add(new ModResearch("Power Manager", 8, "fluxnetworks").withRestrictions(true, true, true, true, true));
+
         this.MOD_RESEARCHES.add(new ModResearch("Let there be light!", 2, ""));
         this.MOD_RESEARCHES.add(new ModResearch("Energetic", 2, ""));
         this.MOD_RESEARCHES.add(new ModResearch("Thermal Technician", 10, ""));
