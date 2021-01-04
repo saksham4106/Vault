@@ -1,20 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " n ",
-    "SnS",
-    "SnS"
-  ],
-  "key": {
-    "n": {
-      "item": "minecraft:netherite_ingot"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "the_vault:gem_benitoite"
     },
-    "S": {
+    {
+      "item": "the_vault:gem_benitoite"
+    },
+    {
+      "item": "the_vault:gem_benitoite"
+    },
+    {
       "item": "the_vault:gem_benitoite"
     }
-  },
+  ],
   "result": {
-    "item": "the_vault:key_benitoite",
+    "item": "the_vault:cluster_benitoite",
     "count": 1
   }
 }

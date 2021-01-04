@@ -1,20 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " n ",
-    "SnS",
-    "SnS"
-  ],
-  "key": {
-    "n": {
-      "item": "minecraft:netherite_ingot"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "the_vault:gem_larimar"
     },
-    "S": {
+    {
+      "item": "the_vault:gem_larimar"
+    },
+    {
+      "item": "the_vault:gem_larimar"
+    },
+    {
       "item": "the_vault:gem_larimar"
     }
-  },
+  ],
   "result": {
-    "item": "the_vault:key_larimar",
+    "item": "the_vault:cluster_larimar",
     "count": 1
   }
 }

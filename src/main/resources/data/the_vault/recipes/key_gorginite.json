@@ -1,20 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " n ",
-    "SnS",
-    "SnS"
-  ],
-  "key": {
-    "n": {
-      "item": "minecraft:netherite_ingot"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "the_vault:gem_gorginite"
     },
-    "S": {
+    {
+      "item": "the_vault:gem_gorginite"
+    },
+    {
+      "item": "the_vault:gem_gorginite"
+    },
+    {
       "item": "the_vault:gem_gorginite"
     }
-  },
+  ],
   "result": {
-    "item": "the_vault:key_gorginite",
+    "item": "the_vault:cluster_gorginite",
     "count": 1
   }
 }

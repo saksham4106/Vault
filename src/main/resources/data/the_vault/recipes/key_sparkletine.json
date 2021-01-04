@@ -1,20 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " n ",
-    "SnS",
-    "SnS"
-  ],
-  "key": {
-    "n": {
-      "item": "minecraft:netherite_ingot"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "the_vault:gem_sparkletine"
     },
-    "S": {
+    {
+      "item": "the_vault:gem_sparkletine"
+    },
+    {
+      "item": "the_vault:gem_sparkletine"
+    },
+    {
       "item": "the_vault:gem_sparkletine"
     }
-  },
+  ],
   "result": {
-    "item": "the_vault:key_sparkletine",
+    "item": "the_vault:cluster_sparkletine",
     "count": 1
   }
 }
