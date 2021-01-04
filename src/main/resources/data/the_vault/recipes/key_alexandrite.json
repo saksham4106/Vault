@@ -7,14 +7,14 @@
   ],
   "key": {
     "#": {
-      "item": "the_vault:gem_larimar"
+      "item": "the_vault:gem_alexandrite"
     },
     "n": {
-      "item": "minecraft:ghast_tear"
+      "item": "minecraft:nether_star"
     }
   },
   "result": {
-    "item": "the_vault:cluster_larimar",
+    "item": "the_vault:cluster_alexandrite",
     "count": 1
   }
 }
