@@ -203,5 +203,41 @@
     "sounds": [
       "the_vault:boogie_death"
     ]
+  },
+  "cleanse": {
+    "category": "master",
+    "sounds": [
+      "the_vault:cleanse"
+    ]
+  },
+  "ghost_walk": {
+    "category": "master",
+    "sounds": [
+      "the_vault:ghost_walk"
+    ]
+  },
+  "invisibility": {
+    "category": "master",
+    "sounds": [
+      "the_vault:invisibility"
+    ]
+  },
+  "night_vision": {
+    "category": "master",
+    "sounds": [
+      "the_vault:night_vision"
+    ]
+  },
+  "rampage": {
+    "category": "master",
+    "sounds": [
+      "the_vault:rampage"
+    ]
+  },
+  "vampire_hissing": {
+    "category": "master",
+    "sounds": [
+      "the_vault:vampire_hissing"
+    ]
   }
 }

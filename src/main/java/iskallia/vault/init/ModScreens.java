@@ -20,6 +20,7 @@ public class ModScreens {
     public static void registerOverlays() {
         MinecraftForge.EVENT_BUS.register(VaultBarOverlay.class);
         MinecraftForge.EVENT_BUS.register(AbilitiesOverlay.class);
+        MinecraftForge.EVENT_BUS.register(AbilityVignetteOverlay.class);
         MinecraftForge.EVENT_BUS.register(VaultRaidOverlay.class);
         MinecraftForge.EVENT_BUS.register(HyperBarOverlay.class);
         MinecraftForge.EVENT_BUS.register(ArenaScoreboardOverlay.class);

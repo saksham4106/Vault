@@ -2,6 +2,7 @@ package iskallia.vault.skill.ability.type;
 
 import com.google.gson.annotations.Expose;
 import iskallia.vault.init.ModEffects;
+import iskallia.vault.init.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -43,14 +44,9 @@ public class GhostWalkAbility extends EffectAbility {
             player.addPotionEffect(newEffect);
         }
 
-        player.world.playSound(player, // TODO: Play that sound on client for player
-                player.getPosX(),
-                player.getPosY(),
-                player.getPosZ(),
-                SoundEvents.PARTICLE_SOUL_ESCAPE,
-                SoundCategory.PLAYERS,
-                1F, 1F
-        );
+        player.world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(),
+                ModSounds.GHOST_WALK_SFX, SoundCategory.MASTER, 0.7f, 1f);
+        player.playSound(ModSounds.GHOST_WALK_SFX, SoundCategory.MASTER, 0.7f, 1f);
     }
 
     @Override

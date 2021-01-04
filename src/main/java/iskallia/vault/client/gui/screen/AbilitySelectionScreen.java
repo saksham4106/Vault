@@ -64,7 +64,6 @@ public class AbilitySelectionScreen extends Screen {
         for (AbilitySelectionWidget widget : getAbilitiesAsWidgets()) {
             if (widget.isMouseOver(mouseX, mouseY)) {
                 requestSwap(widget.getAbilityNode());
-                InputEvents.ignoreNextAbilityUp = true;
                 closeScreen();
                 return true;
             }

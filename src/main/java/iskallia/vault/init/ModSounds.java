@@ -38,6 +38,12 @@ public class ModSounds {
     public static SoundEvent BOOGIE_DEATH;
     public static SoundEvent VAULT_PORTAL_OPEN;
     public static SoundEvent VAULT_PORTAL_LEAVE;
+    public static SoundEvent CLEANSE_SFX;
+    public static SoundEvent GHOST_WALK_SFX;
+    public static SoundEvent INVISIBILITY_SFX;
+    public static SoundEvent NIGHT_VISION_SFX;
+    public static SoundEvent RAMPAGE_SFX;
+    public static SoundEvent VAMPIRE_HISSING_SFX;
 
     public static LazySoundType VAULT_GEM = new LazySoundType();
 
@@ -72,6 +78,12 @@ public class ModSounds {
         BOOGIE_DEATH = registerSound(event, "boogie_death");
         VAULT_PORTAL_OPEN = registerSound(event, "vault_portal_open");
         VAULT_PORTAL_LEAVE = registerSound(event, "vault_portal_leave");
+        CLEANSE_SFX = registerSound(event, "cleanse");
+        GHOST_WALK_SFX = registerSound(event, "ghost_walk");
+        INVISIBILITY_SFX = registerSound(event, "invisibility");
+        NIGHT_VISION_SFX = registerSound(event, "night_vision");
+        RAMPAGE_SFX = registerSound(event, "rampage");
+        VAMPIRE_HISSING_SFX = registerSound(event, "vampire_hissing");
     }
 
     public static void registerSoundTypes() {
