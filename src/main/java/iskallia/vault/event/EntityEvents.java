@@ -6,6 +6,7 @@ import iskallia.vault.block.VaultDoorBlock;
 import iskallia.vault.block.item.LootStatueBlockItem;
 import iskallia.vault.entity.EntityScaler;
 import iskallia.vault.entity.FighterEntity;
+import iskallia.vault.entity.VaultGuardianEntity;
 import iskallia.vault.init.ModBlocks;
 import iskallia.vault.init.ModEntities;
 import iskallia.vault.init.ModSounds;
@@ -20,6 +21,7 @@ import net.minecraft.block.DoorBlock;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -33,10 +35,7 @@ import net.minecraft.network.play.server.STitlePacket;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tileentity.ChestTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Direction;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.concurrent.TickDelayedTask;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
@@ -264,8 +263,9 @@ public class EntityEvents {
 
 	@SubscribeEvent
 	public static void onEntityDrops(LivingDropsEvent event) {
-		if(event.getEntity().world.isRemote
-				|| event.getEntity().world.getDimensionKey() != Vault.VAULT_KEY)return;
+		if(event.getEntity().world.isRemote) return;
+		if(event.getEntity().world.getDimensionKey() != Vault.VAULT_KEY) return;
+		if(event.getEntity() instanceof VaultGuardianEntity) return;
 		event.setCanceled(true);
 	}
 
@@ -301,6 +301,21 @@ public class EntityEvents {
 
 			if(raid != null && raid.won) {
 				event.setCanceled(true);
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void onVaultGuardianDamage(LivingDamageEvent event) {
+		LivingEntity entityLiving = event.getEntityLiving();
+
+		if(entityLiving.world.isRemote) return;
+
+		if(entityLiving instanceof VaultGuardianEntity) {
+			Entity trueSource = event.getSource().getTrueSource();
+			if (trueSource instanceof LivingEntity) {
+				LivingEntity attacker = (LivingEntity) trueSource;
+				attacker.attackEntityFrom(DamageSource.causeThornsDamage(entityLiving), 20);
 			}
 		}
 	}

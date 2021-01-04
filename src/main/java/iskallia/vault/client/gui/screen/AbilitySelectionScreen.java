@@ -75,7 +75,7 @@ public class AbilitySelectionScreen extends Screen {
 
     @Override
     public boolean keyReleased(int keyCode, int scanCode, int modifiers) {
-        if (keyCode == ModKeybinds.abilityKey.getKey().getKeyCode()) {
+        if (keyCode == ModKeybinds.abilityWheelKey.getKey().getKeyCode()) {
             Minecraft minecraft = Minecraft.getInstance();
 
             double guiScaleFactor = minecraft.getMainWindow().getGuiScaleFactor();

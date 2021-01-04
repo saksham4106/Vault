@@ -51,7 +51,8 @@ public class VaultGeneralConfig extends Config {
 		if(event.getPlayer().world.getDimensionKey() != Vault.VAULT_KEY)return;
 
 		if(ModConfigs.VAULT_GENERAL.ITEM_BLACKLIST.contains(event.getItemStack().getItem().getRegistryName().toString())) {
-			event.setCanceled(true);
+			if(event.isCancelable())
+				event.setCanceled(true);
 		}
 	}
 
@@ -61,7 +62,8 @@ public class VaultGeneralConfig extends Config {
 		BlockState state = event.getWorld().getBlockState(event.getPos());
 
 		if(ModConfigs.VAULT_GENERAL.BLOCK_BLACKLIST.contains(state.getBlock().getRegistryName().toString())) {
-			event.setCanceled(true);
+			if(event.isCancelable())
+				event.setCanceled(true);
 		}
 	}
 

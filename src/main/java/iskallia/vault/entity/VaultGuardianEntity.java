@@ -2,6 +2,8 @@ package iskallia.vault.entity;
 
 import iskallia.vault.init.ModItems;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
 import net.minecraft.entity.monster.piglin.PiglinBruteEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -14,6 +16,8 @@ public class VaultGuardianEntity extends PiglinBruteEntity {
     public VaultGuardianEntity(EntityType<? extends PiglinBruteEntity> type, World world) {
         super(type, world);
         this.setCanPickUpLoot(false);
+        ModifiableAttributeInstance attribute = this.getAttribute(Attributes.ATTACK_KNOCKBACK);
+        if (attribute != null) attribute.setBaseValue(4);
     }
 
     @Override

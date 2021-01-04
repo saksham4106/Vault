@@ -35,7 +35,7 @@ public class InputEvents {
     }
 
     private static void onInput(Minecraft minecraft, int key, int action) {
-        if (minecraft.currentScreen == null && ModKeybinds.abilityKey.isKeyDown() && key == GLFW.GLFW_MOUSE_BUTTON_RIGHT) {
+        if (minecraft.currentScreen == null && ModKeybinds.abilityWheelKey.isKeyDown()) {
             if (AbilitiesOverlay.learnedAbilities.size() <= 2) return;
             minecraft.displayGuiScreen(new AbilitySelectionScreen());
             ModNetwork.CHANNEL.sendToServer(new AbilityKeyMessage(true));
