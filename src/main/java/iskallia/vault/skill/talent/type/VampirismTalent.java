@@ -34,8 +34,8 @@ public class VampirismTalent extends PlayerTalent {
         if (player.getRNG().nextFloat() <= 0.2) {
             float pitch = MathUtilities.randomFloat(1f, 1.5f);
             player.world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(),
-                    ModSounds.VAMPIRE_HISSING_SFX, SoundCategory.MASTER, 0.2f, pitch);
-            player.playSound(ModSounds.VAMPIRE_HISSING_SFX, SoundCategory.MASTER, 0.2f, pitch);
+                    ModSounds.VAMPIRE_HISSING_SFX, SoundCategory.MASTER, 0.2f * 0.1f, pitch);
+            player.playSound(ModSounds.VAMPIRE_HISSING_SFX, SoundCategory.MASTER, 0.2f * 0.1f, pitch);
         }
     }
 

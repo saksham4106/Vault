@@ -90,12 +90,12 @@ public class EffectAbility extends PlayerAbility {
     public void playEffects(PlayerEntity player) {
         if (getEffect() == Effects.INVISIBILITY) {
             player.world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(),
-                    ModSounds.INVISIBILITY_SFX, SoundCategory.MASTER, 0.7f, 1f);
+                    ModSounds.INVISIBILITY_SFX, SoundCategory.MASTER, 0.7f * 0.25f, 1f);
             player.playSound(ModSounds.INVISIBILITY_SFX, SoundCategory.MASTER, 0.7f, 1f);
 
         } else if (getEffect() == Effects.NIGHT_VISION) {
             player.world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(),
-                    ModSounds.NIGHT_VISION_SFX, SoundCategory.MASTER, 0.15f, 1f);
+                    ModSounds.NIGHT_VISION_SFX, SoundCategory.MASTER, 0.15f * 0.25f, 1f);
             player.playSound(ModSounds.NIGHT_VISION_SFX, SoundCategory.MASTER, 0.15f, 1f);
         }
     }
