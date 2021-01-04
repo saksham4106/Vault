@@ -18,6 +18,7 @@ public class VaultGeneralConfig extends Config {
 
 	@Expose private int TICK_COUNTER;
 	@Expose private int NO_EXIT_CHANCE;
+	@Expose private int OBELISK_DROP_CHANCE;
 	@Expose private List<String> ITEM_BLACKLIST;
 	@Expose private List<String> BLOCK_BLACKLIST;
 
@@ -34,6 +35,10 @@ public class VaultGeneralConfig extends Config {
 		return this.NO_EXIT_CHANCE;
 	}
 
+	public int getObeliskDropChance() {
+		return OBELISK_DROP_CHANCE;
+	}
+
 	@Override
 	protected void reset() {
 		this.TICK_COUNTER = 20 * 60 * 25;
@@ -44,6 +49,7 @@ public class VaultGeneralConfig extends Config {
 
 		this.BLOCK_BLACKLIST = new ArrayList<>();
 		this.BLOCK_BLACKLIST.add(Blocks.ENDER_CHEST.getRegistryName().toString());
+		this.OBELISK_DROP_CHANCE = 2;
 	}
 
 	@SubscribeEvent

@@ -37,7 +37,7 @@ public class GhostWalkEffect extends Effect {
 
         if (movementSpeed != null) {
             AttributeModifier attributeModifier = this.attributeModifiers[MathHelper.clamp(amplifier + 1, 0, this.attributeModifiers.length - 1)];
-            movementSpeed.applyPersistentModifier(attributeModifier);
+            movementSpeed.applyNonPersistentModifier(attributeModifier);
         }
 
         entityLivingBaseIn.setInvulnerable(true);
@@ -51,7 +51,7 @@ public class GhostWalkEffect extends Effect {
 
         if (movementSpeed != null) {
             AttributeModifier attributeModifier = this.attributeModifiers[MathHelper.clamp(amplifier + 1, 0, this.attributeModifiers.length - 1)];
-            movementSpeed.removePersistentModifier(attributeModifier.getID());
+            movementSpeed.removeModifier(attributeModifier.getID());
         }
 
         entityLivingBaseIn.setInvulnerable(false);
