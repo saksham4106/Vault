@@ -122,7 +122,7 @@ public class AdvancedVendingContainer extends Container {
         ItemStack buy = vendingInventory.getStackInSlot(0);
 
         if (!buy.isEmpty()) {
-            EntityHelper.giveItem((ServerPlayerEntity) player, buy);
+            EntityHelper.giveItem(player, buy);
         }
     }
 
