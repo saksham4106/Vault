@@ -63,7 +63,7 @@ public class AbilityDialog extends AbstractGui {
             this.descriptionComponent = new ScrollableContainer(this::renderDescriptions);
 
             PlayerAbility ability = abilityNode.getAbility();
-            int cost = ability == null ? abilityGroup.learningCost() : ability.getCost();
+            int cost = ability == null ? abilityGroup.learningCost() : abilityGroup.cost(abilityNode.getLevel() + 1);
             this.abilityUpgradeButton.active = cost <= VaultBarOverlay.unspentSkillPoints
                     && abilityNode.getLevel() < abilityGroup.getMaxLevel();
         }
