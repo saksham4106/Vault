@@ -3,7 +3,6 @@ package iskallia.vault.block;
 import iskallia.vault.Vault;
 import iskallia.vault.block.entity.VaultPortalTileEntity;
 import iskallia.vault.init.ModBlocks;
-import iskallia.vault.init.ModConfigs;
 import iskallia.vault.init.ModNetwork;
 import iskallia.vault.network.message.VaultEscapeMessage;
 import iskallia.vault.util.VaultRarity;

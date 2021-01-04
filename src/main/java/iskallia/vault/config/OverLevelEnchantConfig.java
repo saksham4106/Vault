@@ -2,7 +2,6 @@ package iskallia.vault.config;
 
 import com.google.gson.annotations.Expose;
 import iskallia.vault.config.entry.EnchantedBookEntry;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.*;
 
 import java.util.LinkedList;

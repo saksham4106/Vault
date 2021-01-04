@@ -6,7 +6,6 @@ import iskallia.vault.Vault;
 import iskallia.vault.config.entry.ItemEntry;
 import iskallia.vault.config.entry.SingleItemEntry;
 import iskallia.vault.init.ModItems;
-import net.minecraft.command.arguments.ItemParser;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.JsonToNBT;

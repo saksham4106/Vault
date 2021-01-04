@@ -7,8 +7,6 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.fml.common.thread.SidedThreadGroups;
 
 public class KeyPressInventory implements IInventory {
 

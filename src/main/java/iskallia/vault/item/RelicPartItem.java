@@ -1,7 +1,6 @@
 package iskallia.vault.item;
 
 import iskallia.vault.util.RelicSet;
-import iskallia.vault.world.data.VaultSetsData;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;

@@ -4,7 +4,6 @@ import iskallia.vault.container.inventory.KeyPressInventory;
 import iskallia.vault.init.ModContainers;
 import iskallia.vault.util.EntityHelper;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;

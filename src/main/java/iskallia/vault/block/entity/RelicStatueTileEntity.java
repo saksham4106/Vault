@@ -2,7 +2,6 @@ package iskallia.vault.block.entity;
 
 import iskallia.vault.Vault;
 import iskallia.vault.init.ModBlocks;
-import iskallia.vault.world.data.VaultSetsData;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
