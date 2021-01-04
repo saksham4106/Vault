@@ -18,8 +18,6 @@ import org.lwjgl.glfw.GLFW;
 @OnlyIn(Dist.CLIENT)
 public class InputEvents {
 
-    public static boolean ignoreNextAbilityUp; // Need to re-implement ability casting system later.. :C
-
     @SubscribeEvent
     public static void onKey(InputEvent.KeyInputEvent event) {
         Minecraft minecraft = Minecraft.getInstance();
@@ -51,10 +49,6 @@ public class InputEvents {
 
         } else if (minecraft.currentScreen == null && ModKeybinds.abilityKey.getKey().getKeyCode() == key) {
             if (action == GLFW.GLFW_RELEASE) {
-                if (ignoreNextAbilityUp) {
-                    ignoreNextAbilityUp = false;
-                    return;
-                }
                 ModNetwork.CHANNEL.sendToServer(new AbilityKeyMessage(true, false, false, false));
 
             } else if (action == GLFW.GLFW_PRESS) {

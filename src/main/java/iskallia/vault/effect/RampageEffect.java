@@ -42,7 +42,7 @@ public class RampageEffect extends Effect {
 
         if (damage != null) {
             this.attributeModifiers[amplifier] = new AttributeModifier(this.getRegistryName().toString(), damageIncrease, AttributeModifier.Operation.ADDITION);
-            damage.applyPersistentModifier(this.attributeModifiers[amplifier]);
+            damage.applyNonPersistentModifier(this.attributeModifiers[amplifier]);
         }
         super.applyAttributesModifiersToEntity(livingEntity, attributeMapIn, amplifier);
     }
@@ -52,7 +52,7 @@ public class RampageEffect extends Effect {
         ModifiableAttributeInstance damage = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
 
         if (damage != null) {
-            damage.removePersistentModifier(this.attributeModifiers[amplifier].getID());
+            damage.removeModifier(this.attributeModifiers[amplifier].getID());
         }
 
         super.removeAttributesModifiersFromEntity(livingEntity, attributeMapIn, amplifier);

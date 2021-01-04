@@ -64,6 +64,8 @@ public class DashAbility extends PlayerAbility {
 
         player.velocityChanged = true;
 
+        player.world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(),
+                ModSounds.DASH_SFX, SoundCategory.MASTER, 1f, 1f);
         player.playSound(ModSounds.DASH_SFX, SoundCategory.MASTER, 1f, 1f);
         ((ServerWorld) player.world).spawnParticle(ParticleTypes.POOF,
                 player.getPosX(), player.getPosY(), player.getPosZ(),

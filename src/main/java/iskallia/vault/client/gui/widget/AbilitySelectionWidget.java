@@ -59,10 +59,12 @@ public class AbilitySelectionWidget extends Widget {
 
         if (AbilitiesOverlay.focusedIndex == abilityIndex) {
             GlStateManager.color4f(0.7f, 0.7f, 0.7f, 0.3f);
-            RenderSystem.enableBlend();
+
         } else {
             GlStateManager.color4f(1f, 1f, 1f, 1f);
         }
+
+        RenderSystem.enableBlend();
 
         minecraft.getTextureManager().bindTexture(HUD_RESOURCE);
         blit(matrixStack, bounds.x0 + 1, bounds.y0 + 1,

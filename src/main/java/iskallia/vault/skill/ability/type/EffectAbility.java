@@ -1,11 +1,14 @@
 package iskallia.vault.skill.ability.type;
 
 import com.google.gson.annotations.Expose;
+import iskallia.vault.init.ModSounds;
 import iskallia.vault.skill.talent.type.EffectTalent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.registry.Registry;
 
 import java.util.Arrays;
@@ -80,7 +83,22 @@ public class EffectAbility extends PlayerAbility {
     }
 
     @Override
-    public void onAction(PlayerEntity player, boolean active) { }
+    public void onAction(PlayerEntity player, boolean active) {
+        if (active) playEffects(player);
+    }
+
+    public void playEffects(PlayerEntity player) {
+        if (getEffect() == Effects.INVISIBILITY) {
+            player.world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(),
+                    ModSounds.INVISIBILITY_SFX, SoundCategory.MASTER, 0.7f, 1f);
+            player.playSound(ModSounds.INVISIBILITY_SFX, SoundCategory.MASTER, 0.7f, 1f);
+
+        } else if (getEffect() == Effects.NIGHT_VISION) {
+            player.world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(),
+                    ModSounds.NIGHT_VISION_SFX, SoundCategory.MASTER, 0.15f, 1f);
+            player.playSound(ModSounds.NIGHT_VISION_SFX, SoundCategory.MASTER, 0.15f, 1f);
+        }
+    }
 
     public enum Type {
         HIDDEN("hidden", false, false),

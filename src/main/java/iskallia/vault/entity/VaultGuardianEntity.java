@@ -1,6 +1,8 @@
 package iskallia.vault.entity;
 
+import iskallia.vault.init.ModConfigs;
 import iskallia.vault.init.ModItems;
+import iskallia.vault.util.MathUtilities;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
@@ -17,12 +19,13 @@ public class VaultGuardianEntity extends PiglinBruteEntity {
         super(type, world);
         this.setCanPickUpLoot(false);
         ModifiableAttributeInstance attribute = this.getAttribute(Attributes.ATTACK_KNOCKBACK);
-        if (attribute != null) attribute.setBaseValue(4);
+        if (attribute != null) attribute.setBaseValue(6);
     }
 
     @Override
     protected void dropLoot(DamageSource source, boolean attackedRecently) {
-        entityDropItem(new ItemStack(ModItems.OBELISK_INSCRIPTION));
+        if (getRNG().nextInt(ModConfigs.VAULT_GENERAL.getObeliskDropChance()) == 0)
+            this.entityDropItem(new ItemStack(ModItems.OBELISK_INSCRIPTION));
     }
 
     @Override

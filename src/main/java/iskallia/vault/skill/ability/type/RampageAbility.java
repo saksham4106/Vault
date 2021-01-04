@@ -1,9 +1,11 @@
 package iskallia.vault.skill.ability.type;
 
 import com.google.gson.annotations.Expose;
+import iskallia.vault.init.ModSounds;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.SoundCategory;
 
 public class RampageAbility extends EffectAbility {
 
@@ -39,14 +41,9 @@ public class RampageAbility extends EffectAbility {
             player.addPotionEffect(newEffect);
         }
 
-//        player.world.playSound(player, // TODO: Play that sound on client for player
-//                player.getPosX(),
-//                player.getPosY(),
-//                player.getPosZ(),
-//                SoundEvents.PARTICLE_SOUL_ESCAPE,
-//                SoundCategory.PLAYERS,
-//                1F, 1F
-//        );
+        player.world.playSound(player, player.getPosX(), player.getPosY(), player.getPosZ(),
+                ModSounds.RAMPAGE_SFX, SoundCategory.MASTER, 0.7f, 1f);
+        player.playSound(ModSounds.RAMPAGE_SFX, SoundCategory.MASTER, 0.7f, 1f);
     }
 
     @Override

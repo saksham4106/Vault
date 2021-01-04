@@ -50,7 +50,7 @@ public class AnvilEvents {
         } else {
             EnchantedBookEntry bookTier = ModConfigs.OVERLEVEL_ENCHANT.getTier(overlevels);
             event.setOutput(upgradedEquipment);
-            event.setCost(bookTier == null ? 0 : bookTier.getLevelNeeded());
+            event.setCost(bookTier == null ? 1 : bookTier.getLevelNeeded());
         }
     }
 
