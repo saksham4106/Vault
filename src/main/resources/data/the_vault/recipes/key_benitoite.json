@@ -1,19 +1,18 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "the_vault:gem_benitoite"
-    },
-    {
-      "item": "the_vault:gem_benitoite"
-    },
-    {
-      "item": "the_vault:gem_benitoite"
-    },
-    {
-      "item": "the_vault:gem_benitoite"
-    }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#n#",
+    " # "
   ],
+  "key": {
+    "#": {
+      "item": "the_vault:gem_benitoite"
+    },
+    "n": {
+      "item": "minecraft:ghast_tear"
+    }
+  },
   "result": {
     "item": "the_vault:cluster_benitoite",
     "count": 1

@@ -1,19 +1,18 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "the_vault:gem_gorginite"
-    },
-    {
-      "item": "the_vault:gem_gorginite"
-    },
-    {
-      "item": "the_vault:gem_gorginite"
-    },
-    {
-      "item": "the_vault:gem_gorginite"
-    }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#n#",
+    " # "
   ],
+  "key": {
+    "#": {
+      "item": "the_vault:gem_gorginite"
+    },
+    "n": {
+      "item": "minecraft:diamond_block"
+    }
+  },
   "result": {
     "item": "the_vault:cluster_gorginite",
     "count": 1

@@ -1,19 +1,18 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "the_vault:gem_sparkletine"
-    },
-    {
-      "item": "the_vault:gem_sparkletine"
-    },
-    {
-      "item": "the_vault:gem_sparkletine"
-    },
-    {
-      "item": "the_vault:gem_sparkletine"
-    }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#n#",
+    " # "
   ],
+  "key": {
+    "#": {
+      "item": "the_vault:gem_sparkletine"
+    },
+    "n": {
+      "item": "minecraft:diamond_block"
+    }
+  },
   "result": {
     "item": "the_vault:cluster_sparkletine",
     "count": 1

@@ -1,21 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "minecraft:netherite_ingot"
-    },
-    {
-      "item": "minecraft:netherite_ingot"
-    },
-    {
-      "item": "minecraft:netherite_ingot"
-    },
-    {
-      "item": "minecraft:netherite_ingot"
-    }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "a#a",
+    "#n#",
+    "a#a"
   ],
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "n": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "a": {
+      "item": "minecraft:diamond"
+    }
+  },
   "result": {
-    "item": "minecraft:cluster_netherite",
+    "item": "the_vault:netherite_cluster",
     "count": 1
   }
 }

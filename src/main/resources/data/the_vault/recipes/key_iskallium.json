@@ -1,19 +1,18 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "the_vault:gem_iskallium"
-    },
-    {
-      "item": "the_vault:gem_iskallium"
-    },
-    {
-      "item": "the_vault:gem_iskallium"
-    },
-    {
-      "item": "the_vault:gem_iskallium"
-    }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#n#",
+    " # "
   ],
+  "key": {
+    "#": {
+      "item": "the_vault:gem_iskallium"
+    },
+    "n": {
+      "item": "minecraft:diamond_block"
+    }
+  },
   "result": {
     "item": "the_vault:cluster_iskallium",
     "count": 1
