@@ -1,16 +1,19 @@
 package iskallia.vault.block;
 
 import iskallia.vault.container.KeyPressContainer;
+import iskallia.vault.init.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.item.FallingBlockEntity;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
@@ -48,7 +51,8 @@ public class KeyPressBlock extends FallingBlock {
 
     public KeyPressBlock() {
         super(Properties.create(Material.ANVIL, MaterialColor.IRON)
-                .sound(SoundType.ANVIL));
+                .sound(SoundType.ANVIL)
+                .hardnessAndResistance(2.0F, 3600000.0F));
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
@@ -78,7 +82,8 @@ public class KeyPressBlock extends FallingBlock {
                         return new KeyPressContainer(windowId, player);
                     }
                 },
-                (buffer) -> {}
+                (buffer) -> {
+                }
         );
 
         return ActionResultType.SUCCESS;
@@ -117,4 +122,15 @@ public class KeyPressBlock extends FallingBlock {
         return state.getMaterialColor(reader, pos).colorValue;
     }
 
+    @Override
+    public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (worldIn.isRemote) return;
+        if (!newState.isAir()) return;
+
+        ItemEntity entity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.KEY_PRESS));
+        worldIn.addEntity(entity);
+
+
+        super.onReplaced(state, worldIn, pos, newState, isMoving);
+    }
 }
