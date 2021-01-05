@@ -21,6 +21,7 @@ import net.minecraft.block.DoorBlock;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.item.ArmorStandEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -145,35 +146,12 @@ public class EntityEvents {
 	}
 
 	@SubscribeEvent
-	public static void onEntityTick4(LivingEvent.LivingUpdateEvent event) {
-		if(event.getEntity().world.isRemote
-				|| event.getEntity().world.getDimensionKey() != Vault.VAULT_KEY
-				|| !event.getEntity().getTags().contains("vault_boss"))return;
-
-		Entity entity = event.getEntity();
-
-		FighterEntity boss = ModEntities.FIGHTER.create(event.getEntity().world).changeSize(2.0F);
-		boss.setLocationAndAngles(entity.getPosX(), entity.getPosY(), entity.getPosZ(), entity.rotationYaw, entity.rotationPitch);
-		((ServerWorld)entity.world).summonEntity(boss);
-
-		boss.getTags().add("VaultBoss");
-		boss.bossInfo.setVisible(true);
-		boss.setCustomName(new StringTextComponent("Boss"));
-
-		VaultRaid raid = VaultRaidData.get((ServerWorld)entity.world).getAt(entity.getPosition());
-
-		if(raid != null) {
-			EntityScaler.scaleVault(boss, raid.level + 5, new Random());
-		}
-
-		entity.remove();
-	}
-
-	@SubscribeEvent
 	public static void onEntityTick5(LivingEvent.LivingUpdateEvent event) {
 		if(event.getEntity().world.isRemote
 				|| event.getEntity().world.getDimensionKey() != Vault.VAULT_KEY
-				|| !event.getEntity().getTags().contains("vault_obelisk"))return;
+				|| !(event.getEntity() instanceof ArmorStandEntity)
+				//|| !event.getEntity().getTags().contains("vault_obelisk")
+		)return;
 
 		event.getEntityLiving().world.setBlockState(event.getEntityLiving().getPosition(), ModBlocks.OBELISK.getDefaultState());
 		event.getEntityLiving().remove();
