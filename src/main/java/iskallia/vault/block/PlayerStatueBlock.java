@@ -44,7 +44,7 @@ public class PlayerStatueBlock extends Block {
 
     public PlayerStatueBlock() {
         super(Properties.create(Material.ROCK, MaterialColor.STONE)
-                .hardnessAndResistance(1, 1)
+                .hardnessAndResistance(1, 3600000.0F)
                 .notSolid()
                 .doesNotBlockMovement());
 
