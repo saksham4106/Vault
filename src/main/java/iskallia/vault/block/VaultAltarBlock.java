@@ -95,7 +95,7 @@ public class VaultAltarBlock extends Block {
 
         // player has no recipe, give them one.
         if (!data.getRecipes().containsKey(player.getUniqueID())) {
-            List<RequiredItem> items = ModConfigs.VAULT_ALTAR.getRequiredItemsFromConfig();
+            List<RequiredItem> items = ModConfigs.VAULT_ALTAR.getRequiredItemsFromConfig((ServerWorld)worldIn, player);
             data.add(player.getUniqueID(), new AltarInfusionRecipe(player.getUniqueID(), items));
         }
 

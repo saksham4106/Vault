@@ -48,7 +48,7 @@ public class VaultSetsData extends WorldSavedData {
 
     public boolean markSetAsCrafted(UUID playerId, RelicSet relicSet) {
         Set<String> craftedSets = getCraftedSets(playerId);
-        markDirty();
+        this.markDirty();
         return craftedSets.add(relicSet.getId().toString());
     }
 

@@ -1,15 +1,26 @@
 package iskallia.vault.config;
 
 import com.google.gson.annotations.Expose;
+import iskallia.vault.Vault;
 import iskallia.vault.altar.RequiredItem;
+import iskallia.vault.block.item.LootStatueBlockItem;
+import iskallia.vault.util.StatueType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootContext;
+import net.minecraft.loot.LootParameterSets;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class VaultAltarConfig extends Config {
 
@@ -72,7 +83,8 @@ public class VaultAltarConfig extends Config {
 
     }
 
-    public List<RequiredItem> getRequiredItemsFromConfig() {
+    public List<RequiredItem> getRequiredItemsFromConfig(ServerWorld world, PlayerEntity player) {
+        /*
         List<RequiredItem> requiredItems = new ArrayList<>();
 
         List<AltarConfigItem> configItems = new ArrayList<>(ITEMS);
@@ -84,7 +96,13 @@ public class VaultAltarConfig extends Config {
             requiredItems.add(new RequiredItem(new ItemStack(item), 0, getRandomInt(configItem.MIN, configItem.MAX)));
         }
 
-        return requiredItems;
+        return requiredItems;*/
+
+        LootContext ctx = new LootContext.Builder(world).withRandom(world.rand).withLuck(player.getLuck()).build(LootParameterSets.EMPTY);
+        List<ItemStack> items = world.getServer().getLootTableManager().getLootTableFromLocation(Vault.id("chest/altar")).generate(ctx);
+        return items.stream().limit(4)
+                .map(stack -> new RequiredItem(new ItemStack(stack.getItem()), 0, stack.getCount()))
+                .collect(Collectors.toList());
     }
 
     private int getRandomInt(int min, int max) {
