@@ -6,7 +6,8 @@
   "refmap": "the_vault.refmap.json",
   "mixins": [
     "MixinPlayerInventory",
-    "MixinRepairContainer"
+    "MixinRepairContainer",
+    "MixinServerWorld"
   ],
   "client": [
     "MixinAnvilScreen",
