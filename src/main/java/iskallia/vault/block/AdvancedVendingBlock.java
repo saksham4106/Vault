@@ -21,6 +21,7 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
@@ -134,15 +135,20 @@ public class AdvancedVendingBlock extends Block {
         if (machine == null) return;
 
         if (state.get(HALF) == DoubleBlockHalf.LOWER) {
-            machine.ejectCores();
-            dropVendingMachine(worldIn, pos);
+            ItemStack stack = new ItemStack(getBlock());
+            CompoundNBT machineNBT = machine.serializeNBT();
+            CompoundNBT stackNBT = new CompoundNBT();
+            stackNBT.put("BlockEntityTag", machineNBT);
+
+            stack.setTag(stackNBT);
+            dropVendingMachine(stack, worldIn, pos);
         }
 
         super.onReplaced(state, worldIn, pos, newState, isMoving);
     }
 
-    private void dropVendingMachine(World world, BlockPos pos) {
-        ItemEntity entity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.ADVANCED_VENDING_MACHINE));
+    private void dropVendingMachine(ItemStack stack, World world, BlockPos pos) {
+        ItemEntity entity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack);
         world.addEntity(entity);
     }
 

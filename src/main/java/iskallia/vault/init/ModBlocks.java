@@ -3,9 +3,7 @@ package iskallia.vault.init;
 import iskallia.vault.Vault;
 import iskallia.vault.block.*;
 import iskallia.vault.block.entity.*;
-import iskallia.vault.block.item.LootStatueBlockItem;
-import iskallia.vault.block.item.PlayerStatueBlockItem;
-import iskallia.vault.block.item.RelicStatueBlockItem;
+import iskallia.vault.block.item.*;
 import iskallia.vault.block.render.*;
 import iskallia.vault.util.StatueType;
 import net.minecraft.block.Block;
@@ -111,6 +109,8 @@ public class ModBlocks {
     public static final LootStatueBlockItem GIFT_MEGA_STATUE_BLOCK_ITEM = new LootStatueBlockItem(GIFT_MEGA_STATUE);
     public static final LootStatueBlockItem VAULT_PLAYER_LOOT_STATUE_BLOCK_ITEM = new LootStatueBlockItem(VAULT_PLAYER_LOOT_STATUE);
     public static final LootStatueBlockItem ARENA_PLAYER_LOOT_STATUE_BLOCK_ITEM = new LootStatueBlockItem(ARENA_PLAYER_LOOT_STATUE);
+    public static final VendingMachineBlockItem VENDING_MACHINE_BLOCK_ITEM = new VendingMachineBlockItem(VENDING_MACHINE);
+    public static final AdvancedVendingMachineBlockItem ADVANCED_VENDING_BLOCK_ITEM = new AdvancedVendingMachineBlockItem(ADVANCED_VENDING_MACHINE);
 
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         registerBlock(event, VAULT_PORTAL, Vault.id("vault_portal"));
@@ -243,8 +243,8 @@ public class ModBlocks {
         registerBlockItem(event, OBELISK, 1);
         registerBlockItem(event, MVP_CROWN, 1);
         registerBlockItem(event, PLAYER_STATUE, PLAYER_STATUE_BLOCK_ITEM);
-        registerBlockItem(event, VENDING_MACHINE, 64);
-        registerBlockItem(event, ADVANCED_VENDING_MACHINE, 64);
+        registerBlockItem(event, VENDING_MACHINE, VENDING_MACHINE_BLOCK_ITEM);
+        registerBlockItem(event, ADVANCED_VENDING_MACHINE, ADVANCED_VENDING_BLOCK_ITEM);
         registerBlockItem(event, VAULT_BEDROCK);
         registerBlockItem(event, RELIC_STATUE, RELIC_STATUE_BLOCK_ITEM);
         registerBlockItem(event, GIFT_NORMAL_STATUE, GIFT_NORMAL_STATUE_BLOCK_ITEM);

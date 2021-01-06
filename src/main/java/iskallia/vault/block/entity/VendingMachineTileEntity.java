@@ -181,4 +181,31 @@ public class VendingMachineTileEntity extends TileEntity {
         }
         cores.remove(lastCore);
     }
+
+    public CompoundNBT serializeCores() {
+        CompoundNBT nbt = new CompoundNBT();
+        ListNBT list = new ListNBT();
+        for (TraderCore core : this.getCores()) {
+            try {
+                list.add(NBTSerializer.serialize(core));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        nbt.put("coresList", list);
+        return nbt;
+    }
+
+    public void deserializeCores(CompoundNBT nbt) {
+        ListNBT list = nbt.getList("coresList", Constants.NBT.TAG_COMPOUND);
+        for (INBT tag : list) {
+            TraderCore core = null;
+            try {
+                core = NBTSerializer.deserialize(TraderCore.class, (CompoundNBT) tag);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            this.addCore(core);
+        }
+    }
 }
