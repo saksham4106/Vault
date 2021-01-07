@@ -28,6 +28,8 @@ public class TalentsConfig extends Config {
     @Expose public TalentGroup<AngelTalent> ANGEL;
     @Expose public TalentGroup<ExperiencedTalent> EXPERIENCED;
     @Expose public TalentGroup<ParryTalent> PARRY;
+    @Expose public TalentGroup<AttributeTalent> STONE_SKIN;
+    @Expose public TalentGroup<UnbreakableTalent> UNBREAKABLE;
 
     @Override
     public String getName() {
@@ -36,7 +38,7 @@ public class TalentsConfig extends Config {
 
     public List<TalentGroup<?>> getAll() {
         return Arrays.asList(HASTE, REGENERATION, VAMPIRISM, RESISTANCE, STRENGTH, FIRE_RESISTANCE, SPEED,
-                WATER_BREATHING, WELL_FIT, TWERKER, ELVISH, ANGEL, REACH, EXPERIENCED, PARRY);
+                WATER_BREATHING, WELL_FIT, TWERKER, ELVISH, ANGEL, REACH, EXPERIENCED, PARRY, STONE_SKIN, UNBREAKABLE);
     }
 
     public TalentGroup<?> getByName(String name) {
@@ -66,6 +68,8 @@ public class TalentsConfig extends Config {
         this.ANGEL = new TalentGroup<>("Angel", new AngelTalent(200));
         this.EXPERIENCED = new TalentGroup<>("Experienced", new ExperiencedTalent(2, 0.20f), new ExperiencedTalent(2, 0.40f), new ExperiencedTalent(2, 0.60f), new ExperiencedTalent(2, 0.80f), new ExperiencedTalent(2, 1.00f), new ExperiencedTalent(2, 1.20f), new ExperiencedTalent(2, 1.40f), new ExperiencedTalent(2, 1.60f), new ExperiencedTalent(2, 1.80f), new ExperiencedTalent(2, 2.00f));
         this.PARRY = new TalentGroup<>("Parry", new ParryTalent(2, 0.02f), new ParryTalent(2, 0.04f), new ParryTalent(2, 0.06f), new ParryTalent(2, 0.08f), new ParryTalent(2, 0.10f), new ParryTalent(2, 0.12f), new ParryTalent(2, 0.14f), new ParryTalent(2, 0.16f), new ParryTalent(2, 0.18f), new ParryTalent(2, 0.20f));
+        this.STONE_SKIN = TalentGroup.ofAttribute("Stone Skin", Attributes.KNOCKBACK_RESISTANCE, "Extra Knockback Resistance", 10, i -> 2, i -> i * 0.1F, i -> AttributeModifier.Operation.ADDITION);
+        this.UNBREAKABLE = TalentGroup.of("Unbreakable", 10, i -> new UnbreakableTalent(2, i));
     }
 
 }

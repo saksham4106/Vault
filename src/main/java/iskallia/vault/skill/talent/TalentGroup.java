@@ -98,4 +98,9 @@ public class TalentGroup<T extends PlayerTalent> {
         return new TalentGroup<>(name, talents);
     }
 
+    public static <T extends PlayerTalent> TalentGroup<T> of(String name, int maxLevel, IntFunction<T> supplier) {
+        PlayerTalent[] talents = IntStream.range(0, maxLevel).mapToObj(supplier).toArray(PlayerTalent[]::new);
+        return new TalentGroup<>(name, (T[])talents);
+    }
+
 }

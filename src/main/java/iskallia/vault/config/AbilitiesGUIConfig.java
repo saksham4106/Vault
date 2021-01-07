@@ -69,6 +69,12 @@ public class AbilitiesGUIConfig extends Config {
                 16 * 9, 0);
         style.frameType = SkillFrame.STAR;
         styles.put(ModConfigs.ABILITIES.CLEANSE.getParentName(), style);
+
+
+        style = new SkillStyle(50, 50 * 2,
+                16 * 10, 0);
+        style.frameType = SkillFrame.RECTANGULAR;
+        styles.put(ModConfigs.ABILITIES.TANK.getParentName(), style);
     }
 
 }

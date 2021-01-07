@@ -21,6 +21,7 @@ public class AbilitiesConfig extends Config {
     @Expose public AbilityGroup<DashAbility> DASH;
     @Expose public AbilityGroup<MegaJumpAbility> MEGA_JUMP;
     @Expose public AbilityGroup<CleanseAbility> CLEANSE;
+    @Expose public AbilityGroup<TankAbility> TANK;
 
     @Override
     public String getName() {
@@ -29,7 +30,7 @@ public class AbilitiesConfig extends Config {
 
     public List<AbilityGroup<?>> getAll() {
         return Arrays.asList(NIGHT_VISION, INVISIBILITY, VEIN_MINER,
-                SELF_SUSTAIN, DASH, MEGA_JUMP, GHOST_WALK, RAMPAGE, CLEANSE);
+                SELF_SUSTAIN, DASH, MEGA_JUMP, GHOST_WALK, RAMPAGE, CLEANSE, TANK);
     }
 
     public AbilityGroup<?> getByName(String name) {
@@ -97,6 +98,8 @@ public class AbilitiesConfig extends Config {
                 new CleanseAbility(1, 12 * 20),
                 new CleanseAbility(1, 10 * 20)
         );
+
+        this.TANK = AbilityGroup.ofTank("Tank", ModEffects.TANK, EffectAbility.Type.ICON_ONLY, 5, i -> 3);
     }
 
 }

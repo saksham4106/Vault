@@ -3,10 +3,7 @@ package iskallia.vault.skill.ability;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.gson.annotations.Expose;
-import iskallia.vault.skill.ability.type.EffectAbility;
-import iskallia.vault.skill.ability.type.GhostWalkAbility;
-import iskallia.vault.skill.ability.type.PlayerAbility;
-import iskallia.vault.skill.ability.type.RampageAbility;
+import iskallia.vault.skill.ability.type.*;
 import iskallia.vault.util.RomanNumber;
 import net.minecraft.potion.Effect;
 
@@ -93,6 +90,14 @@ public class AbilityGroup<T extends PlayerAbility> {
         RampageAbility[] abilities = IntStream.range(0, maxLevel)
                 .mapToObj(i -> new RampageAbility(cost.applyAsInt(i + 1), effect, i, i, (i + 1) * (5 * 20), (i + 1) * (5 * 20), type, PlayerAbility.Behavior.RELEASE_TO_PERFORM))
                 .toArray(RampageAbility[]::new);
+        return new AbilityGroup<>(name, abilities);
+    }
+
+    public static AbilityGroup<TankAbility> ofTank(String name, Effect effect, EffectAbility.Type type, int maxLevel,
+                                                                   IntUnaryOperator cost) {
+        TankAbility[] abilities = IntStream.range(0, maxLevel)
+                .mapToObj(i -> new TankAbility(cost.applyAsInt(i + 1), effect, i, (i + 1) * (5 * 20), type, PlayerAbility.Behavior.RELEASE_TO_PERFORM))
+                .toArray(TankAbility[]::new);
         return new AbilityGroup<>(name, abilities);
     }
 

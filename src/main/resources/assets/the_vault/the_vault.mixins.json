@@ -7,7 +7,8 @@
   "mixins": [
     "MixinPlayerInventory",
     "MixinRepairContainer",
-    "MixinServerWorld"
+    "MixinServerWorld",
+    "ItemStackMixin"
   ],
   "client": [
     "MixinAnvilScreen",

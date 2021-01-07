@@ -69,7 +69,7 @@ public class ScrollableContainer extends AbstractGui {
             Rectangle renderableBounds = getRenderableBounds();
             Rectangle scrollBounds = getScrollBounds();
             double deltaOffset = deltaY * innerHeight / scrollBounds.getHeight();
-            System.out.println(deltaOffset);
+
             yOffset = MathHelper.clamp(scrollingOffsetY + (int) (deltaOffset * innerHeight / scrollBounds.getHeight()),
                     0,
                     innerHeight - renderableBounds.getHeight() + 2);
