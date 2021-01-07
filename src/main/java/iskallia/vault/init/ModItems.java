@@ -23,7 +23,7 @@ public class ModItems {
         }
     };
 
-    public static ItemVaultBurger VAULT_BURGER = new ItemVaultBurger(VAULT_MOD_GROUP);
+    public static VaultXPFoodItem VAULT_BURGER = new VaultXPFoodItem(Vault.id("vault_burger"), () -> ModConfigs.VAULT_ITEMS.VAULT_BURGER.minExpPercent, () -> ModConfigs.VAULT_ITEMS.VAULT_BURGER.maxExpPercent, new Item.Properties().group(VAULT_MOD_GROUP));
     public static ItemSkillOrb SKILL_ORB = new ItemSkillOrb(VAULT_MOD_GROUP);
     public static ItemVaultGem VAULT_ROCK = new ItemVaultGem(VAULT_MOD_GROUP, Vault.id("vault_rock"));
     public static ItemVaultGem ALEXANDRITE_GEM = new ItemVaultGem(VAULT_MOD_GROUP, Vault.id("gem_alexandrite"));
@@ -114,6 +114,25 @@ public class ModItems {
     public static BasicItem GORGINITE_CLUSTER = new BasicItem(Vault.id("cluster_gorginite"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
     public static BasicItem SPARKLETINE_CLUSTER = new BasicItem(Vault.id("cluster_sparkletine"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
     public static BasicItem WUTODIE_CLUSTER = new BasicItem(Vault.id("cluster_wutodie"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
+
+    public static VaultStewItem VAULT_STEW_MYSTERY = new VaultStewItem(Vault.id("vault_stew_mystery"), VaultStewItem.Rarity.MYSTERY, new Item.Properties().group(VAULT_MOD_GROUP));
+    public static VaultStewItem VAULT_STEW_NORMAL = new VaultStewItem(Vault.id("vault_stew_normal"), VaultStewItem.Rarity.NORMAL, new Item.Properties().group(VAULT_MOD_GROUP).food(VaultStewItem.FOOD));
+    public static VaultStewItem VAULT_STEW_RARE = new VaultStewItem(Vault.id("vault_stew_rare"), VaultStewItem.Rarity.RARE, new Item.Properties().group(VAULT_MOD_GROUP).food(VaultStewItem.FOOD));
+    public static VaultStewItem VAULT_STEW_EPIC = new VaultStewItem(Vault.id("vault_stew_epic"), VaultStewItem.Rarity.EPIC, new Item.Properties().group(VAULT_MOD_GROUP).food(VaultStewItem.FOOD));
+    public static VaultStewItem VAULT_STEW_OMEGA = new VaultStewItem(Vault.id("vault_stew_omega"), VaultStewItem.Rarity.OMEGA, new Item.Properties().group(VAULT_MOD_GROUP).food(VaultStewItem.FOOD));
+    public static BasicItem POISONOUS_MUSHROOM = new BasicItem(Vault.id("poisonous_mushroom"), new Item.Properties().group(VAULT_MOD_GROUP));
+    public static BasicItem VAULT_GOLD = new BasicItem(Vault.id("vault_gold"), new Item.Properties().group(VAULT_MOD_GROUP));
+    public static BasicItem VAULT_DIAMOND = new BasicItem(Vault.id("vault_diamond"), new Item.Properties().group(VAULT_MOD_GROUP));
+    public static BasicItem SKILL_ESSENCE = new BasicItem(Vault.id("skill_essence"), new Item.Properties().group(VAULT_MOD_GROUP));
+    public static VaultXPFoodItem OOZING_PIZZA = new VaultXPFoodItem(Vault.id("oozing_pizza"), () -> 0.0F, () -> 0.0F, new Item.Properties().group(VAULT_MOD_GROUP));
+    public static UnknownRelicItem UNIDENTIFIED_RELIC = new UnknownRelicItem(Vault.id("unidentified_relic"), new Item.Properties().group(VAULT_MOD_GROUP));
+    public static ItemVaultFruit.SweetKiwi SWEET_KIWI = new ItemVaultFruit.SweetKiwi(VAULT_MOD_GROUP, Vault.id("sweet_kiwi"), 20 * 5);
+    public static BasicItem HUNTER_EYE = new BasicItem(Vault.id("hunter_eye"), new Item.Properties().group(VAULT_MOD_GROUP));
+    public static BasicItem BURGER_PATTY = new BasicItem(Vault.id("burger_patty"), new Item.Properties().group(VAULT_MOD_GROUP));
+    public static BasicItem BURGER_BUN = new BasicItem(Vault.id("burger_bun"), new Item.Properties().group(VAULT_MOD_GROUP));
+    public static BasicItem MATURE_CHEDDAR = new BasicItem(Vault.id("mature_cheddar"), new Item.Properties().group(VAULT_MOD_GROUP));
+    public static BasicItem MYSTIC_TOMATO = new BasicItem(Vault.id("mystic_tomato"), new Item.Properties().group(VAULT_MOD_GROUP));
+    public static VialOfSandItem VIAL_OF_SAND = new VialOfSandItem(Vault.id("vial_of_sand"), new Item.Properties().group(VAULT_MOD_GROUP));
 
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
@@ -208,6 +227,25 @@ public class ModItems {
         registry.register(GORGINITE_CLUSTER);
         registry.register(SPARKLETINE_CLUSTER);
         registry.register(WUTODIE_CLUSTER);
+
+        registry.register(VAULT_STEW_MYSTERY);
+        registry.register(VAULT_STEW_NORMAL);
+        registry.register(VAULT_STEW_RARE);
+        registry.register(VAULT_STEW_EPIC);
+        registry.register(VAULT_STEW_OMEGA);
+        registry.register(POISONOUS_MUSHROOM);
+        registry.register(VAULT_GOLD);
+        registry.register(VAULT_DIAMOND);
+        registry.register(SKILL_ESSENCE);
+        registry.register(OOZING_PIZZA);
+        registry.register(UNIDENTIFIED_RELIC);
+        registry.register(SWEET_KIWI);
+        registry.register(HUNTER_EYE);
+        registry.register(BURGER_PATTY);
+        registry.register(BURGER_BUN);
+        registry.register(MATURE_CHEDDAR);
+        registry.register(MYSTIC_TOMATO);
+        registry.register(VIAL_OF_SAND);
     }
 
 }

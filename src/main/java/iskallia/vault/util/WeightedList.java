@@ -107,8 +107,8 @@ public class WeightedList<T> extends AbstractList<WeightedList.Entry<T>> {
 	}
 
 	public static class Entry<T> {
-		public final T value;
-		public final int weight;
+		@Expose public final T value;
+		@Expose public final int weight;
 
 		public Entry(T value, int weight) {
 			this.value = value;

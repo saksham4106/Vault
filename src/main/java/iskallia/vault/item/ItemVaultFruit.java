@@ -234,4 +234,39 @@ public class ItemVaultFruit extends Item {
         }
     }
 
+    public static class SweetKiwi extends ItemVaultFruit {
+        public SweetKiwi(ItemGroup group, ResourceLocation id, int extraVaultTicks) {
+            super(group, id, extraVaultTicks);
+        }
+
+        @Override
+        public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+            if (!worldIn.isRemote && entityLiving instanceof ServerPlayerEntity) {
+                ServerPlayerEntity player = (ServerPlayerEntity) entityLiving;
+                VaultRaid raid = VaultRaidData.get((ServerWorld) worldIn).getActiveFor(player);
+                raid.ticksLeft += getExtraVaultTicks();
+
+                worldIn.playSound(null,
+                        player.getPosX(),
+                        player.getPosY(),
+                        player.getPosZ(),
+                        SoundEvents.BLOCK_CONDUIT_ACTIVATE,
+                        SoundCategory.MASTER,
+                        1.0F, 1.0F);
+            }
+
+            return super.onItemUseFinish(stack, worldIn, entityLiving);
+        }
+
+        @Override
+        public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+            StringTextComponent comp;
+            tooltip.add(new StringTextComponent(""));
+            comp = new StringTextComponent("- Adds 5 seconds to the Vault Timer");
+            comp.setStyle(Style.EMPTY.setColor(Color.fromInt(0x00_00FF00)));
+            tooltip.add(comp);
+            super.addInformation(stack, worldIn, tooltip, flagIn);
+        }
+    }
+
 }

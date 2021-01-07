@@ -35,6 +35,7 @@ public class ModConfigs {
     public static CryoChamberConfig CRYO_CHAMBER;
     public static KeyPressRecipesConfig KEY_PRESS;
     public static OverLevelEnchantConfig OVERLEVEL_ENCHANT;
+    public static VaultStewConfig VAULT_STEW;
 
     public static void register() {
         STREAMER_MULTIPLIERS = (StreamerMultipliersConfig) new StreamerMultipliersConfig().readConfig();
@@ -68,6 +69,7 @@ public class ModConfigs {
         CRYO_CHAMBER = (CryoChamberConfig) new CryoChamberConfig().readConfig();
         KEY_PRESS = (KeyPressRecipesConfig) new KeyPressRecipesConfig().readConfig();
         OVERLEVEL_ENCHANT = (OverLevelEnchantConfig) new OverLevelEnchantConfig().readConfig();
+        VAULT_STEW = (VaultStewConfig) new VaultStewConfig().readConfig();
     }
 
 }

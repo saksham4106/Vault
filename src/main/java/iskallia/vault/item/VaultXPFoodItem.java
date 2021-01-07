@@ -1,6 +1,5 @@
 package iskallia.vault.item;
 
-import iskallia.vault.Vault;
 import iskallia.vault.init.ModConfigs;
 import iskallia.vault.skill.PlayerVaultStats;
 import iskallia.vault.util.MathUtilities;
@@ -11,37 +10,32 @@ import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-public class ItemVaultBurger extends Item {
+import java.util.function.Supplier;
 
-    public static Food VAULT_BURGER_FOOD = new Food.Builder()
-            .saturation(0).hunger(0)
-            .fastToEat().setAlwaysEdible().build();
+public class VaultXPFoodItem extends Item {
 
-    public ItemVaultBurger(ItemGroup group) {
-        super(new Properties()
-                .group(group)
-                .food(VAULT_BURGER_FOOD)
-                .maxStackSize(64));
+    public static Food FOOD = new Food.Builder().saturation(0).hunger(0).fastToEat().setAlwaysEdible().build();
+    private final Supplier<Float> min;
+    private final Supplier<Float> max;
 
-        this.setRegistryName(Vault.id("vault_burger"));
+    public VaultXPFoodItem(ResourceLocation id, Supplier<Float> min, Supplier<Float> max, Properties properties) {
+        super(properties.food(FOOD));
+        this.min = min;
+        this.max = max;
+        this.setRegistryName(id);
     }
 
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World world, LivingEntity entityLiving) {
-        if (!world.isRemote) {
+        if (!world.isRemote && entityLiving instanceof ServerPlayerEntity) {
             ServerPlayerEntity player = (ServerPlayerEntity) entityLiving;
-
             PlayerVaultStatsData statsData = PlayerVaultStatsData.get((ServerWorld) world);
-
             PlayerVaultStats stats = statsData.getVaultStats(player);
-
-            float randomPercentage = MathUtilities.randomFloat(
-                    ModConfigs.VAULT_ITEMS.VAULT_BURGER.minExpPercent,
-                    ModConfigs.VAULT_ITEMS.VAULT_BURGER.maxExpPercent);
-
+            float randomPercentage = MathUtilities.randomFloat(this.min.get(), this.max.get());
             statsData.addVaultExp(player, (int) (stats.getTnl() * randomPercentage));
         }
 
