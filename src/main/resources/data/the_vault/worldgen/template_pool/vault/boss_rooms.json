@@ -480,7 +480,7 @@
       }
     },
     {
-      "weight": 2,
+      "weight": 0,
       "element": {
         "location": "the_vault:vault/rooms/big7",
         "processors": "minecraft:empty",
