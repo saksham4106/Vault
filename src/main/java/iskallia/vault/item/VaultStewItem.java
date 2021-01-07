@@ -41,7 +41,7 @@ public class VaultStewItem extends SoupItem {
 			ItemRelicBoosterPack.successEffects(world, player.getPositionVec());
 
 			player.dropItem(stackToDrop, false, false);
-			if(player.isCreative())heldStack.shrink(1);
+			heldStack.shrink(1);
 		}
 
 		return super.onItemRightClick(world, player, hand);
