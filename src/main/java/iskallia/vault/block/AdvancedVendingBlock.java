@@ -1,6 +1,7 @@
 package iskallia.vault.block;
 
 import iskallia.vault.block.entity.AdvancedVendingTileEntity;
+import iskallia.vault.block.entity.VendingMachineTileEntity;
 import iskallia.vault.container.AdvancedVendingContainer;
 import iskallia.vault.init.ModBlocks;
 import iskallia.vault.init.ModItems;
@@ -124,6 +125,12 @@ public class AdvancedVendingBlock extends Block {
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         worldIn.setBlockState(pos.up(), state.with(HALF, DoubleBlockHalf.UPPER), 3);
+
+        AdvancedVendingTileEntity machine = getAdvancedVendingMachineTile(worldIn, pos, state);
+
+        if(machine != null) {
+            machine.readCustomData(state, stack.getOrCreateTag());
+        }
     }
 
     @Override
@@ -141,14 +148,15 @@ public class AdvancedVendingBlock extends Block {
             stackNBT.put("BlockEntityTag", machineNBT);
 
             stack.setTag(stackNBT);
-            dropVendingMachine(stack, worldIn, pos);
+            dropVendingMachine(stack, machine, worldIn, pos);
         }
 
         super.onReplaced(state, worldIn, pos, newState, isMoving);
     }
 
-    private void dropVendingMachine(ItemStack stack, World world, BlockPos pos) {
+    private void dropVendingMachine(ItemStack stack, AdvancedVendingTileEntity machine, World world, BlockPos pos) {
         ItemEntity entity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+        machine.writeCustomData(stack.getOrCreateTag());
         world.addEntity(entity);
     }
 

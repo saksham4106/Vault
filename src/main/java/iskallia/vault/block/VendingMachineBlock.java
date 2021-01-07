@@ -126,6 +126,11 @@ public class VendingMachineBlock extends Block {
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         worldIn.setBlockState(pos.up(), state.with(HALF, DoubleBlockHalf.UPPER), 3);
+        VendingMachineTileEntity machine = getVendingMachineTile(worldIn, pos, state);
+
+        if(machine != null) {
+            machine.readCustomData(state, stack.getOrCreateTag());
+        }
     }
 
     @Override
@@ -143,14 +148,15 @@ public class VendingMachineBlock extends Block {
             stackNBT.put("BlockEntityTag", machineNBT);
 
             stack.setTag(stackNBT);
-            dropVendingMachine(stack, worldIn, pos);
+            dropVendingMachine(stack, machine, worldIn, pos);
         }
 
         super.onReplaced(state, worldIn, pos, newState, isMoving);
     }
 
-    private void dropVendingMachine(ItemStack stack, World world, BlockPos pos) {
+    private void dropVendingMachine(ItemStack stack, VendingMachineTileEntity machine, World world, BlockPos pos) {
         ItemEntity entity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+        machine.writeCustomData(stack.getOrCreateTag());
         world.addEntity(entity);
     }
 
