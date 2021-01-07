@@ -143,10 +143,11 @@ public class AdvancedVendingBlock extends Block {
 
         if (state.get(HALF) == DoubleBlockHalf.LOWER) {
             ItemStack stack = new ItemStack(getBlock());
-            //CompoundNBT machineNBT = machine.serializeNBT();
-            //CompoundNBT stackNBT = new CompoundNBT();
-            //stackNBT.put("BlockEntityTag", machineNBT);
-            //stack.setTag(stackNBT);
+            CompoundNBT machineNBT = machine.serializeNBT();
+            CompoundNBT stackNBT = new CompoundNBT();
+            stackNBT.put("BlockEntityTag", machineNBT);
+
+            stack.setTag(stackNBT);
             dropVendingMachine(stack, machine, worldIn, pos);
         }
 
