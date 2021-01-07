@@ -79,7 +79,7 @@ public class VaultSetsData extends WorldSavedData {
 
     @Override
     public void read(CompoundNBT nbt) {
-        NBTHelper.readMap(nbt, "Sets", ListNBT.class, list -> {
+        this.playerData = NBTHelper.readMap(nbt, "Sets", ListNBT.class, list -> {
             return IntStream.range(0, list.size()).mapToObj(list::getString).collect(Collectors.toSet());
         });
     }
