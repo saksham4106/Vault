@@ -65,33 +65,22 @@ public class VendingMachineTileEntity extends TileEntity {
 
     @Override
     public CompoundNBT write(CompoundNBT compound) {
-        return super.write(this.writeCustomData(compound));
-    }
-
-    @Override
-    public void read(BlockState state, CompoundNBT nbt) {
-        this.readCustomData(state, nbt);
-        super.read(state, nbt);
-    }
-
-    public CompoundNBT writeCustomData(CompoundNBT compound) {
         ListNBT list = new ListNBT();
-
-        for(TraderCore core : cores) {
+        for (TraderCore core : cores) {
             try {
                 list.add(NBTSerializer.serialize(core));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
         compound.put("coresList", list);
-        return compound;
+        return super.write(compound);
     }
 
-    public void readCustomData(BlockState state, CompoundNBT nbt) {
+    @Override
+    public void read(BlockState state, CompoundNBT nbt) {
         ListNBT list = nbt.getList("coresList", Constants.NBT.TAG_COMPOUND);
-        this.cores = new ArrayList<>();
+        this.cores = new LinkedList<>();
         for (INBT tag : list) {
             TraderCore core = null;
             try {
@@ -101,8 +90,8 @@ public class VendingMachineTileEntity extends TileEntity {
             }
             cores.add(core);
         }
-
-        this.updateSkin();
+        updateSkin();
+        super.read(state, nbt);
     }
 
     @Override

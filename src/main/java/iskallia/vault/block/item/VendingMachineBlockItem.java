@@ -22,34 +22,33 @@ import java.util.List;
 
 public class VendingMachineBlockItem extends BlockItem {
 
-	public VendingMachineBlockItem(Block block) {
-		super(block, new Properties()
-				.group(ModItems.VAULT_MOD_GROUP)
-				.maxStackSize(64));
-	}
+    public VendingMachineBlockItem(Block block) {
+        super(block, new Properties()
+                .group(ModItems.VAULT_MOD_GROUP)
+                .maxStackSize(64));
+    }
 
-	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		CompoundNBT nbt = stack.getTag();
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        CompoundNBT nbt = stack.getTag();
 
-		if(nbt != null) {
-			CompoundNBT blockEntityTag = nbt.getCompound("BlockEntityTag");
-			ListNBT cores = blockEntityTag.getList("coresList", Constants.NBT.TAG_COMPOUND);
-			for(INBT tag : cores) {
-				TraderCore core;
-				try {
-					core = NBTSerializer.deserialize(TraderCore.class, (CompoundNBT) tag);
-					StringTextComponent text = new StringTextComponent(" Vendor: " + core.getName());
-					text.setStyle(Style.EMPTY.setColor(Color.fromInt(0xFF_ff9966)));
-					tooltip.add(text);
-					return;
-				} catch(Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}
+        if (nbt != null) {
+            CompoundNBT blockEntityTag = nbt.getCompound("BlockEntityTag");
+            ListNBT cores = blockEntityTag.getList("coresList", Constants.NBT.TAG_COMPOUND);
+            for (INBT tag : cores) {
+                TraderCore core;
+                try {
+                    core = NBTSerializer.deserialize(TraderCore.class, (CompoundNBT) tag);
+                    StringTextComponent text = new StringTextComponent(" Vendor: " + core.getName());
+                    text.setStyle(Style.EMPTY.setColor(Color.fromInt(0xFF_ff9966)));
+                    tooltip.add(text);
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
-		super.addInformation(stack, worldIn, tooltip, flagIn);
-	}
-
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+    }
 }
