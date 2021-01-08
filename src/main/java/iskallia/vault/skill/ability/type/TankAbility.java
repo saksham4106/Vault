@@ -6,9 +6,14 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.HashMap;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class TankAbility extends EffectAbility {
@@ -23,7 +28,6 @@ public class TankAbility extends EffectAbility {
 
     @Override
     public void onTick(PlayerEntity player, boolean active) {
-
     }
 
     public int getDurationTicks() {
@@ -32,6 +36,7 @@ public class TankAbility extends EffectAbility {
 
     @Override
     public void onAction(PlayerEntity player, boolean active) {
+
         EffectInstance activeEffect = player.getActivePotionEffect(this.getEffect());
         EffectInstance newEffect = new EffectInstance(ModEffects.TANK,
                 this.getDurationTicks(), this.getAmplifier(), false,
@@ -48,7 +53,6 @@ public class TankAbility extends EffectAbility {
 
     @Override
     public void onBlur(PlayerEntity player) {
-
     }
 
 
@@ -58,10 +62,39 @@ public class TankAbility extends EffectAbility {
         EffectInstance tank = entity.getActivePotionEffect(ModEffects.TANK);
         if (tank == null) return;
 
-        float reduction = (float) (tank.getAmplifier() + 1) * 0.025f; //TODO Extract reduction percentage to config
-
-        event.setAmount(event.getAmount() - reduction);
-
+        float reduction = (float) (tank.getAmplifier() + 1) * 0.1f; //TODO Extract reduction percentage to config
+        event.setAmount(event.getAmount() - (event.getAmount() * reduction));
     }
 
+    public static HashMap<PlayerEntity, Vector3d> prevPositions = new HashMap<>();
+
+    @SubscribeEvent
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+        if (event.phase == TickEvent.Phase.END || event.side == LogicalSide.CLIENT) return;
+        PlayerEntity player = event.player;
+
+        Vector3d currentPos = player.getPositionVec();
+        Vector3d prevPos = prevPositions.get(player) == null ? player.getPositionVec() : prevPositions.get(player);
+
+        Vector3d direction = new Vector3d(
+                prevPos.getX() - currentPos.getX(),
+                prevPos.getY() - currentPos.getY(),
+                prevPos.getZ() - currentPos.getZ()
+        );
+
+        EffectInstance tank = player.getActivePotionEffect(ModEffects.TANK);
+        double multiplier = (tank == null ? 1 : 1 - Math.abs((50D - ((double) tank.getAmplifier() * 5D)) * .01D));
+        if (tank != null) {
+            player.setMotion(
+                    direction.getX() * -multiplier,
+                    player.getMotion().getY(),
+                    direction.getZ() * -multiplier
+
+            );
+            player.velocityChanged = true;
+        }
+        prevPositions.put(player, player.getPositionVec());
+    }
 }
+
+
