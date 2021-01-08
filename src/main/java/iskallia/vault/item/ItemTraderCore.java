@@ -18,12 +18,14 @@ import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Rarity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.*;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
@@ -34,7 +36,6 @@ import java.util.stream.Collectors;
 
 public class ItemTraderCore extends Item {
 
-
     public ItemTraderCore(ItemGroup group, ResourceLocation id) {
         super(new Properties()
                 .group(group)
@@ -44,9 +45,7 @@ public class ItemTraderCore extends Item {
     }
 
     public static ItemStack generate(String nickname, int value, boolean megahead) {
-        List<Trade> trades = ModConfigs.VENDING_CONFIG.TRADES.stream().filter(trade -> trade.isValid())
-                .collect(Collectors.toList());
-
+        List<Trade> trades = ModConfigs.VENDING_CONFIG.TRADES.stream().filter(Trade::isValid).collect(Collectors.toList());
         Collections.shuffle(trades);
 
         Optional<Trade> trade = trades.stream().findFirst();
@@ -153,9 +152,24 @@ public class ItemTraderCore extends Item {
     }
 
     @Override
+    public Rarity getRarity(ItemStack stack) {
+        return Rarity.EPIC;
+    }
+
+    @Override
     public ITextComponent getDisplayName(ItemStack stack) {
-        StringTextComponent text = new StringTextComponent("Trader Circuit");
-        text.setStyle(Style.EMPTY.setColor(Color.fromInt(0x00_ad96c5)));
+        ITextComponent text = super.getDisplayName(stack);
+        CompoundNBT nbt = stack.getOrCreateTag();
+
+        if(nbt.contains("core", Constants.NBT.TAG_COMPOUND)) {
+            try {
+                TraderCore core = NBTSerializer.deserialize(TraderCore.class, nbt.getCompound("core"));
+                text = new StringTextComponent(core.getName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         return text;
     }
 
