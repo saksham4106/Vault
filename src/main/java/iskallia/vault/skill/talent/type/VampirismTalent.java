@@ -1,7 +1,6 @@
 package iskallia.vault.skill.talent.type;
 
 import com.google.gson.annotations.Expose;
-import iskallia.vault.init.ModConfigs;
 import iskallia.vault.init.ModSounds;
 import iskallia.vault.skill.talent.TalentNode;
 import iskallia.vault.skill.talent.TalentTree;
@@ -17,8 +16,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber
 public class VampirismTalent extends PlayerTalent {
 
-    @Expose
-    private final float leechRatio;
+    @Expose private final float leechRatio;
 
     public VampirismTalent(int cost, float leechRatio) {
         super(cost);
@@ -29,9 +27,8 @@ public class VampirismTalent extends PlayerTalent {
         return this.leechRatio;
     }
 
-    public void onDamagedEntity(PlayerEntity player, LivingHurtEvent event, int level) {
-        float ratio = ModConfigs.TALENTS.VAMPIRISM.getTalent(level).getLeechRatio();
-        player.heal(event.getAmount() * ratio);
+    public void onDamagedEntity(PlayerEntity player, LivingHurtEvent event) {
+        player.heal(event.getAmount() * this.getLeechRatio());
 
         if (player.getRNG().nextFloat() <= 0.2) {
             float pitch = MathUtilities.randomFloat(1f, 1.5f);
@@ -50,8 +47,7 @@ public class VampirismTalent extends PlayerTalent {
         for (TalentNode<?> node : abilities.getNodes()) {
             if (!(node.getTalent() instanceof VampirismTalent)) continue;
             VampirismTalent vampirism = (VampirismTalent) node.getTalent();
-            int level = node.getLevel();
-            vampirism.onDamagedEntity(player, event, level);
+            vampirism.onDamagedEntity(player, event);
         }
     }
 
