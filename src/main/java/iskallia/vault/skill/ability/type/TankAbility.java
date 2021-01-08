@@ -71,20 +71,22 @@ public class TankAbility extends EffectAbility {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.END || event.side == LogicalSide.CLIENT) return;
+
         PlayerEntity player = event.player;
-
-        Vector3d currentPos = player.getPositionVec();
-        Vector3d prevPos = prevPositions.get(player) == null ? player.getPositionVec() : prevPositions.get(player);
-
-        Vector3d direction = new Vector3d(
-                prevPos.getX() - currentPos.getX(),
-                prevPos.getY() - currentPos.getY(),
-                prevPos.getZ() - currentPos.getZ()
-        );
-
         EffectInstance tank = player.getActivePotionEffect(ModEffects.TANK);
-        double multiplier = (tank == null ? 1 : 1 - Math.abs((50D - ((double) tank.getAmplifier() * 5D)) * .01D));
+
         if (tank != null) {
+            double multiplier = (tank == null ? 1 : 1 - Math.abs((50D - ((double) tank.getAmplifier() * 5D)) * .01D));
+
+            Vector3d currentPos = player.getPositionVec();
+            Vector3d prevPos = prevPositions.get(player) == null ? player.getPositionVec() : prevPositions.get(player);
+
+            Vector3d direction = new Vector3d(
+                    prevPos.getX() - currentPos.getX(),
+                    prevPos.getY() - currentPos.getY(),
+                    prevPos.getZ() - currentPos.getZ()
+            );
+
             player.setMotion(
                     direction.getX() * -multiplier,
                     player.getMotion().getY(),
