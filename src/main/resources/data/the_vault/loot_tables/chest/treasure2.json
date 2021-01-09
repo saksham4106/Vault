@@ -3,7 +3,7 @@
     {
       "rolls": {
         "min": 4,
-        "max": 8
+        "max": 7
       },
       "entries": [
         {
@@ -22,7 +22,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -42,7 +42,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -62,7 +62,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -82,7 +82,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -94,15 +94,15 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 8,
-                "max": 16
+                "min": 2,
+                "max": 8
               }
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.4
+              "chance": 0.3
             }
           ]
         },
@@ -142,7 +142,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -162,7 +162,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -182,7 +182,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -202,7 +202,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -222,7 +222,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -242,7 +242,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -262,7 +262,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -282,7 +282,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -302,7 +302,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -322,7 +322,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -342,7 +342,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -362,7 +362,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -382,7 +382,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -402,27 +402,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 7,
-          "name": "minecraft:golden_apple",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.8
+              "chance": 0.5
             }
           ]
         },
@@ -442,7 +422,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -462,7 +442,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -482,7 +462,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -502,7 +482,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -522,7 +502,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -542,7 +522,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -562,7 +542,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -582,7 +562,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -602,7 +582,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -622,7 +602,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -642,7 +622,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -662,7 +642,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -682,7 +662,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -702,7 +682,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -722,7 +702,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -742,7 +722,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -762,7 +742,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -782,7 +762,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -802,7 +782,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -822,27 +802,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.4
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "refinedstorage:cable",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 12,
-                "max": 24
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.3
             }
           ]
         },
@@ -882,7 +842,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -902,7 +862,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -923,14 +883,14 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
         {
           "type": "minecraft:item",
           "weight": 4,
-          "name": "compressium:redstone_2",
+          "name": "compressium:redstone_3",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -943,7 +903,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -963,14 +923,14 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
         {
           "type": "minecraft:item",
           "weight": 4,
-          "name": "compressium:iron_2",
+          "name": "compressium:iron_3",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -983,14 +943,14 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
         {
           "type": "minecraft:item",
           "weight": 4,
-          "name": "compressium:gold_2",
+          "name": "compressium:gold_3",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -1003,31 +963,10 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "ironchest:obsidian_chest",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        
+        },        
         {
           "type": "minecraft:item",
           "weight": 4,
@@ -1044,207 +983,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "the_vault:vault_burger",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:gem_alexandrite",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:gem_benitoite",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:gem_larimar",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "the_vault:gem_black_opal",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.4
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:gem_painite",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:gem_iskallium",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:gem_renium",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:gem_gorginite",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:gem_sparkletine",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1264,7 +1003,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1284,27 +1023,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:elytra",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1324,7 +1043,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1344,7 +1063,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1364,7 +1083,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1404,67 +1123,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.4
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "the_vault:legendary_treasure_omega",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.1
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "pickletweaks:diamond_apple",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "pickletweaks:emerald_apple",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.3
             }
           ]
         },
@@ -1484,7 +1143,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1504,87 +1163,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "the_vault:skill_shard",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 4,
-                "max": 9
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:key_piece",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:blank_key",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:orb_frame",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1604,7 +1183,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1624,227 +1203,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "compressium:cobblestone_5",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "compressium:stone_5",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "compressium:sand_5",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "compressium:gravel_5",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "compressium:granite_5",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "compressium:diorite_5",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "compressium:netherrack_5",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "compressium:clay_5",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "compressium:dirt_5",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "compressium:obsidian_3",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 6,
-          "name": "compressium:andesite_5",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.7
+              "chance": 0.5
             }
           ]
         },
@@ -1864,7 +1223,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1884,7 +1243,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1904,7 +1263,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1924,47 +1283,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "ironfurnaces:diamond_furnace",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "ironfurnaces:emerald_furnace",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -1984,7 +1303,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2004,7 +1323,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2024,7 +1343,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2044,13 +1363,13 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 4,
           "name": "minecraft:nether_star",
           "functions": [
             {
@@ -2064,7 +1383,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2084,7 +1403,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2104,7 +1423,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2124,27 +1443,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "botania:mana_spreader",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2164,27 +1463,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "botania:mana_pool",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2204,7 +1483,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2224,7 +1503,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2244,27 +1523,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "appliedenergistics2:dense_energy_cell",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2284,7 +1543,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2304,7 +1563,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2324,7 +1583,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2336,15 +1595,15 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 12,
-                "max": 24
+                "min": 6,
+                "max": 12
               }
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2364,7 +1623,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2384,7 +1643,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2404,7 +1663,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2424,7 +1683,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2444,7 +1703,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2464,7 +1723,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2484,7 +1743,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2504,7 +1763,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2524,7 +1783,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2544,7 +1803,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2564,7 +1823,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
@@ -2584,34 +1843,14 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "ironchest:gold_chest",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
           "weight": 4,
-          "name": "ironchest:diamond_chest",
+          "name": "thermal:upgrade_augment_3",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -2624,13 +1863,224 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
+          "weight": 4,
+          "name": "thermal:upgrade_augment_2",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        }
+		
+
+      ]
+    },
+	{
+      "rolls": {
+        "min": 4,
+        "max": 7
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
           "weight": 2,
+          "name": "the_vault:gem_alexandrite",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "the_vault:gem_benitoite",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "the_vault:gem_larimar",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "the_vault:gem_black_opal",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "the_vault:gem_painite",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "the_vault:gem_iskallium",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "the_vault:gem_renium",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "the_vault:gem_gorginite",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "the_vault:gem_sparkletine",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        
+		},
+		{
+          "type": "minecraft:item",
+          "weight": 1,
           "name": "the_vault:cluster_alexandrite",
           "functions": [
             {
@@ -2644,13 +2094,13 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "the_vault:cluster_benitoite",
           "functions": [
             {
@@ -2664,13 +2114,13 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "the_vault:cluster_larimar",
           "functions": [
             {
@@ -2684,13 +2134,13 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "the_vault:cluster_painite",
           "functions": [
             {
@@ -2704,13 +2154,13 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "the_vault:cluster_iskallium",
           "functions": [
             {
@@ -2724,13 +2174,13 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "the_vault:cluster_renium",
           "functions": [
             {
@@ -2744,13 +2194,13 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "the_vault:cluster_gorginite",
           "functions": [
             {
@@ -2764,13 +2214,13 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "the_vault:cluster_sparkletine",
           "functions": [
             {
@@ -2784,13 +2234,13 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "the_vault:cluster_wutodie",
           "functions": [
             {
@@ -2804,14 +2254,14 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.6
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:enchanted_book",
+          "weight": 3,
+          "name": "the_vault:vault_burger",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -2819,23 +2269,19 @@
                 "min": 1,
                 "max": 1
               }
-            },
-            {
-              "function": "set_nbt",
-              "tag": "{StoredEnchantments:[{id:sharpness,lvl:6}]}"
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.7
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
           "weight": 4,
-          "name": "minecraft:enchanted_book",
+          "name": "the_vault:oozing_pizza",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -2843,23 +2289,19 @@
                 "min": 1,
                 "max": 1
               }
-            },
-            {
-              "function": "set_nbt",
-              "tag": "{StoredEnchantments:[{id:feather_falling,lvl:5}]}"
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.7
+              "chance": 0.75
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:enchanted_book",
+          "weight": 6,
+          "name": "the_vault:sweet_kiwi",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -2867,23 +2309,19 @@
                 "min": 1,
                 "max": 1
               }
-            },
-            {
-              "function": "set_nbt",
-              "tag": "{StoredEnchantments:[{id:protection,lvl:5}]}"
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.7
+              "chance": 0.75
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:enchanted_book",
+          "weight": 3,
+          "name": "the_vault:bitter_lemon",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -2891,23 +2329,19 @@
                 "min": 1,
                 "max": 1
               }
-            },
-            {
-              "function": "set_nbt",
-              "tag": "{StoredEnchantments:[{id:unbreaking,lvl:4}]}"
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.7
+              "chance": 0.75
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:enchanted_book",
+          "weight": 2,
+          "name": "the_vault:sour_orange",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -2915,23 +2349,19 @@
                 "min": 1,
                 "max": 1
               }
-            },
-            {
-              "function": "set_nbt",
-              "tag": "{StoredEnchantments:[{id:looting,lvl:4}]}"
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.7
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:enchanted_book",
+          "weight": 1,
+          "name": "the_vault:mystic_pear",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -2939,23 +2369,19 @@
                 "min": 1,
                 "max": 1
               }
-            },
-            {
-              "function": "set_nbt",
-              "tag": "{StoredEnchantments:[{id:smite,lvl:6}]}"
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.7
+              "chance": 0.3
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:enchanted_book",
+          "weight": 2,
+          "name": "the_vault:cluster_netherite",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -2963,23 +2389,19 @@
                 "min": 1,
                 "max": 1
               }
-            },
-            {
-              "function": "set_nbt",
-              "tag": "{StoredEnchantments:[{id:efficiency,lvl:6}]}"
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.7
+              "chance": 0.5
             }
           ]
         },
 		{
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "minecraft:enchanted_book",
+          "weight": 6,
+          "name": "the_vault:burger_patty",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -2987,21 +2409,616 @@
                 "min": 1,
                 "max": 1
               }
-            },
-            {
-              "function": "set_nbt",
-              "tag": "{StoredEnchantments:[{id:thorns,lvl:4}]}"
             }
           ],
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.7
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 7,
+          "name": "the_vault:burger_bun",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "the_vault:mature_cheddar",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "the_vault:mystic_tomato",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "the_vault:poisonous_mushroom",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "the_vault:hunter_eye",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "the_vault:vault_stew_mystery",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "the_vault:unidentified_relic",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "the_vault:orb_frame",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "the_vault:skill_essence",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.75
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "the_vault:skill_shard",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.75
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 7,
+          "name": "the_vault:vault_gold",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3,
+                "max": 9
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.75
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "the_vault:gem_pog",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 7,
+          "name": "minecraft:golden_apple",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.8
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "pickletweaks:diamond_apple",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "pickletweaks:emerald_apple",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "the_vault:vault_diamond",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "byg:pendorite_scraps",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "byg:ametrine_gems",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
             }
           ]
         }
-
-      ]
-    }
+	  ]
+	},
+	{
+      "rolls": {
+        "min": 1,
+        "max": 1
+      },
+      "entries": [
+		{
+		  "type": "minecraft:item",
+		  "weight": 4,
+		  "name": "minecraft:enchanted_book",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"min": 1,
+				"max": 1
+			  }
+			},
+			{
+			  "function": "set_nbt",
+			  "tag": "{StoredEnchantments:[{id:sharpness,lvl:6}]}"
+			}
+		  ],
+		  "conditions": [
+			{
+			  "condition": "minecraft:random_chance",
+			  "chance": 0.5
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "weight": 4,
+		  "name": "minecraft:enchanted_book",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"min": 1,
+				"max": 1
+			  }
+			},
+			{
+			  "function": "set_nbt",
+			  "tag": "{StoredEnchantments:[{id:feather_falling,lvl:5}]}"
+			}
+		  ],
+		  "conditions": [
+			{
+			  "condition": "minecraft:random_chance",
+			  "chance": 0.5
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "weight": 4,
+		  "name": "minecraft:enchanted_book",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"min": 1,
+				"max": 1
+			  }
+			},
+			{
+			  "function": "set_nbt",
+			  "tag": "{StoredEnchantments:[{id:protection,lvl:5}]}"
+			}
+		  ],
+		  "conditions": [
+			{
+			  "condition": "minecraft:random_chance",
+			  "chance": 0.5
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "weight": 4,
+		  "name": "minecraft:enchanted_book",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"min": 1,
+				"max": 1
+			  }
+			},
+			{
+			  "function": "set_nbt",
+			  "tag": "{StoredEnchantments:[{id:unbreaking,lvl:4}]}"
+			}
+		  ],
+		  "conditions": [
+			{
+			  "condition": "minecraft:random_chance",
+			  "chance": 0.5
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "weight": 4,
+		  "name": "minecraft:enchanted_book",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"min": 1,
+				"max": 1
+			  }
+			},
+			{
+			  "function": "set_nbt",
+			  "tag": "{StoredEnchantments:[{id:looting,lvl:4}]}"
+			}
+		  ],
+		  "conditions": [
+			{
+			  "condition": "minecraft:random_chance",
+			  "chance": 0.5
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "weight": 4,
+		  "name": "minecraft:enchanted_book",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"min": 1,
+				"max": 1
+			  }
+			},
+			{
+			  "function": "set_nbt",
+			  "tag": "{StoredEnchantments:[{id:smite,lvl:6}]}"
+			}
+		  ],
+		  "conditions": [
+			{
+			  "condition": "minecraft:random_chance",
+			  "chance": 0.5
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "weight": 4,
+		  "name": "minecraft:enchanted_book",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"min": 1,
+				"max": 1
+			  }
+			},
+			{
+			  "function": "set_nbt",
+			  "tag": "{StoredEnchantments:[{id:efficiency,lvl:6}]}"
+			}
+		  ],
+		  "conditions": [
+			{
+			  "condition": "minecraft:random_chance",
+			  "chance": 0.5
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "weight": 4,
+		  "name": "minecraft:enchanted_book",
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"min": 1,
+				"max": 1
+			  }
+			},
+			{
+			  "function": "set_nbt",
+			  "tag": "{StoredEnchantments:[{id:thorns,lvl:4}]}"
+			}
+		  ],
+		  "conditions": [
+			{
+			  "condition": "minecraft:random_chance",
+			  "chance": 0.5
+			}
+		  ]
+		},
+		{
+          "type": "minecraft:item",
+          "weight": 12,
+          "name": "the_vault:bit_1000",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "the_vault:sweet_kiwi",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        }
+	  ]
+	}
   ]
 }

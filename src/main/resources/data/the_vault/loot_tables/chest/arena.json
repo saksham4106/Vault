@@ -71,7 +71,7 @@
     {
       "rolls": {
         "min": 1,
-        "max": 1
+        "max": 2
       },
       "entries": [
         {
@@ -103,7 +103,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1,
-                "max": 3
+                "max": 1
               }
             }
           ],
@@ -123,7 +123,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1,
-                "max": 3
+                "max": 1
               }
             }
           ],
@@ -196,7 +196,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 4,
           "name": "the_vault:vault_rock",
           "functions": [
             {
@@ -216,7 +216,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 3,
           "name": "byg:ametrine_gems",
           "functions": [
             {
@@ -236,7 +236,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 3,
           "name": "byg:pendorite_scraps",
           "functions": [
             {
@@ -251,6 +251,329 @@
             {
               "condition": "minecraft:random_chance",
               "chance": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "the_vault:vault_gold",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 8
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "the_vault:oozing_pizza",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "the_vault:vault_stew_mystery",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "the_vault:skill_essence",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 1
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "the_vault:hunter_eye",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 1
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "the_vault:vault_diamond",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:netherite_axe",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Enchantments:[{id:sharpness,lvl:8},{id:vanishing_curse,lvl:1}]}"
+            },
+			{
+			  "function": "minecraft:set_name",
+			  "name": 
+			    {
+				"text": "The AXE!",
+				"color": "white"
+				}
+			},
+			{
+			  "function": "minecraft:set_lore",
+			  "lore": [
+				{
+					"text": "The weapon of champions",
+					"color": "yellow"
+				}
+			   ]
+			}
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "pickletweaks:emerald_sword",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Enchantments:[{id:sharpness,lvl:9},{id:vanishing_curse,lvl:1}]}"
+            },
+			{
+			  "function": "minecraft:set_name",
+			  "name": 
+			    {
+				"text": "The SWORD!",
+				"color": "white"
+				}
+			},
+			{
+			  "function": "minecraft:set_lore",
+			  "lore": [
+				{
+					"text": "The weapon of runner ups",
+					"color": "yellow"
+				}
+			   ]
+			}
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:wooden_shovel",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Enchantments:[{id:sharpness,lvl:12},{id:vanishing_curse,lvl:1}]}"
+            },
+			{
+			  "function": "minecraft:set_name",
+			  "name": {
+				"text": "The SHOVEL!?",
+				"color": "white"
+			   }
+			},
+			{
+			  "function": "minecraft:set_lore",
+			  "lore": [
+				{
+					"text": "Good weapon, yes, true!",
+					"color": "yellow"
+				}
+			   ]
+			}
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:stick",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Enchantments:[{id:knockback,lvl:5},{id:vanishing_curse,lvl:1}]}"
+            },
+			{
+			  "function": "minecraft:set_name",
+			  "name": {
+				"text": "The YEEET-stick",
+				"color": "white"
+			   }
+			},
+			{
+			  "function": "minecraft:set_lore",
+			  "lore": [
+				{
+					"text": "It has yeeeeeted many warriors",
+					"color": "yellow"
+				}
+			   ]
+			}
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
+            }
+          ]
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:stick",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Enchantments:[{id:knockback,lvl:8},{id:vanishing_curse,lvl:1}]}"
+            },
+			{
+			  "function": "minecraft:set_name",
+			  "name": {
+				"text": "The OMEGA YEEETER",
+				"color": "green"
+			   }
+			},
+			{
+			  "function": "minecraft:set_lore",
+			  "lore": [
+				{
+					"text": "It has yeeeeeted many warriors",
+					"color": "yellow"
+				}
+			   ]
+			}
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
             }
           ]
         }

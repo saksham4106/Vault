@@ -168,26 +168,6 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "the_vault:legendary_treasure_omega",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.5
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
           "weight": 4,
           "name": "the_vault:bit_10000",
           "functions": [
@@ -336,26 +316,6 @@
               "count": {
                 "min": 1,
                 "max": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.8
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "the_vault:skill_shard",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 7,
-                "max": 16
               }
             }
           ],
@@ -907,14 +867,114 @@
 			},
 			{
 			  "type": "minecraft:item",
-			  "weight": 3,
+			  "weight": 4,
 			  "name": "the_vault:vault_burger",
 			  "functions": [
 				{
 				  "function": "minecraft:set_count",
 				  "count": {
+					"min": 3,
+					"max": 6
+				  }
+				}
+			  ],
+			  "conditions": [
+				{
+				  "condition": "minecraft:random_chance",
+				  "chance": 0.8
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "weight": 6,
+			  "name": "the_vault:skill_essence",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"min": 16,
+					"max": 32
+				  }
+				}
+			  ],
+			  "conditions": [
+				{
+				  "condition": "minecraft:random_chance",
+				  "chance": 0.8
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "weight": 7,
+			  "name": "the_vault:oozing_pizza",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"min": 6,
+					"max": 9
+				  }
+				}
+			  ],
+			  "conditions": [
+				{
+				  "condition": "minecraft:random_chance",
+				  "chance": 0.8
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "weight": 5,
+			  "name": "the_vault:vault_stew_mystery",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"min": 3,
+					"max": 6
+				  }
+				}
+			  ],
+			  "conditions": [
+				{
+				  "condition": "minecraft:random_chance",
+				  "chance": 0.8
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "weight": 7,
+			  "name": "the_vault:vault_gold",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"min": 16,
+					"max": 32
+				  }
+				}
+			  ],
+			  "conditions": [
+				{
+				  "condition": "minecraft:random_chance",
+				  "chance": 0.8
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "weight": 7,
+			  "name": "the_vault:vault_diamond",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
 					"min": 2,
-					"max": 4
+					"max": 3
 				  }
 				}
 			  ],
@@ -943,8 +1003,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:sharpness,lvl:8}]}"
             }
@@ -966,8 +1027,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:feather_falling,lvl:7}]}"
             }
@@ -989,8 +1051,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:protection,lvl:7}]}"
             }
@@ -1012,8 +1075,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:unbreaking,lvl:6}]}"
             }
@@ -1035,8 +1099,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:looting,lvl:6}]}"
             }
@@ -1058,8 +1123,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:smite,lvl:8}]}"
             }
@@ -1081,8 +1147,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:efficiency,lvl:8}]}"
             }
@@ -1104,8 +1171,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:thorns,lvl:6}]}"
             }
@@ -1127,8 +1195,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:sharpness,lvl:7}]}"
             }
@@ -1150,8 +1219,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:feather_falling,lvl:6}]}"
             }
@@ -1173,8 +1243,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:protection,lvl:6}]}"
             }
@@ -1196,8 +1267,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:unbreaking,lvl:5}]}"
             }
@@ -1219,8 +1291,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:looting,lvl:5}]}"
             }
@@ -1242,10 +1315,11 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
-              "tag": "{StoredEnchantments:[{id:smite,lvl:7}]}"
+              "tag": "{StoredEnchantments:[{id:smite,lvl:8}]}"
             }
           ],
           "conditions": [
@@ -1265,8 +1339,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:efficiency,lvl:7}]}"
             }
@@ -1288,8 +1363,9 @@
               "count": {
                 "min": 1,
                 "max": 1
-			  },
-			
+			  }
+            },
+            {
               "function": "set_nbt",
               "tag": "{StoredEnchantments:[{id:thorns,lvl:5}]}"
             }
@@ -1301,8 +1377,7 @@
             }
           ]
         }
-	]
-	
+	  ]
 	}
   ]
 }

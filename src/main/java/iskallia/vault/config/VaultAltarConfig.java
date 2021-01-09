@@ -10,16 +10,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
 import net.minecraft.loot.LootParameterSets;
+import net.minecraft.loot.LootParameters;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class VaultAltarConfig extends Config {
@@ -98,11 +96,38 @@ public class VaultAltarConfig extends Config {
 
         return requiredItems;*/
 
-        LootContext ctx = new LootContext.Builder(world).withRandom(world.rand).withLuck(player.getLuck()).build(LootParameterSets.EMPTY);
-        List<ItemStack> items = world.getServer().getLootTableManager().getLootTableFromLocation(Vault.id("chest/altar")).generate(ctx);
-        return items.stream().limit(4)
+        LootContext ctx = new LootContext.Builder(world)
+                .withParameter(LootParameters.THIS_ENTITY, player)
+                .withRandom(world.rand).withLuck(player.getLuck())
+                .build(LootParameterSets.field_237453_h_); //Barter set
+
+        List<ItemStack> stacks = world.getServer().getLootTableManager().getLootTableFromLocation(Vault.id("chest/altar")).generate(ctx);
+
+        List<RequiredItem> items = stacks.stream()
                 .map(stack -> new RequiredItem(new ItemStack(stack.getItem()), 0, stack.getCount()))
+                .sorted(Comparator.comparingInt(o -> o.getItem().getItem().getRegistryName().hashCode()))
                 .collect(Collectors.toList());
+
+        List<RequiredItem> stackedItems = new ArrayList<>();
+
+        RequiredItem lastItem = null;
+
+        for(RequiredItem item: items) {
+            if(lastItem == null) {
+                lastItem = item;
+                continue;
+            }
+
+            if(item.getItem().getItem() == lastItem.getItem().getItem()) {
+                lastItem = new RequiredItem(lastItem.getItem(), 0, lastItem.getAmountRequired() + item.getAmountRequired());
+            } else {
+                stackedItems.add(lastItem);
+                lastItem = item;
+            }
+        }
+
+        stackedItems.add(lastItem);
+        return stackedItems.stream().limit(4).collect(Collectors.toList());
     }
 
     private int getRandomInt(int min, int max) {
