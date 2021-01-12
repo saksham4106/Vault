@@ -94,6 +94,14 @@ public class TalentsGUIConfig extends Config {
         style = new SkillStyle(70 * 4, 70 * 2, 16 * 2, 16);
         style.frameType = SkillFrame.RECTANGULAR;
         styles.put(ModConfigs.TALENTS.UNBREAKABLE.getParentName(), style);
+
+        style = new SkillStyle(70 * 5, 70 * 2, 16 * 3, 16);
+        style.frameType = SkillFrame.RECTANGULAR;
+        styles.put(ModConfigs.TALENTS.CRITICAL_STRIKE.getParentName(), style);
+
+        style = new SkillStyle(0, 70 * 3, 16 * 4, 16);
+        style.frameType = SkillFrame.STAR;
+        styles.put(ModConfigs.TALENTS.LOOTER.getParentName(), style);
     }
 
 }

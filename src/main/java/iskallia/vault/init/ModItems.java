@@ -115,11 +115,11 @@ public class ModItems {
     public static BasicItem SPARKLETINE_CLUSTER = new BasicItem(Vault.id("cluster_sparkletine"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
     public static BasicItem WUTODIE_CLUSTER = new BasicItem(Vault.id("cluster_wutodie"), new Item.Properties().group(VAULT_MOD_GROUP).maxStackSize(64));
 
-    public static VaultStewItem VAULT_STEW_MYSTERY = new VaultStewItem(Vault.id("vault_stew_mystery"), VaultStewItem.Rarity.MYSTERY, new Item.Properties().group(VAULT_MOD_GROUP));
-    public static VaultStewItem VAULT_STEW_NORMAL = new VaultStewItem(Vault.id("vault_stew_normal"), VaultStewItem.Rarity.NORMAL, new Item.Properties().group(VAULT_MOD_GROUP).food(VaultStewItem.FOOD));
-    public static VaultStewItem VAULT_STEW_RARE = new VaultStewItem(Vault.id("vault_stew_rare"), VaultStewItem.Rarity.RARE, new Item.Properties().group(VAULT_MOD_GROUP).food(VaultStewItem.FOOD));
-    public static VaultStewItem VAULT_STEW_EPIC = new VaultStewItem(Vault.id("vault_stew_epic"), VaultStewItem.Rarity.EPIC, new Item.Properties().group(VAULT_MOD_GROUP).food(VaultStewItem.FOOD));
-    public static VaultStewItem VAULT_STEW_OMEGA = new VaultStewItem(Vault.id("vault_stew_omega"), VaultStewItem.Rarity.OMEGA, new Item.Properties().group(VAULT_MOD_GROUP).food(VaultStewItem.FOOD));
+    public static VaultStewItem VAULT_STEW_MYSTERY = new VaultStewItem(Vault.id("vault_stew_mystery"), VaultStewItem.Rarity.MYSTERY, new Item.Properties().food(VaultStewItem.FOOD).maxStackSize(1).group(VAULT_MOD_GROUP));
+    public static VaultStewItem VAULT_STEW_NORMAL = new VaultStewItem(Vault.id("vault_stew_normal"), VaultStewItem.Rarity.NORMAL, new Item.Properties().food(VaultStewItem.FOOD).maxStackSize(1).group(VAULT_MOD_GROUP));
+    public static VaultStewItem VAULT_STEW_RARE = new VaultStewItem(Vault.id("vault_stew_rare"), VaultStewItem.Rarity.RARE, new Item.Properties().food(VaultStewItem.FOOD).maxStackSize(1).group(VAULT_MOD_GROUP));
+    public static VaultStewItem VAULT_STEW_EPIC = new VaultStewItem(Vault.id("vault_stew_epic"), VaultStewItem.Rarity.EPIC, new Item.Properties().food(VaultStewItem.FOOD).maxStackSize(1).group(VAULT_MOD_GROUP));
+    public static VaultStewItem VAULT_STEW_OMEGA = new VaultStewItem(Vault.id("vault_stew_omega"), VaultStewItem.Rarity.OMEGA, new Item.Properties().food(VaultStewItem.FOOD).maxStackSize(1).group(VAULT_MOD_GROUP));
     public static BasicItem POISONOUS_MUSHROOM = new BasicItem(Vault.id("poisonous_mushroom"), new Item.Properties().group(VAULT_MOD_GROUP));
     public static BasicItem VAULT_GOLD = new BasicItem(Vault.id("vault_gold"), new Item.Properties().group(VAULT_MOD_GROUP));
     public static BasicItem VAULT_DIAMOND = new BasicItem(Vault.id("vault_diamond"), new Item.Properties().group(VAULT_MOD_GROUP));

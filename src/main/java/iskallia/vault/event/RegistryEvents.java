@@ -4,6 +4,7 @@ import iskallia.vault.init.*;
 import iskallia.vault.util.RelicSet;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -77,6 +78,11 @@ public class RegistryEvents {
     @SubscribeEvent
     public static void onEffectRegister(RegistryEvent.Register<Effect> event) {
         ModEffects.register(event);
+    }
+
+    @SubscribeEvent
+    public static void onAttributeRegister(RegistryEvent.Register<Attribute> event) {
+        ModAttributes.register(event);
     }
 
 }

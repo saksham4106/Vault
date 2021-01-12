@@ -34,7 +34,7 @@ public class ModEntities {
         ARENA_FIGHTER = register("arena_fighter", EntityType.Builder.create(ArenaFighterEntity::new, EntityClassification.MONSTER)
                 .size(0.6F, 1.95F), ZombieEntity::func_234342_eQ_, event);
         ARENA_BOSS = register("arena_boss", EntityType.Builder.create(ArenaBossEntity::new, EntityClassification.MONSTER)
-                .size(0.6F, 1.95F), ZombieEntity::func_234342_eQ_, event);
+                .size(0.6F, 1.95F), ArenaBossEntity::getAttributes, event);
         MONSTER_EYE = register("monster_eye", EntityType.Builder.create(MonsterEyeEntity::new, EntityClassification.MONSTER)
                 .size(2.04F * 2, 2.04F * 2), ZombieEntity::func_234342_eQ_, event);
         ROBOT = register("robot", EntityType.Builder.create(RobotEntity::new, EntityClassification.MONSTER)

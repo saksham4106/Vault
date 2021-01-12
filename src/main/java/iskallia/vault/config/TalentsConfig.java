@@ -30,6 +30,8 @@ public class TalentsConfig extends Config {
     @Expose public TalentGroup<ParryTalent> PARRY;
     @Expose public TalentGroup<AttributeTalent> STONE_SKIN;
     @Expose public TalentGroup<UnbreakableTalent> UNBREAKABLE;
+    @Expose public TalentGroup<CriticalStrikeTalent> CRITICAL_STRIKE;
+    @Expose public TalentGroup<EffectTalent> LOOTER;
 
     @Override
     public String getName() {
@@ -38,7 +40,8 @@ public class TalentsConfig extends Config {
 
     public List<TalentGroup<?>> getAll() {
         return Arrays.asList(HASTE, REGENERATION, VAMPIRISM, RESISTANCE, STRENGTH, FIRE_RESISTANCE, SPEED,
-                WATER_BREATHING, WELL_FIT, TWERKER, ELVISH, ANGEL, REACH, EXPERIENCED, PARRY, STONE_SKIN, UNBREAKABLE);
+                WATER_BREATHING, WELL_FIT, TWERKER, ELVISH, ANGEL, REACH, EXPERIENCED, PARRY, STONE_SKIN, UNBREAKABLE,
+                CRITICAL_STRIKE, LOOTER);
     }
 
     public TalentGroup<?> getByName(String name) {
@@ -69,7 +72,9 @@ public class TalentsConfig extends Config {
         this.EXPERIENCED = new TalentGroup<>("Experienced", new ExperiencedTalent(2, 0.20f), new ExperiencedTalent(2, 0.40f), new ExperiencedTalent(2, 0.60f), new ExperiencedTalent(2, 0.80f), new ExperiencedTalent(2, 1.00f), new ExperiencedTalent(2, 1.20f), new ExperiencedTalent(2, 1.40f), new ExperiencedTalent(2, 1.60f), new ExperiencedTalent(2, 1.80f), new ExperiencedTalent(2, 2.00f));
         this.PARRY = new TalentGroup<>("Parry", new ParryTalent(2, 0.02f), new ParryTalent(2, 0.04f), new ParryTalent(2, 0.06f), new ParryTalent(2, 0.08f), new ParryTalent(2, 0.10f), new ParryTalent(2, 0.12f), new ParryTalent(2, 0.14f), new ParryTalent(2, 0.16f), new ParryTalent(2, 0.18f), new ParryTalent(2, 0.20f));
         this.STONE_SKIN = TalentGroup.ofAttribute("Stone Skin", Attributes.KNOCKBACK_RESISTANCE, "Extra Knockback Resistance", 10, i -> 2, i -> i * 0.1F, i -> AttributeModifier.Operation.ADDITION);
-        this.UNBREAKABLE = TalentGroup.of("Unbreakable", 10, i -> new UnbreakableTalent(2, i));
+        this.UNBREAKABLE = TalentGroup.of("Unbreakable", 10, i -> new UnbreakableTalent(2, i + 1));
+        this.CRITICAL_STRIKE = TalentGroup.of("Critical Strike", 5, i -> new CriticalStrikeTalent(3, (i + 1) * 0.2F));
+        this.LOOTER = TalentGroup.ofEffect("Looter", Effects.LUCK, EffectTalent.Type.ICON_ONLY, 10, i -> 3);
     }
 
 }

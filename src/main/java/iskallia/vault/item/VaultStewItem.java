@@ -19,7 +19,7 @@ import net.minecraft.world.server.ServerWorld;
 
 public class VaultStewItem extends SoupItem {
 
-	public static Food FOOD = new Food.Builder().hunger(6).saturation(0.6F).build();
+	public static Food FOOD = new Food.Builder().saturation(0).hunger(0).fastToEat().setAlwaysEdible().build();
 	private final Rarity rarity;
 
 	public VaultStewItem(ResourceLocation id, Rarity rarity, Properties builder) {

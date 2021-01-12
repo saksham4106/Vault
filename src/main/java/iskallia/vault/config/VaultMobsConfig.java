@@ -226,7 +226,7 @@ public class VaultMobsConfig extends Config {
 					if(attribute == null)continue;
 					ModifiableAttributeInstance instance = livingEntity.getAttribute(attribute);
 					if(instance == null)continue;
-					instance.setBaseValue(override.DEFAULT_VALUE);
+					instance.setBaseValue(override.getValue(instance.getBaseValue(), world.getRandom()));
 				}
 
 				livingEntity.heal(1000000.0F);
@@ -237,11 +237,29 @@ public class VaultMobsConfig extends Config {
 
 		public static class AttributeOverride {
 			@Expose private String NAME;
-			@Expose private double DEFAULT_VALUE;
+			@Expose private double MIN;
+			@Expose private double MAX;
+			@Expose private String OPERATOR;
 
 			public AttributeOverride(Attribute attribute, double defaultValue) {
 				this.NAME = attribute.getRegistryName().toString();
-				this.DEFAULT_VALUE = defaultValue;
+				this.MIN = defaultValue;
+				this.MAX = defaultValue;
+				this.OPERATOR = "set";
+			}
+
+			public double getValue(double baseValue, Random random) {
+				double value = Math.min(this.MIN, this.MAX) + random.nextFloat() * Math.abs(this.MAX - this.MIN);
+
+				if(this.OPERATOR.equalsIgnoreCase("multiply")) {
+					return baseValue * value;
+				} else if(this.OPERATOR.equalsIgnoreCase("add")) {
+					return baseValue + value;
+				}  else if(this.OPERATOR.equalsIgnoreCase("set")) {
+					return value;
+				}
+
+				return baseValue;
 			}
 		}
 	}

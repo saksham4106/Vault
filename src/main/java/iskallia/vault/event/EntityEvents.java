@@ -7,6 +7,7 @@ import iskallia.vault.block.item.LootStatueBlockItem;
 import iskallia.vault.entity.EntityScaler;
 import iskallia.vault.entity.FighterEntity;
 import iskallia.vault.entity.VaultGuardianEntity;
+import iskallia.vault.init.ModAttributes;
 import iskallia.vault.init.ModBlocks;
 import iskallia.vault.init.ModEntities;
 import iskallia.vault.init.ModSounds;
@@ -293,6 +294,26 @@ public class EntityEvents {
 			if (trueSource instanceof LivingEntity) {
 				LivingEntity attacker = (LivingEntity) trueSource;
 				attacker.attackEntityFrom(DamageSource.causeThornsDamage(entityLiving), 20);
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void onLivingHurt(LivingHurtEvent event) {
+		if(!(event.getSource().getTrueSource() instanceof LivingEntity))return;
+		LivingEntity source = (LivingEntity)event.getSource().getTrueSource();
+		if(source.world.isRemote)return;
+
+		if(source.getAttributeManager().hasAttributeInstance(ModAttributes.CRIT_CHANCE)) {
+			double chance = source.getAttributeValue(ModAttributes.CRIT_CHANCE);
+
+			if(source.getAttributeManager().hasAttributeInstance(ModAttributes.CRIT_MULTIPLIER)) {
+				double multiplier = source.getAttributeValue(ModAttributes.CRIT_MULTIPLIER);
+
+				if(source.world.rand.nextDouble() < chance) {
+					source.world.playSound(null, source.getPosX(), source.getPosY(), source.getPosZ(), SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, source.getSoundCategory(), 1.0F, 1.0F);
+					event.setAmount((float)(event.getAmount() * multiplier));
+				}
 			}
 		}
 	}
